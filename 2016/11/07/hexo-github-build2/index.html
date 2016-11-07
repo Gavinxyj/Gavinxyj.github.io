@@ -11,7 +11,7 @@
     <!--Description-->
     
         <meta name="description" content="版权申明:本文为作者原创文章，可以随便转载，但必须在明确位置标明出处！！！
-　　最近一直在忙着搭建自己的个人博客，今天总算是完完整整的把个人博客搭建好了，为什么要搭建个人博客呢，原因是现在其它运营商的博客广告太多，我选择hexo来搭建自己的博客，其原因是界面干净利落，阅读体验好。如果你也想搭建自己的">
+　　不知道有没有感兴趣的童鞋通过上一篇文档在本地搭建好了自己的博客，我想应该还没有吧，呵呵，公众号关注的人还是太少了，不过我相信总有一天我的公众号和我的博客会帮助更过的人。做个有态度的人，写些有态度的博客，只希望我趟过的坑你">
     
 
     <!--Author-->
@@ -21,7 +21,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="hexo+github个人博客搭建(一)"/>
+        <meta property="og:title" content="hexo+github个人博客搭建(二)"/>
     
 
     <!--Open Graph Description-->
@@ -43,7 +43,7 @@
 
     <!-- Title -->
     
-    <title>hexo+github个人博客搭建(一) - Gavin Blog</title>
+    <title>hexo+github个人博客搭建(二) - Gavin Blog</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -134,12 +134,12 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-heading">
-                    <h1>hexo+github个人博客搭建(一)</h1>
+                    <h1>hexo+github个人博客搭建(二)</h1>
                     
                     <span class="meta">
                         <!-- Date and Author -->
                         
-                        2016-11-06
+                        2016-11-07
                     </span>
                 </div>
             </div>
@@ -162,23 +162,39 @@
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <blockquote>
 <h3 id="版权申明-本文为作者原创文章，可以随便转载，但必须在明确位置标明出处！！！"><a href="#版权申明-本文为作者原创文章，可以随便转载，但必须在明确位置标明出处！！！" class="headerlink" title="版权申明:本文为作者原创文章，可以随便转载，但必须在明确位置标明出处！！！"></a>版权申明:本文为作者原创文章，可以随便转载，但必须在明确位置标明出处！！！</h3></blockquote>
-<p>　　最近一直在忙着搭建自己的个人博客，今天总算是完完整整的把个人博客搭建好了，为什么要搭建个人博客呢，原因是现在其它运营商的博客广告太多，我选择hexo来搭建自己的博客，其原因是界面干净利落，阅读体验好。如果你也想搭建自己的个人博客，那么下面会一步一步教你如何搭建自己的个人博客。<br>　　我们使用hexo + github来搭建自己的个人博客，github我相信每个开发人员对它都不陌生，github目前算是全球最大的开源项目托管平台，像google，百度，阿里都有其开源项目托管在上面，当然github上也汇聚了全球最牛X的大神，github的宗旨是不要重复造轮子，所以在你日常的开发中需要用到什么库先到github上搜索一下也许就有你需要的东西，你可以阅读源码来学习大神们的编程思想，当然等你熟悉了其源码你也可以参与到源码的编写中。开源和分享使人进步。</p>
-<h3 id="okay，现在开始搭建我们的个人博客："><a href="#okay，现在开始搭建我们的个人博客：" class="headerlink" title="okay，现在开始搭建我们的个人博客："></a>okay，现在开始搭建我们的个人博客：</h3><ol>
-<li>首先在开始搭建博客之前先将我们博客所需要的依赖环境搭建好，我们将我们的博客部署到Ubuntu中，还没有linux系统的可以用虚拟机创建一个linux系统，我自己也是在虚拟机中部署的。</li>
-<li>在命令行终端执行sudo apt-get install nodejs 回车，如果出现让你插入光驱的提示，cd到/etc/apt目录下 vi source.list注释掉deb cdrom这一行，如下图所示：<br><img src="/img/hexobuild/1.png" alt=""><br>然后执行sudo apt-get update命令，待命令执行完毕再执行apt-get install nodejs命令，若不出现意外应该可以安装成功，若出现错误根据错误提示去找解决方法，验证有没有安装成功执行命令node –help如出现下图证明你安装成功了。<br><img src="/img/hexobuild/2.png" alt=""></li>
-<li>安装git，同样执行命令sudo apt-get install git回车，安装完成执行git –help出现下图证明你安装成功了。<br><img src="/img/hexobuild/3.png" alt=""></li>
-<li>安装hexo，执行命令sudo npm install -g hexo-cli，安装完成执行命令hexo -help命令出现如下图所示证明安装完成。<br><img src="/img/hexobuild/4.png" alt=""></li>
-<li>在你的用户目录下执行hexo init blog命令，等待命令执行完成就会在当前目录下生产blog目录，cd blog出现如下图的几个文件。<br><img src="/img/hexobuild/6.png" alt=""></li>
-<li>到这里我们就把hexo安装完成了，现在我们在当前目录下执行hexo g命令生产静态文件，执行命令hexo s启动本地服务端，端口号默认4000，如下图所示<br><img src="/img/hexobuild/7.png" alt=""></li>
-<li>打开我们的浏览器输入你虚拟机IP地址加端口号，如我的虚拟机IP地址是192.168.1.128，那么在浏览器上输入192.168.1.128 4000回车出现如下图所示证明你的hexo在本地已经搭建好了。<br><img src="/img/hexobuild/8.png" alt=""></li>
-<li>blog目录下的_config.yml配置文件，大部分配置都在这里，themes主题文件，进入themes文件目录该文件目录下只有一个主题landscape主题，是hexo默认的主题，如果你觉得不好看你可以在hexo.io官网上找你喜欢的主题，这里我自己用的是fexo主题，简单美观，大家可以访问我的博客地址<a href="www.gavinxyj.com">www.gavinxyj.com</a>。主题风格如下图所示：<br><img src="/img/hexobuild/8.png" alt=""></li>
-<li><p>如果你也喜欢此主题只需要在blog目录下执行命令待克隆完成会在themes目录下生产fexo文件夹，也就是fexo主题文件。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">clone</span> git@github.com:forsigner/fexo.git themes/fexo</div></pre></td></tr></table></figure>
+<p>　　不知道有没有感兴趣的童鞋通过上一篇文档在本地搭建好了自己的博客，我想应该还没有吧，呵呵，公众号关注的人还是太少了，不过我相信总有一天我的公众号和我的博客会帮助更过的人。做个有态度的人，写些有态度的博客，只希望我趟过的坑你们不要再去趟了。</p>
+<h4 id="okay，今天这篇文章会教会大家如何将本地博客部署到github上去。"><a href="#okay，今天这篇文章会教会大家如何将本地博客部署到github上去。" class="headerlink" title="okay，今天这篇文章会教会大家如何将本地博客部署到github上去。"></a>okay，今天这篇文章会教会大家如何将本地博客部署到github上去。</h4><ol>
+<li><p>首先在github上注册账号，访问 <a href="https://github.com" target="_blank" rel="external">https://github.com</a>，注册账号想一个对自己有意义的用户名，不要随随便便去个用户名，那样会显得你很low。注册完成后就是下面这样的。<br><img src="/img/hexobuild/11.png" alt=""></p>
 </li>
-<li><p>替换主题，在blog目录下执行vi _config.yml把主题修改为fexo如下图：<br><img src="/img/hexobuild/10.png" alt=""><br>然后执行命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">hexo g</div><div class="line">hexo s</div></pre></td></tr></table></figure>
+<li><p>点击箭头指向的按钮，创建一个仓库出现如下图所示：<br><img src="/img/hexobuild/12.png" alt=""><br>填写好的你仓库名，这里要特别注意的是，你的仓库名必须username.github.io这种形式的，就像我自己的仓库名是Gavinxyj.github.io。</p>
+<ul>
+<li>Description：描述你的仓库</li>
+<li>Public：个人仓库，也就是开源性质的，每个人都可以访问你这个仓库，当然它也是免费的。</li>
+<li>Private：私有的，这个是要收费的，一般企业中会用到这个，托管自己公司的项目在上面，又不想被别人查看。填写好基本信息点击Create repository按钮就生产了一个名为username.github.io的仓库了。</li>
+</ul>
 </li>
-<li><p>再刷新一下浏览器就看见这个主题了。<br><img src="/img/hexobuild/9.png" alt=""></p>
+<li><p>github每个账号下默认只能创建一个个人的免费空间，这个空间有300M，对于我们的个人博客来说应该是够用了，验证我们的服务空间有没有成功我们只需要ping Gavinxyj.github.io就可以了，当然这里你们ping 你们自己的空间地址，能ping同就证明我们创建好了。如下图：<br><img src="/img/hexobuild/13.png" alt=""></p>
+</li>
+<li><p>现在我们的仓库已经创建完成，也就是github提供给我们的免费空间，下面一步就是如何把我们的本地的博客部署到这个仓库里。在这之前我们需要需要先保证我们本机能连接上我们的github。</p>
+</li>
+<li><p>首先在本地配置你的用户名和密码执行命令如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git config --global user.name <span class="string">"xxx"</span>(這里填写你的名字可以是你的英文名等)</div><div class="line">git config --global user.email <span class="string">"xxx@xx.com"</span>(这里填写你的邮箱)</div></pre></td></tr></table></figure>
+</li>
+<li><p>执行命令 ssh-keygen -t rsa敲三次回车键就会在我们的用户目录.ssh/下生产两个文件分别是id_rsa.pub(公钥加密文件)，id_rsa（私钥加密文件），然后我们cat id_rsa.pub复制里面的密钥，（如果你在虚拟机里不能被负责的，这里我自己用的是xShell客户终端，大家可以用这个很方便的）。</p>
+</li>
+<li><p>回到我们的github点击你账号下面的setting如下图：<br><img src="/img/hexobuild/14.png" alt=""></p>
+</li>
+<li><p>通过上面一步出现如下图所示的界面：<br><img src="/img/hexobuild/15.png" alt=""><br>选择左边导航栏的SSH and GPG key选项，然后点击右边的New GPG key按钮，把我们的公钥复制到key编辑框里，然后点击下面的Add GPG key，这样我们就完成了密钥配对，这里为什么要去验证我们的密钥是为了防止别人随便提交代码到你的仓库，我们每次提交都会用我们本地的私钥去验证时否正确。</p>
+</li>
+<li><p>测试是否能够验证都用，执行命令ssh -T git@github.com回车，出现Are you sure you want to continue connecting (yes/no)?提示，输入yes就可以了。最后出现Hi，xxx …..就表示你设置成功了。</p>
+</li>
+<li><p>通过上一步我们建立了和github的连接，这个时候你就可以在你本地使用git命令做一些远程的操作了，比如你想把你的username.github.io仓库下载到本地来，你只需要执行如下命令，这个地址怎么来的，先选择到你的仓库，然后把下图红框圈中的地址复制一下就可以了。<br><img src="/img/hexobuild/16.png" alt=""></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">clone</span> https://github.com/xxx/xxx.github.io.git</div></pre></td></tr></table></figure>
+</li>
+<li><p>okay，到这里我们离成功又近了一步了，那么如何把本地的博客部署到远程仓库里呢，我们需要到我们的blog目录下，vi _config.yml修改下面的地方：<br><img src="/img/hexobuild/17.png" alt=""><br>repo修改为你自己的仓库地址，也就是上图红框选中的地方，你复制一下拷贝到这里就可以了，<strong>这里要特别注意，特别注意，特别注意</strong>，重要的事说三遍type:冒号后面一定要跟一个空格，repo，branch同样要跟一个空格切记切记，这是我趟过的坑，当时找了好久才发现是这里的问题，希望读者们不要再这个坑。</p>
+</li>
+<li><p>执行命令npm install hexo-deployer-git –save待命令执行完成后，在blog目录下执行hexo g -d命令出现如下图：<br><img src="/img/hexobuild/18.png" alt=""><br>输入的的github的用户名和密码，若用户名和密码正确那么恭喜你你的本地博客已经部署到你的仓库中了，打开你的仓库你就可以看见你本地的博客的确部署到仓库中了。下图是我自己的你们瞄一眼。<br><img src="/img/hexobuild/19.png" alt=""></p>
+<p>okay，今天就到这里了，下一篇文章会教你如何把自己的个人域名关联到你的仓库中，之后就只需要访问你的域名就可以访问到你的博客了。</p>
 </li>
 </ol>
 <hr>
@@ -186,7 +202,7 @@
 <p>推荐我的微信公众号：爱做饭的老谢<br><img src="/img/hexobuild/weixin.jpg" alt=""></p>
 </blockquote>
 <hr>
-<p>下一篇：<a href="/2016/11/07/hexo-github-build2">hexo+github个人博客搭建(二)</a></p>
+<p>上一篇：<a href="/2016/11/06/hexo-github-build">hexo+github个人博客搭建(一)</a><br>下一篇：<a href="/2016/11/07/hexo-github-build3">hexo+github个人博客搭建(终)</a></p>
 
 
                 

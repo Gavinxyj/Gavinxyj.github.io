@@ -10,6 +10,11 @@
 
     <!--Description-->
     
+        <meta name="description" content="版权申明:本文为作者原创文章，可以随便转载，但必须在明确位置标明出处！！！
+　　 通过上一篇文章我们已经实现把我们的本地博客部署到github上了，今天我们主要教会大家的就是如何把自己的域名绑定到github上。
+
+到阿里云域名注册中心去注册自己的域名，可以看到下图我gavinxyj.com已经被注">
+    
 
     <!--Author-->
     
@@ -18,7 +23,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="Gavin Blog"/>
+        <meta property="og:title" content="hexo+github个人博客搭建(终)"/>
     
 
     <!--Open Graph Description-->
@@ -29,7 +34,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="website" />
+        <meta property="og:type" content="article" />
     
 
     <!--Page Cover-->
@@ -40,7 +45,7 @@
 
     <!-- Title -->
     
-    <title>Archiv - Gavin Blog</title>
+    <title>hexo+github个人博客搭建(终) - Gavin Blog</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -123,76 +128,86 @@
 </nav>
 
     <!-- Main Content -->
-    
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
 
-<!-- Page Header -->
-<!-- Set your background image for this header in the theme's configuration: index_cover -->
 <header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>Archiv</h1>
+                <div class="post-heading">
+                    <h1>hexo+github个人博客搭建(终)</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        2016-11-07
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+
+            <!-- Gallery -->
             
-                <div class="post-preview">
-    <a href="/2016/11/07/hexo-github-build3/">
-        <h1 class="post-title archive">
-            hexo+github个人博客搭建(终)
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2016-11-07
-    </p>
-</div>
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <blockquote>
+<h3 id="版权申明-本文为作者原创文章，可以随便转载，但必须在明确位置标明出处！！！"><a href="#版权申明-本文为作者原创文章，可以随便转载，但必须在明确位置标明出处！！！" class="headerlink" title="版权申明:本文为作者原创文章，可以随便转载，但必须在明确位置标明出处！！！"></a>版权申明:本文为作者原创文章，可以随便转载，但必须在明确位置标明出处！！！</h3></blockquote>
+<p>　　 通过上一篇文章我们已经实现把我们的本地博客部署到github上了，今天我们主要教会大家的就是如何把自己的域名绑定到github上。</p>
+<ol>
+<li><p>到阿里云域名注册中心去注册自己的域名，可以看到下图我gavinxyj.com已经被注册了。<br><img src="/img/hexobuild/20.png" alt=""></p>
+</li>
+<li><p>注册一个对你有意义的域名，然后添加到购物车并购买它。购买完成后会跳转到控制台页面，如果没有点击上一张图的右上角有一个控制台，然后进入到如下页面。<br><img src="/img/hexobuild/21.png" alt=""></p>
+</li>
+<li><p>选择云解析DNS选项，然后点击右边解析链接跳转到下图所示。<br><img src="/img/hexobuild/22.png" alt=""><br>点击添加解析出现如下图。<br><img src="/img/hexobuild/23.png" alt=""></p>
+</li>
+<li><p>在主机记录里填写www，在记录值里填写192.30.252.154然后保存，然后再点击添加解析，主机记录里填写@，在记录值里填写192.30.252.154然后保存，然后重复上面的操作，把ip地址改为192.30.252.153，最后点保存出现如下图所示：<br><img src="/img/hexobuild/24.png" alt=""></p>
+</li>
+<li><p>上面的IP地址就是github pages提供给我们的空间地址，验证是否配置正确，ping 你的域名若能ping通则证明配置成功。</p>
+</li>
+<li><p>登陆你的github，进入你的仓库中，点击setting如下图：<br><img src="/img/hexobuild/25.png" alt=""></p>
+</li>
+<li><p>点击setting进入到如下界在github pages Custom domain中填入你的域名然后点击Save如下图：<br><img src="/img/hexobuild/26.png" alt=""></p>
+</li>
+<li><p>在浏览器中输入你的域名回车使不是看到你的博客了。<br><img src="/img/hexobuild/27.png" alt=""></p>
+</li>
+<li><p>如何发表一篇博客呢，你只需要在你本地的blog目录下执行命令hexo n post ”文件名“，然后你在source/_post下打开你的文件名.md这个文件就可以在理面写你的博客了，当然这个语法是markdown语法写的，你需要了解一下markdown语法，具体的语法可以去简书上看看，它就是用的markdown语法，很简单的，编辑好了你的文章你执行hexo g -d就可以发表你的文章了，是不是很简单。</p>
+</li>
+<li><p>okay，nice，我们的个人博客终于算是告一段落了，感兴趣的朋友赶紧动起手了搭建个自己的博客。</p>
+</li>
+</ol>
+<hr>
+<blockquote>
+<p>推荐我的微信公众号：爱做饭的老谢<br><img src="/img/hexobuild/weixin.jpg" alt=""></p>
+</blockquote>
+<p>上一篇：<a href="/2016/11/07/hexo-github-build2">hexo+github个人博客搭建(二)</a></p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
             
-                <div class="post-preview">
-    <a href="/2016/11/07/hexo-github-build2/">
-        <h1 class="post-title archive">
-            hexo+github个人博客搭建(二)
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2016-11-07
-    </p>
-</div>
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
             
-                <div class="post-preview">
-    <a href="/2016/11/06/hexo-github-build/">
-        <h1 class="post-title archive">
-            hexo+github个人博客搭建(一)
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2016-11-06
-    </p>
-</div>
-            
-            <div class="archive-before-pagination"></div>
-            <ul class="pager">
-    
-    
-</ul>
         </div>
     </div>
-</div>
-
-
+</article>
 
     <!-- Footer -->
     <hr />
