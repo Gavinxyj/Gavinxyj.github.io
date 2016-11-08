@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="版权申明:本文为作者原创文章，可以随便转载，但必须在明确位置标明出处！！！
+　　什么是makefile? 或许很多使用window平台开发的程序员对makefile并不太了解，因为在window平台开发大部分工作都被IDE集成环境做了，当然也包括对其源代码的编译，但是我个人觉得要成为一个profes">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Gavin">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="如何编写一个漂亮的makefile"/>
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Gavin Blog"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+        <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>如何编写一个漂亮的makefile - Gavin Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Configurable Title</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/Gavinxyj">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>如何编写一个漂亮的makefile</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        2016-11-08
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/makefile/">#makefile</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <blockquote>
+<h3 id="版权申明-本文为作者原创文章，可以随便转载，但必须在明确位置标明出处！！！"><a href="#版权申明-本文为作者原创文章，可以随便转载，但必须在明确位置标明出处！！！" class="headerlink" title="版权申明:本文为作者原创文章，可以随便转载，但必须在明确位置标明出处！！！"></a>版权申明:本文为作者原创文章，可以随便转载，但必须在明确位置标明出处！！！</h3></blockquote>
+<p>　　什么是makefile? 或许很多使用window平台开发的程序员对makefile并不太了解，因为在window平台开发大部分工作都被IDE集成环境做了，当然也包括对其源代码的编译，但是我个人觉得要成为一个professional程序员，makefile还是需要去了解一下的。特别是在unix或linux环境做开发的程序员，一定要了解并熟练编写makefile,会不会写makefile,从一个侧面说明了一个人是否具备完成大型工程的能力，因为makefile关系到整个工程的编译规则，一个大型工程中的源文件数量是非常庞大的。其按类型，按功能，按模块等分别存放在许多不同的文件夹中，makefile定义了一系列规则来表示那些文件需要先编译，哪些文件需要后编译，哪些文件需要重新编译。makefile其实就是一个shell脚本，我们在makefile里编写好我们需要的规则，只需要我们执行一下make命令它就会按照我们编写的规则去编译了，这就是makefile带给我们的最大好处–“自动化编译”。</p>
+<p>　　现在我们就来讲一讲如何写makefile,我们先从最简单的开始，我的环境是RedHat Linux 7.0  GNU Make 3.82,用什么版本无所谓，只要能用就行，查看系统版本可以是用命令 uname -a,  查看make版本用 make -v，在使用Linux的需要养成一个查看命令的习惯，我们不可能把每个命令都记清楚，记不清楚的时候就就是用–help来查看，比如我要查看make的版本是多少，不知道make后面要跟一个什么参数，这个时候就可以直接敲命令  make –help来查看，它或把make的所有命令都列出来如下图<br><img src="/img/makefile/1.png" alt=""></p>
+<p>　　okay，下面我们开始我们的makefile之旅，作为每门语言的第一个程序我们就以在屏幕打印hello world开始，下面是C++语言写的hello world程序。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"hello world"</span>&lt;&lt;<span class="built_in">endl</span>; <span class="comment">//在终端打印出hello world</span></div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>　　我们先不编写makefile，直接使用g++命令编译，因为程序是用C++写的所有这里使用g++编译，若是用C语言写的则使用gcc命令编译，好了，我们直接在命令行敲入g++ hello.cpp命令，然后回车。我们会发现当前目录下生产了一个a.out文件，这个文件就是我们的执行文件了，相当于window程序的exe文件，到这里我们在命令行敲入./a.out回车，终端打印出hello world，如下图：<br><img src="/img/makefile/2.png" alt=""></p>
+<p>okay，下面正式开始我们的makefile之旅，在写makefile之前我们先简单的了解一下makefile的编写规则：<br><figure class="highlight makefile"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">target ...:prerequisites ...</div><div class="line">    command</div><div class="line">...</div><div class="line">...</div></pre></td></tr></table></figure></p>
+<p>target也就是一个目标文件，可以是ObjectFile，也可以是执行文件，还可以是一个标签（Lable），这是一个文件依赖的关系，也就是说，target这一个或多个文件依赖于prerequisites中的文件，其生成规则则定义在command中，说白一点就是prerequisites中如果有一个文件要比target文件要新的话，那么command所定义的规则就会被执行。这就是makefile的规则，也是makefile最核心的内容。下面我们在makefile文件中写入下面编译规则<br><figure class="highlight makefile"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">targets:hello.o</div><div class="line">	g++ -o hello hello.o</div><div class="line">hello.o:</div><div class="line">	g++ -c hello.cpp</div><div class="line"><span class="section">clean:</span></div><div class="line">	rm -r hello *.o</div></pre></td></tr></table></figure></p>
+<p>targets后的hello.o就是我们需要依赖的文件，g++ -o hello hello.o的意识是指定输出文件为hello，它所需要依赖的文件是hello.o，（这里需要特别注意的地方，命令的起始行一定要是一个tab的距离，切记，切记），但是hello.o怎么来呢，就是我们下面写的hello.o:hello.cpp这里的意思是hello.o依赖文件hello.cpp文件， g++ -c hello.cpp 这个命令就是编译hello.cpp文件，它编译的结果会生产hello.o文件，至此我们就完成了一个简单的makefile，：wq保存退出vi编辑，在终端敲入make命令它就会去执行我们在makefile文件里所编写的规则了，编译完成后会在当前文件目录下生产hello执行文件，也就是 g++ -o hello hello.o这个命令输出的文件。然后我们执行./hello终端打印出hello world。如下图：<br><img src="/img/makefile/3.png" alt=""><br>如果这个时候我们在执行一次make命令，g++ -c hello.cpp命令就不会再执行了，因为make机制检查到hello.o是最新状态的所以不会再去执行一遍编译命令，这就是前面所说的“说白一点就是prerequisites中如果有一个文件要比target文件要新的话，那么command所定义的规则就会被执行”，至此一个入门级的makefile就写好了，若大家感兴趣可以动手试试，作为程序员一定要亲自动手练习。</p>
+<p>通过上面我们对makfile已有所了解，那么下面我们来了解了解make是如何工作的：</p>
+<ol>
+<li>执行make命令会在当前目录下找名为“makefile”的文件。</li>
+<li>如果找到makefile文件，那么它会中文件中的第一个目标文件，也就是上一篇文章里的targets，并且这个文件会作为我们最终编译的输出文件。不过上一遍文件里我们指定了输出文件名为hello了。所以这里我们的输出文件是hello</li>
+<li>如果hello文件不存在，或则它所依赖的.o文件比最后修改时间要比hello文件更新，那么它会执行后面所定义的命令操作来生产hello文件，也就是说如果.o文件要比hello文件新的话，那么它就会去执行命令g++ -o hello hello.o命令去生成hello文件。</li>
+<li>make会一层一层的去找依赖关系，直到最终编译出目标文件，如果在寻找过程中发现错误make会直接退出，并输出错误信息在终端屏幕上。</li>
+</ol>
+<p>okay，上面一篇文章我们完成了一个简单的makefile编写，但这还远远不够，一个庞大的工程不会把所有的文件都放在文件目录里，那样会让代码管理变得混乱不堪，同样我们的工程里也会有.h文件，下面我们就了解一下有.h文件的makefile怎么编写。</p>
+<p>同样先在目录中创建一个hello.h文件，文件内容如下：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">class</span> Hello</div><div class="line">&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">			<span class="function"><span class="keyword">void</span> <span class="title">SayHello</span><span class="params">()</span></span></div><div class="line">			&#123;</div><div class="line">				<span class="built_in">cout</span>&lt;&lt; <span class="string">"hello world"</span> &lt;&lt;<span class="built_in">endl</span>;</div><div class="line">			&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>同样的.cpp文件我们也需要做相应的改变，毕竟这是以类的方式来编写的，hello.cpp文件修改如下<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"hello.h"</span></span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">	Hello h;</div><div class="line">	h.SayHello();</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>从.cpp文件中我们可以看出改文件需要依赖hello.h文件，所以我们的makefile去编译hello.cpp文件的时候也需要依赖hello.h文件，所以makefile的编写规则如下所示：<br><figure class="highlight makefile"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">hello:hello.o</div><div class="line">	g++ -o hello hello.o</div><div class="line">hello.o:hello.h hello.cpp</div><div class="line">	g++ -c hello.cpp</div><div class="line"><span class="section">clean:</span></div><div class="line">	rm -r hello *.o</div></pre></td></tr></table></figure></p>
+<p>到这里我们就知道如何去编写依赖文件了，掌握了这些规则我们就可以写makefile了。难道这样我们就学会了makefile了吗？当然不是，要编写一个好的makefile这还远远不够的，比如我们的工程里有100多个.cpp和.h文件我们应该怎么去编写呢？难道要像下面这种编写方式<br><figure class="highlight makefile"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">hello:hello.o 1.o 2.o ......100.o</div><div class="line"></div><div class="line">    g++ -o hello hello.o 1.o 2.o .... 100.o</div><div class="line"></div><div class="line">hello.o:hello.cpp hello.h</div><div class="line"></div><div class="line">    g++ -c hello.cpp</div><div class="line"></div><div class="line">    o:1.cpp 1.h</div><div class="line"></div><div class="line">    g++ -c 1.cpp</div><div class="line"></div><div class="line">...</div><div class="line"></div><div class="line">...</div><div class="line"></div><div class="line">100.o:100.cpp 100.h</div><div class="line"></div><div class="line">    g++ -c 100.cpp</div></pre></td></tr></table></figure></p>
+<p>哦，我的天，难道光写一个makefile我就要花一天时间吗？这效率就太低了，而且也容易出错。<br>    下面我们讲一讲makefile中变量的使用方法，如果上面的例子我们要用变量的方法该怎么写呢？我们可以向下面这样来使用变量。<br><figure class="highlight makefile"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">objects:hello.o 1.o 2.o ... 100.o</div><div class="line"></div><div class="line">    g++ -o hello $objects</div><div class="line"></div><div class="line">hello.o:hello.cpp hello.h</div><div class="line"></div><div class="line">    g++ -o hello.cpp</div><div class="line"></div><div class="line">....</div><div class="line"></div><div class="line">....</div><div class="line"></div><div class="line">100.o:100.cpp 100.h</div><div class="line"></div><div class="line">    g++ -o 100.cpp</div></pre></td></tr></table></figure></p>
+<p>可以看出这样写法已然没有能够解决效率的文件，只是比第一种写法好了那么一点点，这并不是我们理想的makefile，大家不都说make很强大的吗，那么我们该如何去写呢?</p>
+<p>再讲如何更好的去写makefile之前我们需要先讲一讲makefile的自动推导规则。make命令很强大，它是可以自己去推导文件以及文件后面的命令，于是我们没有比要为每一个.o文件后都加上类似的编译命令。这句话如何理解呢，我们举个例子，下面的makefile是上一篇文章我们所编写的。<br><figure class="highlight makefile"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">hello:hello.o ... 100.o</div><div class="line">        g++ -o hello hello.o</div><div class="line">hello.o:hello.cpp hello.h</div><div class="line">        g++ -c hello.cpp</div><div class="line"><span class="section">clean:</span></div><div class="line">        rm -r hello *.o</div></pre></td></tr></table></figure></p>
+<p>自动推导的意见就是说，上面的写法我们可以改写为下面的写法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">hello:hello.o ... 100.o</div><div class="line">        g++ -o hello hello.o</div><div class="line">hello.o:hello.h</div><div class="line">clean:</div><div class="line">        rm -r hello *.o</div></pre></td></tr></table></figure></p>
+<p>仔细看看两种写法的不同，第二中写法hello.o:hello.h我们只写了这一行代码，后面的hello.cpp 和g++ -c hello.cpp都没有了。make的自动推导规则：如果make找到一个.o文件，那么它对应的.cpp文件和g++ -c xx.cpp命令都会被推导出来，于是我们的makefile不再需要写得那么复杂了，我们新的makefile就可以像下面这样写了<br><figure class="highlight makefile"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">hello:hello.o ... 100.o</div><div class="line">        g++ -o hello hello.o</div><div class="line">hello.o:hello.h</div><div class="line"></div><div class="line">    o:1.h</div><div class="line"></div><div class="line">...</div><div class="line"></div><div class="line">...</div><div class="line"></div><div class="line">100.o:100.h</div><div class="line"></div><div class="line"><span class="section">clean:</span></div><div class="line">        rm -r hello *.o</div></pre></td></tr></table></figure></p>
+<p>make命令的自动推导又为我们提高了那么一点的效率，每天都能进步一点点是不是感到很开心，我们离目标又近了一步了。顺便说一下，makefile的注释是用#符号，相当于C++里的//注释符，makefile里只有单行注释，没有多行注释。</p>
+<p>　　不知道读者们有没有注意到makefile最后的两行代码，在最后一行我们使用了*.o这种写法，这种写法叫做通配符，它的意思是指所有以.o结尾的文件，rm -r hello *.o命令是要删除当前目录下所有以.o结尾的文件和hello执行文件，所以每次我们需要重新编译的时候需要先执行命令 make clean,然后再执行make命令。想想这种通配符的写法是不是可以运用到我们makefile中。我们可以像下面这种方式来改写我们的makefile了。<br><figure class="highlight makefile"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">hello:*.o</div><div class="line">        g++ -o hello hello.o</div><div class="line">hello.o:hello.h</div><div class="line"></div><div class="line">    o:1.h</div><div class="line"></div><div class="line">...</div><div class="line"></div><div class="line">...</div><div class="line"></div><div class="line">100.o:100.h</div><div class="line"></div><div class="line"><span class="section">clean:</span></div><div class="line">        rm -r hello *.o</div></pre></td></tr></table></figure></p>
+<p>这样的写法是不是又为我们提高了一点效率呢。还有其它的通配符我在这里就不一一介绍了，大家可以自行百度，google。</p>
+<p>想要写一个完美漂亮的makefile我们必须要了解一下自动化变量：<br><strong>$@：</strong> 表示规则中的目标文件集。在模式规则中，如果有多个目标，么，<strong>$@</strong>就是匹配于目标中模式定义的集合。<br><strong>$&lt;：</strong> 依赖目标中的第一个目标名字。如果依赖目标是以模式（即”%”）定义的，那么<strong>$&lt;</strong>将是符合模式的一系列的文件集。注意，其是一个一个取出来的。<br>一般对C,C++或者其它语言，首先是把源文件编译成中间文件，在window平台下是.obj文件，在unix或linux平台下是.o文件，生成中间文件的这个过程就叫编译（compile），把大量的中间文件合成执行文件，这个就叫链接（Link），编译时会检查语法是否正确，变量和函数是否声明正确。<br>下面我们就来讲一讲如何写一个高效漂亮的makefile，在写执行我们创建include,src两个目录，如下图：<br><img src="/img/makefile/4.png" alt=""><br>在这个目录下分别创建如下图的文件：<br><img src="/img/makefile/5.png" alt=""></p>
+<p><img src="/img/makefile/6.png" alt=""><br>我们在include目录里创建了加(add.h)，减(sub.h)，乘(multi.h)，除(div.h)四个文件，在src创建了对应的4个.cpp文件，另外我们还创建了一个objs目录，这个目录就是我们用来存放编译的中间文件的。文件中的内容就是加减乘除的简单运算就不列出来了。先看看我使用通配符写的makefile如下：<br><figure class="highlight makefile"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">OBJS = <span class="variable">$(patsubst %.cpp,%.o,$(shell ls *.cpp)</span>)</div><div class="line">TARGET = hello</div><div class="line">INCLUDE := -I../include	</div><div class="line">all:$(TARGET)</div><div class="line">$(TARGET):$(OBJS)</div><div class="line">	<span class="variable">$(CXX)</span> -o <span class="variable">$(TARGET)</span> ./objs/*.o</div><div class="line">$(OBJS):%.o:%.cpp</div><div class="line">	<span class="variable">$(CXX)</span> -c $&lt; <span class="variable">$(INCLUDE)</span> -o ./objs/$@</div><div class="line"><span class="section">clean:</span></div><div class="line">	rm -f hello ./objs/*.o</div></pre></td></tr></table></figure></p>
+<p>我们先不看第一行是什么意思，我们从第二行开始看。</p>
+<ul>
+<li>第二行定义了一个变量TARGET来说名我们要生产的目标是hello执行文件。</li>
+<li>第三行的意思是定义了一个INCLUDE变量，变量值是-I../include；-I的意思是指：指定搜索目录</li>
+<li>第四行的意思是定义一个动作，这个动作依赖$TARGET。</li>
+<li>第五行的意思是就相当于前面我们所写hello:hello.o 1.o 2.o….100.o这里的$(OBJS)，就表示目标所要依赖的中间文件，从这里我们知道第一行的目的其实就是目标所要依赖的中间文件。</li>
+<li>第一行用到了一个函数patsubst,，它的意思是讲当前目录下所有的.cpp文件名替换成.o文件，这里所说的替换不是真实的替换文件名，它只是在内存中做了文件名的替换，你磁盘上的文件名还是没有变得，shell ls <em>.cpp这个shell指令就是列出当前文件下所有以.cpp后缀名结尾的文件。当然如果你的.cpp文件不在当前目录你可以指定目录如 shell ls ../../</em>.cpp它的意思就是要列出上一级目录的上一级目录下的所有以.cpp后缀结尾的文件名。同过这个函数我们接所有的中间文件名了。</li>
+<li>第六行$(CXX) -o $(TARGET) ./objs/*.o的意思就是链接objs目录下的所有中间文件</li>
+<li><p>第七行$(OBJS):%.o:%.cpp的意思就是说集合OBJS中的所有以.o结尾的文件也就是add.o sub.o mutil.o div.o，而依赖模式%.cpp则是去模式%.o的%部分也就是add sub mutil div；并为其加上.cpp后缀，所以这句命令我们可以翻译成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">add.o sub.o mutil.o div.o:add.cpp div .cpp mutil.cpp sub.cpp</div></pre></td></tr></table></figure>
+</li>
+<li><p>第八行$(CXX) -c $&lt; $(INCLUDE) -o ./objs/$@ 编译.cpp文件并生成中间文件到objs目录下，因为我们的.cpp文件需要依赖.h文件，而.h文件是放在上一级目录的include里的，所以这里我们编译文件寻找依赖的时候要指定到哪里去找，这里的变量$(INCLUDE)就表示我们要寻找的路径。这里加上通配符$&lt;的意思就依赖所以include文件目录下的.h文件，而且是一个一个取出来的，最后一个通配符$@就是目标文件集。这句命令说简单点就可以翻译成如下写法</p>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$(CXX) -c ../include.add.h -o objs/add.o</div><div class="line"></div><div class="line">$(CXX) -c ../include.sub.h -o objs/sub.o</div><div class="line"></div><div class="line">$(CXX) -c ../include.mutil.h -o objs/mutil.o</div><div class="line"></div><div class="line">$(CXX) -c ../include.div.h -o objs/div.o</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>okay这样的makefile不就是我们想要的吗。读者们是不是学会了呢。关于makefile中有哪些函数可以使用大家可以百度，google。<br>　　　PS:makefile也是可以像C，C++语言那样include的，这样的好处是在一个庞大的工程中我们可以编写多个makefile，这些makefile可以以模块，功能等分类在各个子目录的，我们只需要在最外层的makefile中指定编译规则就可以了。一般大型的工程都采用这种方式。这里我就不再详细介绍了，如果有需要我在补充。</p>
+<hr>
+<blockquote>
+<p>推荐我的微信公众号：爱做饭的老谢<br><img src="/img/hexobuild/weixin.jpg" alt=""></p>
+</blockquote>
+<p>上一篇：<a href="/2016/11/07/hexo-github-build3">hexo+github个人博客搭建(终)</a></p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/Gavinxyj" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/Gavinxyj" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="https://gavinxyj.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="mailto:xie_youjiang@163.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
