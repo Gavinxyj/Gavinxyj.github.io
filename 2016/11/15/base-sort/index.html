@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="版权声明:本文为作者原创文章，可以随意转载，但必须在明确位置表明出处！！！
+最近想整理一些基本的排序算法，此次整理排序算法会用模板类的方式提供，以便方便处理各种数据类型的排序，包括对象数组排序，结构体数组排序等。项目创建在git上，地址：https://github.com/Gavinxyj/Alg">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Gavin">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="基于模板类的排序算法"/>
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Gavin Blog"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+        <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>基于模板类的排序算法 - Gavin Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Configurable Title</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/Gavinxyj">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>基于模板类的排序算法</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        2016-11-15
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/Algorithm/">#Algorithm</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <blockquote>
+<h3 id="版权声明-本文为作者原创文章，可以随意转载，但必须在明确位置表明出处！！！"><a href="#版权声明-本文为作者原创文章，可以随意转载，但必须在明确位置表明出处！！！" class="headerlink" title="版权声明:本文为作者原创文章，可以随意转载，但必须在明确位置表明出处！！！"></a>版权声明:本文为作者原创文章，可以随意转载，但必须在明确位置表明出处！！！</h3></blockquote>
+<p>最近想整理一些基本的排序算法，此次整理排序算法会用模板类的方式提供，以便方便处理各种数据类型的排序，包括对象数组排序，结构体数组排序等。项目创建在git上，地址：<a href="https://github.com/Gavinxyj/Algorithm" target="_blank" rel="external">https://github.com/Gavinxyj/Algorithm</a>,欢迎随时交流。</p>
+<p>今天整理一下最基本的两个排序算法，冒泡排序，选择排序</p>
+<h3 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h3><p>故名思意就是水中的泡越大，上到水面的速度越慢，所以最大的水泡最后上来，这样就形成了一个有序序列了。</p>
+<ul>
+<li>算法原理：</li>
+</ul>
+<ol>
+<li>比较相邻两个数的大小，并交换位置，如果是按升序排序那么第一趟排序的结果是最大的数已排在系列末尾了。</li>
+<li>针对所有的相邻元素重复以上操作，除了最后一个元素（因为每趟排序完最大的元素都排到末尾了）。</li>
+<li>对剩余未排好序的数据重复以上操作，知道没有任何一对数据需要处理为止</li>
+</ol>
+<ul>
+<li><p>稳定性：<br>冒泡排序算法是稳定的排序算法，因为每一次比较都是相邻的两个数比较，如果两个数相当显然它们不会交换位子。</p>
+</li>
+<li><p>时间复杂度：</p>
+</li>
+</ul>
+<ol>
+<li>最好的情况是给定的序列已经是有序的了，两两比较的时候不再需要交换位置所以它的最好时间复杂度是O(n)。</li>
+<li>最坏的情况是给定的序列是反序的，那么两两比较的时候每次都需要交换位置所以他的最坏时间复杂度是O(n^2)    </li>
+</ol>
+<h3 id="代码如下："><a href="#代码如下：" class="headerlink" title="代码如下："></a>代码如下：</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div><div class="line"><span class="keyword">void</span> Algorihm&lt;T&gt;::bubbleSort(T *<span class="built_in">array</span>, <span class="built_in">std</span>::<span class="keyword">size_t</span> nLen, <span class="keyword">int</span> (*Compare)(<span class="keyword">const</span> T *, <span class="keyword">const</span> T *))</div><div class="line">&#123;</div><div class="line">		<span class="keyword">if</span>(<span class="number">0</span> == *<span class="built_in">array</span> || <span class="number">0</span> == nLen) <span class="keyword">return</span>;</div><div class="line">		</div><div class="line">		<span class="keyword">bool</span> bFlag = <span class="literal">true</span>; <span class="comment">//这里考虑如果待排序列是有序的则直接退出循环</span></div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> nLoop = <span class="number">0</span>; nLoop &lt; nLen <span class="number">-1</span>; nLoop ++)</div><div class="line">		&#123;		</div><div class="line">			</div><div class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> index = <span class="number">0</span>; index &lt; nLen - <span class="number">1</span> - nLoop; index ++)</div><div class="line">			&#123;</div><div class="line">					<span class="keyword">if</span>(Compare(&amp;<span class="built_in">array</span>[index], &amp;<span class="built_in">array</span>[index + <span class="number">1</span>]) &gt; <span class="number">0</span>)</div><div class="line">					&#123;</div><div class="line">						T temp = <span class="built_in">array</span>[index];</div><div class="line">						<span class="built_in">array</span>[index] = <span class="built_in">array</span>[index + <span class="number">1</span>];</div><div class="line">						<span class="built_in">array</span>[index + <span class="number">1</span>]  = temp;	</div><div class="line">						bFlag = <span class="literal">false</span>;</div><div class="line">					&#125;</div><div class="line">			&#125;	</div><div class="line">		</div><div class="line">			<span class="keyword">if</span>(bFlag) <span class="keyword">break</span>;</div><div class="line">		&#125;	</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h3><ul>
+<li><p>算法原理：每一次从待排序的数据中选出最大或最小的元素存放到序列的起始位置，知道全部数据元素排完</p>
+</li>
+<li><p>稳定性<br>选择排序算法是不稳定的排序算法，比如如下序列：9，9，6，第一次排序的结果就是9和6交换了，第一个位置的9变成了第三个位置了，当再次去排序的时候第二个9和第三个9不会再交换位置了，它们两个数的位置已经发生了改变，所以它是不稳定排序算法</p>
+</li>
+</ul>
+<p>-时间复杂度</p>
+<ol>
+<li>最好最坏的情况执行n(n-1)/2次比较，所以它的时间复杂度为O(n^2)</li>
+</ol>
+<h3 id="代码如下"><a href="#代码如下" class="headerlink" title="代码如下"></a>代码如下</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div><div class="line"><span class="keyword">void</span> Algorihm&lt;T&gt;::selectionSort(T *<span class="built_in">array</span>, <span class="built_in">std</span>::<span class="keyword">size_t</span> length, <span class="keyword">int</span> (*Compare)(<span class="keyword">const</span> T *, <span class="keyword">const</span> T *))</div><div class="line">&#123;</div><div class="line">		<span class="keyword">if</span>(<span class="number">0</span> == *<span class="built_in">array</span> || <span class="number">0</span> == length) <span class="keyword">return</span>;</div><div class="line">		</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> nLoop = <span class="number">0</span>; nLoop &lt; length - <span class="number">1</span>; nLoop ++)</div><div class="line">		&#123;</div><div class="line">				<span class="keyword">int</span> minKey = nLoop;</div><div class="line">				</div><div class="line">				<span class="keyword">for</span>(<span class="keyword">int</span> index = nLoop + <span class="number">1</span>; index &lt; length; index ++)</div><div class="line">				&#123;</div><div class="line">					  <span class="keyword">if</span>(Compare(&amp;<span class="built_in">array</span>[minKey], &amp;<span class="built_in">array</span>[index]) &gt; <span class="number">0</span>)</div><div class="line">						&#123;</div><div class="line">							minKey = index;</div><div class="line">						&#125;</div><div class="line">				&#125;</div><div class="line">				</div><div class="line">				<span class="keyword">if</span>(minKey != nLoop)</div><div class="line">				&#123;</div><div class="line">					T temp = <span class="built_in">array</span>[minKey];</div><div class="line">					<span class="built_in">array</span>[minKey] = <span class="built_in">array</span>[nLoop];</div><div class="line">					<span class="built_in">array</span>[nLoop]	= temp;</div><div class="line">				&#125;</div><div class="line">		&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="调用方式如下"><a href="#调用方式如下" class="headerlink" title="调用方式如下"></a>调用方式如下</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">int compare(const int* a, const int *b)</div><div class="line">&#123;</div><div class="line">	return *a - *b;</div><div class="line">&#125;</div><div class="line">int main()</div><div class="line">&#123;</div><div class="line">	int a[10] = &#123;1,2,3,4,5,6,7,8,9,10&#125;;</div><div class="line">	Algorihm&lt;int&gt;algorihm;</div><div class="line">	</div><div class="line">	algorihm.bubbleSort(a, 10, compare);</div><div class="line">	</div><div class="line">	for(int index =0; index &lt; 10; index ++)</div><div class="line">	&#123;</div><div class="line">			std::cout &lt;&lt; a[index] &lt;&lt; &quot;\t&quot;;</div><div class="line">	&#125;</div><div class="line">	std::cout &lt;&lt; &quot;\n&quot;;</div><div class="line">	return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如需要完整的文件，可以访问我上面的项目地址</p>
+<hr>
+<blockquote>
+<p>推荐我的微信公众号：爱做饭的老谢<br><img src="/img/hexobuild/weixin.jpg" alt=""></p>
+</blockquote>
+<hr>
+<p>上一篇：<a href="/2016/11/08/makefile-build">如何编写一个漂亮的makefile</a></p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                      
+<section id="comment">  
+  <!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="2016/11/15/base-sort/" data-title="基于模板类的排序算法" data-url="http://gavinxyj.com/2016/11/15/base-sort/"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"gavinxyj"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+</section>  
+  
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/Gavinxyj" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/Gavinxyj" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="https://gavinxyj.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="mailto:xie_youjiang@163.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
