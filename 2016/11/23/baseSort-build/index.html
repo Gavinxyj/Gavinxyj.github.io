@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="版权声明:本文为作者原创文章，可以随意转载，但必须在明确位置表明出处！！！
+快速排序
+算法的基本思想：把每一趟排序结果分为两部分，其中一部分的没每个值都要比另外一部分的值小，然后再按照此种方法把分成的两部分在进行相同的排序直到待排序的序列不能分为两部分为止，整个排序过程可以递归进行
+算法原理
+
+
+设">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Gavin">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="基于模板类的排序算法（快速排序，插入排序）"/>
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Gavin Blog"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+        <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>基于模板类的排序算法（快速排序，插入排序） - Gavin Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Configurable Title</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/Gavinxyj">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>基于模板类的排序算法（快速排序，插入排序）</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        2016-11-23
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/Algorithm/">#Algorithm</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <blockquote>
+<h3 id="版权声明-本文为作者原创文章，可以随意转载，但必须在明确位置表明出处！！！"><a href="#版权声明-本文为作者原创文章，可以随意转载，但必须在明确位置表明出处！！！" class="headerlink" title="版权声明:本文为作者原创文章，可以随意转载，但必须在明确位置表明出处！！！"></a>版权声明:本文为作者原创文章，可以随意转载，但必须在明确位置表明出处！！！</h3></blockquote>
+<h3 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h3><ul>
+<li><h4 id="算法的基本思想："><a href="#算法的基本思想：" class="headerlink" title="算法的基本思想："></a>算法的基本思想：</h4>把每一趟排序结果分为两部分，其中一部分的没每个值都要比另外一部分的值小，然后再按照此种方法把分成的两部分在进行相同的排序直到待排序的序列不能分为两部分为止，整个排序过程可以递归进行</li>
+<li><h4 id="算法原理"><a href="#算法原理" class="headerlink" title="算法原理"></a>算法原理</h4></li>
+</ul>
+<ol>
+<li>设定变量nFirst，nLast，nFirst指向待排序的第一个下标索引，nLast指向待排序的最后一个索引</li>
+<li>设定一个元素作为分成两部分的关键元素key，key=array[0];</li>
+<li>从nLast往nFirst方向搜索，依次与key比较，若array[nLast] &lt;= key，则把array[nLast]和array[nFirst]互换</li>
+<li>从nFirst方向向nLast方向索搜，一次与与key比较，若array[nFirst] &gt; key,则把array[nFirst]和array[nLast]互换</li>
+<li>重复第三，第四部，因第三部由后往前找nLast–,第四步由前往后找nFirst++，当nFirst == nLast则表示一趟排序完成</li>
+<li>把比key值小的部分和比key值大的部分再次通过1，2，3，4，5，6步执行直到所有待排序列不能分为两部分为止</li>
+</ol>
+<ul>
+<li><h4 id="时间复杂度："><a href="#时间复杂度：" class="headerlink" title="时间复杂度："></a>时间复杂度：</h4><p>最坏时间复杂度为O(n^2),最好时间复杂度为O(nlog2n)，平均复杂度为O(nlog2n)</p>
+</li>
+<li><h4 id="稳定性："><a href="#稳定性：" class="headerlink" title="稳定性："></a>稳定性：</h4><p>快速排序是不稳定排序</p>
+</li>
+</ul>
+<h3 id="算法实现："><a href="#算法实现：" class="headerlink" title="算法实现："></a>算法实现：</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div><div class="line"><span class="keyword">void</span> Algorithm&lt;T&gt;::quickSort(T *<span class="built_in">array</span>, <span class="built_in">std</span>::<span class="keyword">size_t</span> nLow, <span class="built_in">std</span>::<span class="keyword">size_t</span> nHigh, <span class="keyword">int</span> (*fCompare)(<span class="keyword">const</span> T *, <span class="keyword">const</span> T *))</div><div class="line">&#123;</div><div class="line">		<span class="keyword">if</span>(<span class="number">0</span> == *<span class="built_in">array</span> || nLow &gt;= nHigh) <span class="keyword">return</span> ;</div><div class="line">		</div><div class="line">		<span class="keyword">int</span> nFirst = nLow;</div><div class="line">		<span class="keyword">int</span> nLast  = nHigh;</div><div class="line">		T nKey = <span class="built_in">array</span>[nFirst];<span class="comment">//设定一个key值用来划分数据，比key值小的在它的左边，比它大的在它右边</span></div><div class="line">		</div><div class="line">		<span class="keyword">while</span>(nFirst &lt; nLast)</div><div class="line">		&#123;</div><div class="line">			<span class="comment">//从右边开始找比key值小的数,如果比key值大则下标向左移</span></div><div class="line">			<span class="keyword">while</span>(nFirst &lt; nLast &amp;&amp; fCompare(&amp;nKey, &amp;<span class="built_in">array</span>[nLast]) &lt;= <span class="number">0</span>)</div><div class="line">			&#123;</div><div class="line">					-- nLast;</div><div class="line">			&#125;</div><div class="line">			<span class="comment">//把比key值小的元素赋值给数组的一个元素</span></div><div class="line">			<span class="built_in">array</span>[nFirst] = <span class="built_in">array</span>[nLast];</div><div class="line">			</div><div class="line">			<span class="comment">//从左边开始找比key大的数，如果比key值小则下标向右移动</span></div><div class="line">			<span class="keyword">while</span>(nFirst &lt; nLast &amp;&amp; fCompare(&amp;nKey, &amp;<span class="built_in">array</span>[nFirst])  &gt;= <span class="number">0</span>)</div><div class="line">			&#123;</div><div class="line">					++ nFirst;</div><div class="line">			&#125;</div><div class="line">			<span class="comment">//把比key值打的元素赋值给最后一个元素</span></div><div class="line">			<span class="built_in">array</span>[nLast] = <span class="built_in">array</span>[nFirst];</div><div class="line">		&#125;</div><div class="line">		<span class="built_in">array</span>[nFirst] = nKey;</div><div class="line">		quickSort(<span class="built_in">array</span>, nLow, nFirst - <span class="number">1</span>, fCompare);<span class="comment">//对小于key的左边区域再排序</span></div><div class="line">		quickSort(<span class="built_in">array</span>, nFirst + <span class="number">1</span>, nHigh, fCompare);<span class="comment">//对大于key的区域再排序</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h3><ul>
+<li><h4 id="算法的基本思想：-1"><a href="#算法的基本思想：-1" class="headerlink" title="算法的基本思想："></a>算法的基本思想：</h4><p>每次将一个待排序的元素插入到已经排序好的数据集合中，使得到新的数据集合任然有序</p>
+</li>
+<li><h4 id="算法原理-1"><a href="#算法原理-1" class="headerlink" title="算法原理"></a>算法原理</h4></li>
+</ul>
+<ol>
+<li>设置监视哨array[0]，这个时候array[0]就作为一个已经排好序的序列了。</li>
+<li>从array[0]向后搜索，若比array[0]小，则将array[1]插入到array[0]前面</li>
+<li>这个时候第一个元素和第二个元素作为有序序列了，然后第三个元素和分别和前面两个元素比较，并插入到响应位置</li>
+<li>重复1，2，3步骤知道所有数据插入完成</li>
+</ol>
+<ul>
+<li><h4 id="时间复杂度：-1"><a href="#时间复杂度：-1" class="headerlink" title="时间复杂度："></a>时间复杂度：</h4><p>最好情况时间复杂度O(n)，最坏时间复杂度O(n^2)。</p>
+</li>
+<li><h4 id="稳定性：-1"><a href="#稳定性：-1" class="headerlink" title="稳定性："></a>稳定性：</h4><p>插入排序是稳定排序算法</p>
+</li>
+</ul>
+<h3 id="算法实现：-1"><a href="#算法实现：-1" class="headerlink" title="算法实现："></a>算法实现：</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div><div class="line"><span class="keyword">void</span> Algorithm&lt;T&gt;::insertSort(T *<span class="built_in">array</span>, <span class="built_in">std</span>::<span class="keyword">size_t</span> nLength, <span class="keyword">int</span> (*fCompare)(<span class="keyword">const</span> T*, <span class="keyword">const</span> T*))</div><div class="line">&#123;</div><div class="line">		<span class="keyword">if</span>(<span class="number">0</span> == *<span class="built_in">array</span> || nLength &lt;= <span class="number">0</span>) <span class="keyword">return</span>;</div><div class="line">			</div><div class="line">		T temp;</div><div class="line">		<span class="keyword">int</span> index = <span class="number">0</span>;</div><div class="line">		</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> nLoop = <span class="number">1</span>; nLoop &lt; nLength; nLoop ++)</div><div class="line">		&#123;</div><div class="line">			temp = <span class="built_in">array</span>[nLoop];</div><div class="line">			</div><div class="line">			<span class="keyword">for</span>(index = nLoop; index &gt; <span class="number">0</span> &amp;&amp; fCompare(&amp;<span class="built_in">array</span>[index - <span class="number">1</span>], &amp;temp) &gt; <span class="number">0</span>; index --)</div><div class="line">			&#123;</div><div class="line">				<span class="built_in">array</span>[index] = <span class="built_in">array</span>[index <span class="number">-1</span>];	</div><div class="line">			</div><div class="line">			&#125;	</div><div class="line">			<span class="built_in">array</span>[index] = temp;</div><div class="line">			</div><div class="line">		&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="折半插入排序"><a href="#折半插入排序" class="headerlink" title="折半插入排序"></a>折半插入排序</h3><ul>
+<li><h4 id="算法的基本思想"><a href="#算法的基本思想" class="headerlink" title="算法的基本思想"></a>算法的基本思想</h4><p>折半插入是直接插入的改进，因为直接插入排序是让待排序的元素依次和已排序好的元素比较，这样比较的次数比较多，折半插入是把已排好序的元素一份为二，若待排元素比中间元素小则在前半段再按二分查找，若比中间元素大则在后半段再次按照二分查找知道找到位置，这样就大大减少了比较的次数了。</p>
+</li>
+<li><h4 id="算法原理-2"><a href="#算法原理-2" class="headerlink" title="算法原理"></a>算法原理</h4></li>
+</ul>
+<ol>
+<li>把第一个元素作为nLow,第二个元素作为待排序的元素，下标为nHigh</li>
+<li>nMid元素为(nLow+nHigh-1)/2。</li>
+<li>比较待排元素和nMid元素的大小，若小于nMid，则nHigh = nMid - 1,反之nLow = nMid + 1。</li>
+<li>若找到插入的位置，则这个时候的插入位置为nLow，然后依次移动响应位置后插入待排序元素</li>
+</ol>
+<ul>
+<li><h4 id="算法时间复杂度"><a href="#算法时间复杂度" class="headerlink" title="算法时间复杂度"></a>算法时间复杂度</h4><p>折半插入只是减少了比较的次数，并没有减少元素移动的次数，所有算法的时间复杂度任然为O(n^2)。</p>
+</li>
+<li><h4 id="稳定性"><a href="#稳定性" class="headerlink" title="稳定性"></a>稳定性</h4><p>折半插入是稳定排序算法</p>
+</li>
+</ul>
+<h3 id="算法实现"><a href="#算法实现" class="headerlink" title="算法实现"></a>算法实现</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div><div class="line"><span class="keyword">void</span> Algorithm&lt;T&gt;::binaryInsertSort(T *<span class="built_in">array</span>, <span class="built_in">std</span>::<span class="keyword">size_t</span> nLength, <span class="keyword">int</span> (*fCompare)(<span class="keyword">const</span> T*, <span class="keyword">const</span> T*))</div><div class="line">&#123;</div><div class="line">	 <span class="keyword">if</span>(<span class="number">0</span> == *<span class="built_in">array</span> || nLength &lt;= <span class="number">0</span>) <span class="keyword">return</span>;</div><div class="line">	 	</div><div class="line">	 </div><div class="line">	 <span class="keyword">for</span>(<span class="keyword">int</span> nLoop = <span class="number">1</span>; nLoop &lt; nLength; nLoop ++)</div><div class="line">	 &#123;</div><div class="line">	 		T temp = <span class="built_in">array</span>[nLoop];</div><div class="line">	 		</div><div class="line">	 		<span class="keyword">int</span> nLow  = <span class="number">0</span>;</div><div class="line">	 		<span class="keyword">int</span> nHigh = nLoop - <span class="number">1</span>;</div><div class="line">	 		</div><div class="line">	 		<span class="keyword">while</span>(nLow &lt;= nHigh)</div><div class="line">	 		&#123;</div><div class="line">	 			<span class="keyword">int</span> nMid = (nLow + nHigh) / <span class="number">2</span>;</div><div class="line">	 			</div><div class="line">	 			<span class="keyword">if</span>(fCompare(&amp;temp, &amp;<span class="built_in">array</span>[nMid]) &gt; <span class="number">0</span>)</div><div class="line">	 			&#123;</div><div class="line">	 				nLow = nMid + <span class="number">1</span>;	</div><div class="line">	 			&#125;	</div><div class="line">	 			<span class="keyword">else</span></div><div class="line">	 			&#123;</div><div class="line">	 				nHigh = nMid - <span class="number">1</span>;</div><div class="line">	 			&#125;</div><div class="line">	 		&#125;</div><div class="line">	 		</div><div class="line">	 		<span class="keyword">for</span>(<span class="keyword">int</span> index = nLoop; index &gt; nLow; index --)</div><div class="line">	 		&#123;</div><div class="line">	 			<span class="built_in">array</span>[index] = <span class="built_in">array</span>[index - <span class="number">1</span>]; 			</div><div class="line">	 		&#125;</div><div class="line">	 		<span class="built_in">array</span>[nLow] = temp;	</div><div class="line">	 &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="项目文件地址：https-github-com-Gavinxyj-Algorithm"><a href="#项目文件地址：https-github-com-Gavinxyj-Algorithm" class="headerlink" title="项目文件地址：https://github.com/Gavinxyj/Algorithm"></a>项目文件地址：<a href="https://github.com/Gavinxyj/Algorithm" target="_blank" rel="external">https://github.com/Gavinxyj/Algorithm</a></h4><hr>
+<blockquote>
+<p>推荐我的微信公众号：爱做饭的老谢<br><img src="/img/hexobuild/weixin.jpg" alt=""></p>
+</blockquote>
+<hr>
+<p>上一篇：<a href="/2016/11/15/base-sort">基于模板类的排序算法（冒泡排序，选择排序）</a></p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                      
+<section id="comment">  
+  <!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="2016/11/23/baseSort-build/" data-title="基于模板类的排序算法（快速排序，插入排序）" data-url="http://gavinxyj.com/2016/11/23/baseSort-build/"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"gavinxyj"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+</section>  
+  
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/Gavinxyj" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/Gavinxyj" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="https://gavinxyj.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="mailto:xie_youjiang@163.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
