@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="版权声明:本文为作者原创文章，可以随意转载，但必须在明确位置表明出处！！！
+基数排序
+算法的基本思想：基数排序的基本思想就是把每个待排序的数按照个位数，放入对应的“桶”中，然后把“桶”中的数依次取出按十位数放入“桶”中，然后按照百位…;知道最大位数排完序结束。
+
+算法原理：
+
+
+找出待排序中的最大数">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Gavin">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="基于模板类的排序算法（基数排序，归并排序）"/>
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Gavin Blog"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+        <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>基于模板类的排序算法（基数排序，归并排序） - Gavin Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Configurable Title</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/Gavinxyj">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>基于模板类的排序算法（基数排序，归并排序）</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        2016-12-06
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/Algorithm/">#Algorithm</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <blockquote>
+<h3 id="版权声明-本文为作者原创文章，可以随意转载，但必须在明确位置表明出处！！！"><a href="#版权声明-本文为作者原创文章，可以随意转载，但必须在明确位置表明出处！！！" class="headerlink" title="版权声明:本文为作者原创文章，可以随意转载，但必须在明确位置表明出处！！！"></a>版权声明:本文为作者原创文章，可以随意转载，但必须在明确位置表明出处！！！</h3></blockquote>
+<h3 id="基数排序"><a href="#基数排序" class="headerlink" title="基数排序"></a>基数排序</h3><ul>
+<li><h4 id="算法的基本思想："><a href="#算法的基本思想：" class="headerlink" title="算法的基本思想："></a>算法的基本思想：</h4><p>基数排序的基本思想就是把每个待排序的数按照个位数，放入对应的“桶”中，然后把“桶”中的数依次取出按十位数放入“桶”中，然后按照百位…;知道最大位数排完序结束。</p>
+</li>
+<li><h4 id="算法原理："><a href="#算法原理：" class="headerlink" title="算法原理："></a>算法原理：</h4></li>
+</ul>
+<ol>
+<li>找出待排序中的最大数确定需要排多少趟。</li>
+<li>创建10个“桶”来装每个关键字的元素</li>
+<li>将每隔待排元素按照个位依次放入对应的“桶”中。然后十位，百位，直到最大数的最高位排完为止。</li>
+</ol>
+<ul>
+<li><h4 id="时间复杂度："><a href="#时间复杂度：" class="headerlink" title="时间复杂度："></a>时间复杂度：</h4><p>最坏时间复杂度为O(d(r + n)),最好时间复杂度为O(d(n + rd))，平均复杂度为O(d(r + n ))。r表示关键字的基数，d表示长度，n表示关键字的个数</p>
+</li>
+<li><h4 id="稳定性："><a href="#稳定性：" class="headerlink" title="稳定性："></a>稳定性：</h4><p>基数排序是稳定排序</p>
+</li>
+</ul>
+<h3 id="算法实现"><a href="#算法实现" class="headerlink" title="算法实现"></a>算法实现</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div><div class="line"><span class="keyword">void</span> Algorithm&lt;T&gt;::radixSort(T *<span class="built_in">array</span>, <span class="keyword">int</span> nLength)</div><div class="line">&#123;</div><div class="line">	<span class="keyword">if</span>(<span class="number">0</span> == *<span class="built_in">array</span>) <span class="keyword">return</span> ;</div><div class="line">	</div><div class="line">	<span class="comment">//先找出待排序中的最大元素来确定需要多少次排序</span></div><div class="line">	T max = <span class="number">0</span>;	</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> nLoop = <span class="number">0</span>; nLoop &lt; nLength; nLoop ++)</div><div class="line">	&#123;</div><div class="line">		<span class="keyword">if</span>(<span class="built_in">array</span>[nLoop] &gt; max)</div><div class="line">		&#123;</div><div class="line">			max = <span class="built_in">array</span>[nLoop];	</div><div class="line">		&#125;</div><div class="line">	&#125;	</div><div class="line">	</div><div class="line">	<span class="comment">//获取最大值的位数</span></div><div class="line">	<span class="keyword">int</span> count = <span class="number">0</span>;</div><div class="line">	<span class="keyword">while</span>(<span class="literal">true</span>)</div><div class="line">	&#123;</div><div class="line">		<span class="keyword">if</span>(max == <span class="number">0</span>) <span class="keyword">break</span>;</div><div class="line">			</div><div class="line">		max /= <span class="number">10</span>;</div><div class="line">		count ++;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="comment">//创建10个桶分别来存放各个数字,因为每个数都是0-9组成的</span></div><div class="line">	<span class="built_in">std</span>::<span class="built_in">deque</span>&lt;T&gt; tempDeque[<span class="number">10</span>];</div><div class="line">	</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> nLoop = <span class="number">0</span>; nLoop &lt; count; nLoop ++)</div><div class="line">	&#123;</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> index = <span class="number">0</span>; index &lt; nLength; index ++)</div><div class="line">		&#123;</div><div class="line">			<span class="comment">//将位数分别放到对应的桶中</span></div><div class="line">			<span class="keyword">int</span> nIndex = (<span class="built_in">array</span>[index] / (<span class="keyword">int</span>)<span class="built_in">pow</span>(<span class="number">10</span>, nLoop)) % <span class="number">10</span>;</div><div class="line">			tempDeque[nIndex].push_back(<span class="built_in">array</span>[index]);</div><div class="line">		&#125;</div><div class="line">		<span class="comment">//把此趟排好序的数据放回到原来数组中</span></div><div class="line">		<span class="keyword">int</span> nCount = <span class="number">0</span>;</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> index = <span class="number">0</span>; index &lt; <span class="number">10</span>; index ++)</div><div class="line">		&#123;</div><div class="line">			<span class="keyword">while</span>(!tempDeque[index].empty())</div><div class="line">			&#123;</div><div class="line">				<span class="built_in">array</span>[nCount ++] = tempDeque[index].front();</div><div class="line">				tempDeque[index].pop_front();</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                      
+<section id="comment">  
+  <!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="2016/12/06/baseSort-build3/" data-title="基于模板类的排序算法（基数排序，归并排序）" data-url="http://gavinxyj.com/2016/12/06/baseSort-build3/"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"gavinxyj"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+</section>  
+  
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/Gavinxyj" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/Gavinxyj" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="https://gavinxyj.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="mailto:xie_youjiang@163.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
