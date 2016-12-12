@@ -27,7 +27,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="基于模板类的排序算法（基数排序，归并排序）"/>
+        <meta property="og:title" content="基于模板类的排序算法（基数排序，堆排序）"/>
     
 
     <!--Open Graph Description-->
@@ -49,7 +49,7 @@
 
     <!-- Title -->
     
-    <title>基于模板类的排序算法（基数排序，归并排序） - Gavin Blog</title>
+    <title>基于模板类的排序算法（基数排序，堆排序） - Gavin Blog</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -140,7 +140,7 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-heading">
-                    <h1>基于模板类的排序算法（基数排序，归并排序）</h1>
+                    <h1>基于模板类的排序算法（基数排序，堆排序）</h1>
                     
                     <span class="meta">
                         <!-- Date and Author -->
@@ -199,6 +199,54 @@
 </li>
 </ul>
 <h3 id="算法实现"><a href="#算法实现" class="headerlink" title="算法实现"></a>算法实现</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div><div class="line"><span class="keyword">void</span> Algorithm&lt;T&gt;::radixSort(T *<span class="built_in">array</span>, <span class="keyword">int</span> nLength)</div><div class="line">&#123;</div><div class="line">	<span class="keyword">if</span>(<span class="number">0</span> == *<span class="built_in">array</span>) <span class="keyword">return</span> ;</div><div class="line">	</div><div class="line">	<span class="comment">//先找出待排序中的最大元素来确定需要多少次排序</span></div><div class="line">	T max = <span class="number">0</span>;	</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> nLoop = <span class="number">0</span>; nLoop &lt; nLength; nLoop ++)</div><div class="line">	&#123;</div><div class="line">		<span class="keyword">if</span>(<span class="built_in">array</span>[nLoop] &gt; max)</div><div class="line">		&#123;</div><div class="line">			max = <span class="built_in">array</span>[nLoop];	</div><div class="line">		&#125;</div><div class="line">	&#125;	</div><div class="line">	</div><div class="line">	<span class="comment">//获取最大值的位数</span></div><div class="line">	<span class="keyword">int</span> count = <span class="number">0</span>;</div><div class="line">	<span class="keyword">while</span>(<span class="literal">true</span>)</div><div class="line">	&#123;</div><div class="line">		<span class="keyword">if</span>(max == <span class="number">0</span>) <span class="keyword">break</span>;</div><div class="line">			</div><div class="line">		max /= <span class="number">10</span>;</div><div class="line">		count ++;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="comment">//创建10个桶分别来存放各个数字,因为每个数都是0-9组成的</span></div><div class="line">	<span class="built_in">std</span>::<span class="built_in">deque</span>&lt;T&gt; tempDeque[<span class="number">10</span>];</div><div class="line">	</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> nLoop = <span class="number">0</span>; nLoop &lt; count; nLoop ++)</div><div class="line">	&#123;</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> index = <span class="number">0</span>; index &lt; nLength; index ++)</div><div class="line">		&#123;</div><div class="line">			<span class="comment">//将位数分别放到对应的桶中</span></div><div class="line">			<span class="keyword">int</span> nIndex = (<span class="built_in">array</span>[index] / (<span class="keyword">int</span>)<span class="built_in">pow</span>(<span class="number">10</span>, nLoop)) % <span class="number">10</span>;</div><div class="line">			tempDeque[nIndex].push_back(<span class="built_in">array</span>[index]);</div><div class="line">		&#125;</div><div class="line">		<span class="comment">//把此趟排好序的数据放回到原来数组中</span></div><div class="line">		<span class="keyword">int</span> nCount = <span class="number">0</span>;</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> index = <span class="number">0</span>; index &lt; <span class="number">10</span>; index ++)</div><div class="line">		&#123;</div><div class="line">			<span class="keyword">while</span>(!tempDeque[index].empty())</div><div class="line">			&#123;</div><div class="line">				<span class="built_in">array</span>[nCount ++] = tempDeque[index].front();</div><div class="line">				tempDeque[index].pop_front();</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h3><ul>
+<li><h4 id="算法的基本思想：-1"><a href="#算法的基本思想：-1" class="headerlink" title="算法的基本思想："></a>算法的基本思想：</h4><p>堆排序的基本思想是先将一个无序的集合整理为一个大根堆或小根堆的完全二叉树，然后交换根节点和最后一个叶子节点元素，然后重新整理n-1个节点为大根堆或小根堆，重复此操作直到n为0结束。</p>
+</li>
+<li><h4 id="算法原理：-1"><a href="#算法原理：-1" class="headerlink" title="算法原理："></a>算法原理：</h4></li>
+</ul>
+<ol>
+<li>建堆，从nLength/2开是调整，一直到第一个节点。</li>
+<li>调整堆，比较父节点和叶子节点的大小，若都小于叶子节点的大小则此结点无需调整，若不是则交换与该节点的左右叶子节点较小的一个元素</li>
+<li>堆排序，交换根节点和nLength节点，按照上面步骤调整nLength - 1个节点，nLength – 直到nLength为0为止。</li>
+</ol>
+<ul>
+<li><h4 id="时间复杂度：-1"><a href="#时间复杂度：-1" class="headerlink" title="时间复杂度："></a>时间复杂度：</h4><p>平均时间复杂度O(nlogn)</p>
+</li>
+<li><h4 id="稳定性：-1"><a href="#稳定性：-1" class="headerlink" title="稳定性："></a>稳定性：</h4><p>堆排序算法是不稳定的排序算法</p>
+</li>
+<li><h4 id="为了更好的演示堆排序的过程，下面给出图像演示"><a href="#为了更好的演示堆排序的过程，下面给出图像演示" class="headerlink" title="为了更好的演示堆排序的过程，下面给出图像演示"></a>为了更好的演示堆排序的过程，下面给出图像演示</h4></li>
+<li><h5 id="原始堆"><a href="#原始堆" class="headerlink" title="原始堆"></a>原始堆</h5><p><img src="/img/algorithm/heapOrginal.png" alt=""></p>
+</li>
+<li><h5 id="建堆过程"><a href="#建堆过程" class="headerlink" title="建堆过程"></a>建堆过程</h5><p><img src="/img/algorithm/heap.png" alt=""></p>
+</li>
+<li><h5 id="堆排序第一趟结果"><a href="#堆排序第一趟结果" class="headerlink" title="堆排序第一趟结果"></a>堆排序第一趟结果</h5><p><img src="/img/algorithm/heap1.png" alt=""></p>
+</li>
+<li><h5 id="堆排序第二趟结果"><a href="#堆排序第二趟结果" class="headerlink" title="堆排序第二趟结果"></a>堆排序第二趟结果</h5><p><img src="/img/algorithm/heap2.png" alt=""></p>
+</li>
+<li><h5 id="堆排序第三趟结果"><a href="#堆排序第三趟结果" class="headerlink" title="堆排序第三趟结果"></a>堆排序第三趟结果</h5><p><img src="/img/algorithm/heap3.png" alt=""></p>
+</li>
+<li><h5 id="堆排序第四趟结果"><a href="#堆排序第四趟结果" class="headerlink" title="堆排序第四趟结果"></a>堆排序第四趟结果</h5><p><img src="/img/algorithm/heap4.png" alt=""></p>
+</li>
+<li><h5 id="堆排序第五趟结果"><a href="#堆排序第五趟结果" class="headerlink" title="堆排序第五趟结果"></a>堆排序第五趟结果</h5><p><img src="/img/algorithm/heap5.png" alt=""></p>
+</li>
+<li><h5 id="堆排序第六趟结果"><a href="#堆排序第六趟结果" class="headerlink" title="堆排序第六趟结果"></a>堆排序第六趟结果</h5><p><img src="/img/algorithm/heap6.png" alt=""></p>
+</li>
+<li><h5 id="堆排序第七趟结果"><a href="#堆排序第七趟结果" class="headerlink" title="堆排序第七趟结果"></a>堆排序第七趟结果</h5><p><img src="/img/algorithm/heap7.png" alt=""></p>
+</li>
+<li><h5 id="堆排序第八趟结果"><a href="#堆排序第八趟结果" class="headerlink" title="堆排序第八趟结果"></a>堆排序第八趟结果</h5><p><img src="/img/algorithm/heap8.png" alt=""></p>
+</li>
+<li><h5 id="堆排序第九趟结果"><a href="#堆排序第九趟结果" class="headerlink" title="堆排序第九趟结果"></a>堆排序第九趟结果</h5><p><img src="/img/algorithm/heap9.png" alt=""></p>
+</li>
+<li><h4 id="算法实现："><a href="#算法实现：" class="headerlink" title="算法实现："></a>算法实现：</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div><div class="line"><span class="keyword">void</span> Algorithm&lt;T&gt;::heapSort(T *<span class="built_in">array</span>, <span class="keyword">int</span> nLength, <span class="keyword">int</span> (*fCompare)(<span class="keyword">const</span> T*, <span class="keyword">const</span> T*))</div><div class="line">&#123;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> nLoop = (nLength - <span class="number">1</span>) / <span class="number">2</span> ; nLoop &gt;= <span class="number">0</span>; nLoop --)</div><div class="line">	&#123;</div><div class="line">		<span class="comment">//只有左子树并小于父节点</span></div><div class="line">		<span class="keyword">int</span> lChild = nLoop * <span class="number">2</span> + <span class="number">1</span>;<span class="comment">//左节点</span></div><div class="line">	  <span class="keyword">int</span> rChild = lChild + <span class="number">1</span>;<span class="comment">//右节点</span></div><div class="line">		<span class="keyword">if</span>(lChild == nLength - <span class="number">1</span> &amp;&amp; fCompare(&amp;<span class="built_in">array</span>[lChild], &amp;<span class="built_in">array</span>[nLoop]) &lt;= <span class="number">0</span>)</div><div class="line">		&#123;</div><div class="line">			swap(<span class="built_in">array</span>[lChild], <span class="built_in">array</span>[nLoop]);	</div><div class="line">		&#125;</div><div class="line">		<span class="comment">//从子树开始整理</span></div><div class="line">		adjustHeap(<span class="built_in">array</span>, nLength - <span class="number">1</span>, nLoop, fCompare);	</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">while</span>(nLength &gt; <span class="number">0</span>)</div><div class="line">	&#123;</div><div class="line">		swap(<span class="built_in">array</span>[nLength - <span class="number">1</span>], <span class="built_in">array</span>[<span class="number">0</span>]);		</div><div class="line">		nLength --;</div><div class="line">		adjustHeap(<span class="built_in">array</span>, nLength, <span class="number">0</span>, fCompare);	</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div><div class="line"><span class="keyword">void</span> Algorithm&lt;T&gt;::adjustHeap(T *<span class="built_in">array</span>, <span class="keyword">int</span> nLength, T element, <span class="keyword">int</span> (*fCompare)(<span class="keyword">const</span> T*, <span class="keyword">const</span> T*))</div><div class="line">&#123;</div><div class="line">	<span class="keyword">int</span> lChild = element * <span class="number">2</span> + <span class="number">1</span>;<span class="comment">//左节点</span></div><div class="line">	<span class="keyword">int</span> rChild = lChild + <span class="number">1</span>;<span class="comment">//右节点</span></div><div class="line">	</div><div class="line">	<span class="keyword">while</span>(rChild &lt; nLength)</div><div class="line">	&#123;</div><div class="line">		<span class="comment">//如果父节点小于它的左右孩子节点则改节点不需要整理</span></div><div class="line">		<span class="keyword">if</span>(fCompare(&amp;<span class="built_in">array</span>[element], &amp;<span class="built_in">array</span>[lChild]) &lt; <span class="number">0</span> &amp;&amp; fCompare(&amp;<span class="built_in">array</span>[element], &amp;<span class="built_in">array</span>[rChild]) &lt; <span class="number">0</span>) <span class="keyword">return</span>;	</div><div class="line">		<span class="comment">//比较左右子树确定哪个子树最小</span></div><div class="line">		<span class="keyword">if</span>(fCompare(&amp;<span class="built_in">array</span>[lChild], &amp;<span class="built_in">array</span>[rChild]) &lt;= <span class="number">0</span>)</div><div class="line">		&#123;</div><div class="line">			swap(<span class="built_in">array</span>[element], <span class="built_in">array</span>[lChild]);</div><div class="line">			element = lChild;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">else</span></div><div class="line">		&#123;</div><div class="line">			swap(<span class="built_in">array</span>[element], <span class="built_in">array</span>[rChild]);</div><div class="line">			element = rChild;	</div><div class="line">		&#125;</div><div class="line">		lChild = element * <span class="number">2</span> + <span class="number">1</span>;</div><div class="line">		rChild = lChild + <span class="number">1</span>;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="项目文件地址：https-github-com-Gavinxyj-Algorithm"><a href="#项目文件地址：https-github-com-Gavinxyj-Algorithm" class="headerlink" title="项目文件地址：https://github.com/Gavinxyj/Algorithm"></a>项目文件地址：<a href="https://github.com/Gavinxyj/Algorithm" target="_blank" rel="external">https://github.com/Gavinxyj/Algorithm</a></h4><hr>
+<blockquote>
+<p>推荐我的微信公众号：爱做饭的老谢<br><img src="/img/hexobuild/weixin.jpg" alt=""></p>
+</blockquote>
+<hr>
+<p>上一篇：<a href="/2016/12/05/ftpProtocol-build">FTP网络协议C++实现）</a></p>
+
 
                 
             </div>
@@ -209,7 +257,7 @@
                       
 <section id="comment">  
   <!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="2016/12/06/baseSort-build3/" data-title="基于模板类的排序算法（基数排序，归并排序）" data-url="http://gavinxyj.com/2016/12/06/baseSort-build3/"></div>
+	<div class="ds-thread" data-thread-key="2016/12/06/baseSort-build3/" data-title="基于模板类的排序算法（基数排序，堆排序）" data-url="http://gavinxyj.com/2016/12/06/baseSort-build3/"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
