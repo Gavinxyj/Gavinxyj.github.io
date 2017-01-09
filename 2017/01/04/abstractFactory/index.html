@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="版权声明:本文为作者原创文章，可以随意转载，但必须在明确位置表明出处！！！
+设计模式：设计模式（Design pattern）是一套被反复使用、多数人知晓的、经过分类编目的、代码设计经验的总结。使用设计模式是为了可重用代码、让代码更容易被他人理解、保证代码可靠性。
+设计模式的六大原则：
+开闭原则：对">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Gavin">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="设计模式（抽象工厂模型）"/>
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Gavin Blog"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+        <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>设计模式（抽象工厂模型） - Gavin Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Configurable Title</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/Gavinxyj">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>设计模式（抽象工厂模型）</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        2017-01-04
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/design/">#design</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <blockquote>
+<h3 id="版权声明-本文为作者原创文章，可以随意转载，但必须在明确位置表明出处！！！"><a href="#版权声明-本文为作者原创文章，可以随意转载，但必须在明确位置表明出处！！！" class="headerlink" title="版权声明:本文为作者原创文章，可以随意转载，但必须在明确位置表明出处！！！"></a>版权声明:本文为作者原创文章，可以随意转载，但必须在明确位置表明出处！！！</h3></blockquote>
+<h3 id="设计模式："><a href="#设计模式：" class="headerlink" title="设计模式："></a>设计模式：</h3><p>设计模式（Design pattern）是一套被反复使用、多数人知晓的、经过分类编目的、代码设计经验的总结。使用设计模式是为了可重用代码、让代码更容易被他人理解、保证代码可靠性。</p>
+<h3 id="设计模式的六大原则："><a href="#设计模式的六大原则：" class="headerlink" title="设计模式的六大原则："></a>设计模式的六大原则：</h3><ol>
+<li><h4 id="开闭原则："><a href="#开闭原则：" class="headerlink" title="开闭原则："></a>开闭原则：</h4><p>对扩展开放，对修改关闭。在程序需要进行扩展的时候，不能去修改原有的代码，实现一种热插拔的效果。这样有利于程序的可维护性和易升级性。</p>
+</li>
+<li><h4 id="里氏代换原则："><a href="#里氏代换原则：" class="headerlink" title="里氏代换原则："></a>里氏代换原则：</h4><p>里氏代换原则是面向对象设计的基本原则之一，里氏代换原则中说，任何基类可以出现的地方，子类一定可以出现，里氏代换原则是继承复用的基础，只有当派生类可以替换基类，且原有功能不被影响时基类才能真正被复用，而派生类也能够在基类的基础上新增新的行为。里氏代换原则是对开闭原则的补充，实现开闭原则的关键步骤就是抽象化，而基类和子类的继承关系就是抽象化的具体实现。</p>
+</li>
+<li><h4 id="依赖倒转原则："><a href="#依赖倒转原则：" class="headerlink" title="依赖倒转原则："></a>依赖倒转原则：</h4><p>这个原则是开闭原则的基础，它是针对接口编程，依赖抽象而不依赖具体</p>
+</li>
+<li><h4 id="接口隔离原则："><a href="#接口隔离原则：" class="headerlink" title="接口隔离原则："></a>接口隔离原则：</h4><p>使用多个隔离的接口，比使用单个接口要好。它的另外一个意识是降低类之间的耦合度。</p>
+</li>
+<li><h4 id="迪米特法则："><a href="#迪米特法则：" class="headerlink" title="迪米特法则："></a>迪米特法则：</h4><p>迪米特发展又称最少知道原则，一个实体应当尽量少的与其它实体之间发生相互作用，使得系统功能模块相对独立。</p>
+</li>
+<li><h4 id="合成复用原则："><a href="#合成复用原则：" class="headerlink" title="合成复用原则："></a>合成复用原则：</h4><p>尽量使用合成/聚合的方式，而不是使用继承方式。</p>
+</li>
+</ol>
+<p>###抽象工厂模型<br>抽象工厂模型是围绕一个超级工厂去创建其它工厂，工厂和工厂之间相互独立，在抽象工厂模式中，超级工厂只负责创建一个相关对象的工厂，不需要显示的指定他们的类，每个生成的工厂都能够按照工厂模式提供对象</p>
+<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><p>当一个产品族中的多个对象被设计成一起工作时，它能保证客户端始终只使用同一个产品族中的对象。</p>
+<h3 id="确定"><a href="#确定" class="headerlink" title="确定"></a>确定</h3><p>产品族扩展非常困难，当要增加某一系列产品时，不仅要在抽象类里加代码，还需要在具体实现类里添加相应代码</p>
+<h3 id="UML类图"><a href="#UML类图" class="headerlink" title="UML类图"></a>UML类图</h3><p><img src="/img/designPattern/abstractFactory.png" alt=""></p>
+<p>从UML可以看出，若我们要新增背包这类产品是，我们需要新增背包这个生产抽象类，同时还需要在macFactory,lenovoFactory工厂中新增相应的生产类，并且IFactory也需要新增相应的生产类。所以抽象工程模式对产品扩展非常困难，但是保证了客户端使用同一个产品族中的对象，比如你需要mac系类的产品是你只需要实例化一个macFactory就可以使用mac系类的产品了。</p>
+<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><p>根据类图一步一步实现，首先实现IFactory超级工厂<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> __IFACTORY__</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> __IFACTORY__</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"keyBoardProduct.h"</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"mouseProduct.h"</span></span></div><div class="line"></div><div class="line"><span class="keyword">class</span> IFactory</div><div class="line">&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">	IFactory()&#123;&#125;;</div><div class="line">	<span class="keyword">virtual</span> ~IFactory()&#123;&#125;;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">	<span class="function"><span class="keyword">virtual</span> CKeyBoardProduct* <span class="title">createKeyBoardProduct</span><span class="params">()</span> </span>= <span class="number">0</span>;</div><div class="line">	<span class="function"><span class="keyword">virtual</span> CMouseProduct* <span class="title">createMouseProduct</span><span class="params">()</span> </span>= <span class="number">0</span>;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div></pre></td></tr></table></figure></p>
+<h3 id="实现lenovoFactory工厂"><a href="#实现lenovoFactory工厂" class="headerlink" title="实现lenovoFactory工厂"></a>实现lenovoFactory工厂</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> __LENOVOFACTORY__</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> __LENOVOFACTORY__</span></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"IFactory.h"</span></span></div><div class="line"></div><div class="line"><span class="keyword">class</span> CLenovoFactory : <span class="keyword">public</span> IFactory</div><div class="line">&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">	CLenovoFactory();</div><div class="line">  ~CLenovoFactory();</div><div class="line"><span class="keyword">public</span>:</div><div class="line">	<span class="function"><span class="keyword">virtual</span> CKeyBoardProduct* <span class="title">createKeyBoardProduct</span><span class="params">()</span></span>;</div><div class="line">	<span class="function"><span class="keyword">virtual</span> CMouseProduct* <span class="title">createMouseProduct</span><span class="params">()</span></span>;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div><div class="line">```.cpp</div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"lenovoFactory.h"</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"lenovoStyleKeyBoard.h"</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"lenovoStyleMouse.h"</span></span></div><div class="line">CLenovoFactory::CLenovoFactory()</div><div class="line">&#123;</div><div class="line">	</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">CLenovoFactory::~CLenovoFactory()</div><div class="line">&#123;</div><div class="line">	</div><div class="line">&#125;</div><div class="line"></div><div class="line">CKeyBoardProduct* CLenovoFactory::createKeyBoardProduct()</div><div class="line">&#123;</div><div class="line">	<span class="keyword">return</span> <span class="keyword">new</span> 	CLenovoStyleKeyBoard();</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">CMouseProduct* CLenovoFactory::createMouseProduct()</div><div class="line">&#123;</div><div class="line">	<span class="keyword">return</span> <span class="keyword">new</span> CLenovoStyleMouse();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="实现macFactory工厂"><a href="#实现macFactory工厂" class="headerlink" title="实现macFactory工厂"></a>实现macFactory工厂</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">#ifndef __MACFACTORY__</div><div class="line">#define __MACFACTORY__</div><div class="line"></div><div class="line">#include &quot;IFactory.h&quot;</div><div class="line">class CMacFactory : public IFactory</div><div class="line">&#123;</div><div class="line">public:</div><div class="line">	CMacFactory();</div><div class="line">	~CMacFactory();</div><div class="line">public:</div><div class="line">	virtual CKeyBoardProduct* createKeyBoardProduct();</div><div class="line">	virtual CMouseProduct* createMouseProduct();</div><div class="line">&#125;;</div><div class="line"></div><div class="line">#endif</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">#include &quot;macFactory.h&quot;</div><div class="line">#include &quot;macStyleKeyBoard.h&quot;</div><div class="line">#include &quot;macStyleMouse.h&quot;</div><div class="line">CMacFactory::CMacFactory()</div><div class="line">&#123;</div><div class="line">	</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">CMacFactory::~CMacFactory()</div><div class="line">&#123;</div><div class="line">	</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">CKeyBoardProduct* CMacFactory::createKeyBoardProduct()</div><div class="line">&#123;</div><div class="line">	return new CMacStyleKeyBoard();</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">CMouseProduct* CMacFactory::createMouseProduct()</div><div class="line">&#123;</div><div class="line">	return new CMacSytleMouse();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="创建抽象类KeyBoardProduct"><a href="#创建抽象类KeyBoardProduct" class="headerlink" title="创建抽象类KeyBoardProduct"></a>创建抽象类KeyBoardProduct</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> __KEYBOARDRODUCT__</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> __KEYBOARDRODUCT__</span></div><div class="line"></div><div class="line"><span class="keyword">class</span> CKeyBoardProduct</div><div class="line">&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">	CKeyBoardProduct()&#123;&#125;;</div><div class="line">	<span class="keyword">virtual</span> ~CKeyBoardProduct()&#123;&#125;;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">	<span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">createKeyBoard</span><span class="params">()</span> </span>= <span class="number">0</span>;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div></pre></td></tr></table></figure>
+<h3 id="创建抽象类MouseProduct"><a href="#创建抽象类MouseProduct" class="headerlink" title="创建抽象类MouseProduct"></a>创建抽象类MouseProduct</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> __MOUSEPRODUCT__</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> __MOUSEPRODUCT__</span></div><div class="line"></div><div class="line"><span class="keyword">class</span> CMouseProduct</div><div class="line">&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">	CMouseProduct()&#123;&#125;;</div><div class="line">	<span class="keyword">virtual</span> ~CMouseProduct()&#123;&#125;;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">	<span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">createMouse</span><span class="params">()</span> </span>= <span class="number">0</span>;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div></pre></td></tr></table></figure>
+<h3 id="实现抽象类lenovoStyleKeyBoard"><a href="#实现抽象类lenovoStyleKeyBoard" class="headerlink" title="实现抽象类lenovoStyleKeyBoard"></a>实现抽象类lenovoStyleKeyBoard</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">#ifndef __LENOVOSTYLEKEYBOARD__</div><div class="line">#define __LENOVOSTYLEKEYBOARD__</div><div class="line">#include &quot;keyBoardProduct.h&quot;</div><div class="line"></div><div class="line"></div><div class="line">class CLenovoStyleKeyBoard : public CKeyBoardProduct</div><div class="line">&#123;</div><div class="line">public:</div><div class="line">	CLenovoStyleKeyBoard();</div><div class="line">	~CLenovoStyleKeyBoard();</div><div class="line">public:</div><div class="line">	virtual void createKeyBoard();</div><div class="line">&#125;;</div><div class="line"></div><div class="line">#endif</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">#include &quot;lenovoStyleKeyBoard.h&quot;</div><div class="line">#include &lt;iostream&gt;</div><div class="line"></div><div class="line">CLenovoStyleKeyBoard::CLenovoStyleKeyBoard()</div><div class="line">&#123;</div><div class="line">	</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">CLenovoStyleKeyBoard::~CLenovoStyleKeyBoard()</div><div class="line">&#123;</div><div class="line">	</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">void CLenovoStyleKeyBoard::createKeyBoard()</div><div class="line">&#123;</div><div class="line">	std::cout &lt;&lt; &quot;lenovo style keyboard&quot; &lt;&lt; std::endl;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="实现抽象类macStyleKeyBoard"><a href="#实现抽象类macStyleKeyBoard" class="headerlink" title="实现抽象类macStyleKeyBoard"></a>实现抽象类macStyleKeyBoard</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">#ifndef __MACSTYLEKEYBOARD__</div><div class="line">#define __MACSTYLEKEYBOARD__</div><div class="line">#include &quot;keyBoardProduct.h&quot;</div><div class="line"></div><div class="line"></div><div class="line">class CMacStyleKeyBoard : public CKeyBoardProduct</div><div class="line">&#123;</div><div class="line">public:</div><div class="line">	CMacStyleKeyBoard();</div><div class="line">	~CMacStyleKeyBoard();</div><div class="line">public:</div><div class="line">	virtual void createKeyBoard();</div><div class="line">&#125;;</div><div class="line"></div><div class="line">#endif</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">#include &quot;macStyleKeyBoard.h&quot;</div><div class="line">#include &lt;iostream&gt;</div><div class="line"></div><div class="line">CMacStyleKeyBoard::CMacStyleKeyBoard()</div><div class="line">&#123;</div><div class="line">	</div><div class="line">&#125;</div><div class="line"></div><div class="line">CMacStyleKeyBoard::~CMacStyleKeyBoard()</div><div class="line">&#123;</div><div class="line">	</div><div class="line">&#125;</div><div class="line"></div><div class="line">void CMacStyleKeyBoard::createKeyBoard()</div><div class="line">&#123;</div><div class="line">	std::cout &lt;&lt; &quot;mac style keyboard&quot; &lt;&lt; std::endl;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="实现抽象类lenovoStyleMouse"><a href="#实现抽象类lenovoStyleMouse" class="headerlink" title="实现抽象类lenovoStyleMouse"></a>实现抽象类lenovoStyleMouse</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">#ifndef __LENOVOSYTLEMOUSE__</div><div class="line">#define __LENOVOSYTLEMOUSE__</div><div class="line">#include &quot;mouseProduct.h&quot;</div><div class="line"></div><div class="line"></div><div class="line">class CLenovoStyleMouse : public CMouseProduct</div><div class="line">&#123;</div><div class="line">public:</div><div class="line">	CLenovoStyleMouse();</div><div class="line">	~CLenovoStyleMouse();</div><div class="line">public:</div><div class="line">	virtual void createMouse();</div><div class="line">&#125;;</div><div class="line"></div><div class="line">#endif</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">#include &quot;lenovoStyleMouse.h&quot;</div><div class="line">#include &lt;iostream&gt;</div><div class="line">CLenovoStyleMouse::CLenovoStyleMouse()</div><div class="line">&#123;</div><div class="line">	</div><div class="line">&#125;</div><div class="line"></div><div class="line">CLenovoStyleMouse::~CLenovoStyleMouse()</div><div class="line">&#123;</div><div class="line">	</div><div class="line">&#125;</div><div class="line"></div><div class="line">void CLenovoStyleMouse::createMouse()</div><div class="line">&#123;</div><div class="line">	std::cout &lt;&lt; &quot;lenovo style mouse&quot; &lt;&lt; std::endl;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="实现抽象类macStyleMouse"><a href="#实现抽象类macStyleMouse" class="headerlink" title="实现抽象类macStyleMouse"></a>实现抽象类macStyleMouse</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">#ifndef __MACSYTLEMOUSE__</div><div class="line">#define __MACSYTLEMOUSE__</div><div class="line">#include &quot;mouseProduct.h&quot;</div><div class="line"></div><div class="line"></div><div class="line">class CMacSytleMouse : public CMouseProduct</div><div class="line">&#123;</div><div class="line">public:</div><div class="line">	CMacSytleMouse();</div><div class="line">	~CMacSytleMouse();</div><div class="line">public:</div><div class="line">	virtual void createMouse();</div><div class="line">&#125;;</div><div class="line"></div><div class="line">#endif</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">#include &quot;macStyleMouse.h&quot;</div><div class="line">#include &lt;iostream&gt;</div><div class="line">CMacSytleMouse::CMacSytleMouse()</div><div class="line">&#123;</div><div class="line">	</div><div class="line">&#125;</div><div class="line"></div><div class="line">CMacSytleMouse::~CMacSytleMouse()</div><div class="line">&#123;</div><div class="line">	</div><div class="line">&#125;</div><div class="line"></div><div class="line">void CMacSytleMouse::createMouse()</div><div class="line">&#123;</div><div class="line">	std::cout &lt;&lt; &quot;mac style mouse&quot; &lt;&lt; std::endl;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="调用实例"><a href="#调用实例" class="headerlink" title="调用实例"></a>调用实例</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"IFactory.h"</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"macFactory.h"</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"mouseProduct.h"</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"keyBoardProduct.h"</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"lenovoFactory.h"</span></span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></div><div class="line">&#123;</div><div class="line">	<span class="comment">//获取一个苹果风格的鼠标</span></div><div class="line">	IFactory *factory = <span class="keyword">new</span> CMacFactory();</div><div class="line">	CMouseProduct * macMouse = factory-&gt;createMouseProduct();</div><div class="line">	macMouse-&gt;createMouse();</div><div class="line">	</div><div class="line">	</div><div class="line">	<span class="comment">//获取一个苹果风格的键盘</span></div><div class="line">	CKeyBoardProduct *keyBoard = factory-&gt;createKeyBoardProduct();</div><div class="line">	keyBoard-&gt;createKeyBoard();</div><div class="line">	</div><div class="line">	<span class="comment">//获取一个联想风格的鼠标</span></div><div class="line">	IFactory *lenovoFactory = <span class="keyword">new</span> CLenovoFactory();</div><div class="line">	CMouseProduct *lenovoMouse = lenovoFactory-&gt;createMouseProduct();</div><div class="line">	lenovoMouse-&gt;createMouse();</div><div class="line">	</div><div class="line">	<span class="comment">//获取一个联想风格的键盘</span></div><div class="line">	CKeyBoardProduct *lenovoKeyBoard = lenovoFactory-&gt;createKeyBoardProduct();</div><div class="line">	lenovoKeyBoard-&gt;createKeyBoard();</div><div class="line">	</div><div class="line">	<span class="keyword">if</span>(<span class="number">0</span> != factory)</div><div class="line">	&#123;</div><div class="line">		<span class="keyword">delete</span> factory;</div><div class="line">		factory = <span class="number">0</span>;	</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="keyword">if</span>(<span class="number">0</span> != macMouse)</div><div class="line">	&#123;</div><div class="line">		<span class="keyword">delete</span> macMouse;</div><div class="line">		macMouse = <span class="number">0</span>;	</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="keyword">if</span>(<span class="number">0</span> != keyBoard)</div><div class="line">	&#123;</div><div class="line">		<span class="keyword">delete</span> keyBoard;</div><div class="line">		keyBoard = <span class="number">0</span>;	</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="keyword">if</span>(<span class="number">0</span> != lenovoFactory)</div><div class="line">	&#123;</div><div class="line">		<span class="keyword">delete</span> lenovoFactory;</div><div class="line">		lenovoFactory = <span class="number">0</span>;	</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="keyword">if</span>(<span class="number">0</span> != lenovoMouse)</div><div class="line">	&#123;</div><div class="line">		<span class="keyword">delete</span> lenovoMouse;</div><div class="line">		lenovoMouse = <span class="number">0</span>;	</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="keyword">if</span>(<span class="number">0</span> != lenovoKeyBoard)</div><div class="line">	&#123;</div><div class="line">		<span class="keyword">delete</span> lenovoKeyBoard;</div><div class="line">		lenovoKeyBoard = <span class="number">0</span>;	</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;	</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="项目文件：https-github-com-Gavinxyj-designPattern"><a href="#项目文件：https-github-com-Gavinxyj-designPattern" class="headerlink" title="项目文件：https://github.com/Gavinxyj/designPattern"></a>项目文件：<a href="https://github.com/Gavinxyj/designPattern" target="_blank" rel="external">https://github.com/Gavinxyj/designPattern</a></h3><hr>
+<blockquote>
+<p>推荐我的微信公众号：爱做饭的老谢<br><img src="/img/hexobuild/weixin.jpg" alt=""></p>
+</blockquote>
+<hr>
+<p>上一篇：<a href="/2016/12/30/2016-build">2016总结，2017目标</a></p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                      
+<section id="comment">  
+  <!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="2017/01/04/abstractFactory/" data-title="设计模式（抽象工厂模型）" data-url="http://gavinxyj.com/2017/01/04/abstractFactory/"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"gavinxyj"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+</section>  
+  
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/Gavinxyj" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/Gavinxyj" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="https://gavinxyj.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="mailto:xie_youjiang@163.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
