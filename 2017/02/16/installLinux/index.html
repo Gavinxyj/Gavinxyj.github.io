@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="版权声明:本文为作者原创文章，可以随意转载，但必须在明确位置表明出处！！！
+安装步骤这里以Centos6.5为例
+U盘启动将U盘查到电脑上，重启电脑，在开机引导界面按下F12,我的主机是ThinkPad的，其它品牌的机器可能有所区别，按下F12后在出现的界面上选择以USB启动，稍等片刻出现以下画面
+">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Gavin">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="U盘安装CentOS6.5"/>
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Gavin Blog"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+        <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>U盘安装CentOS6.5 - Gavin Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Gavin Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/Gavinxyj">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>U盘安装CentOS6.5</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        2017-02-16
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/install/">#install</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <blockquote>
+<h3 id="版权声明-本文为作者原创文章，可以随意转载，但必须在明确位置表明出处！！！"><a href="#版权声明-本文为作者原创文章，可以随意转载，但必须在明确位置表明出处！！！" class="headerlink" title="版权声明:本文为作者原创文章，可以随意转载，但必须在明确位置表明出处！！！"></a>版权声明:本文为作者原创文章，可以随意转载，但必须在明确位置表明出处！！！</h3></blockquote>
+<h3 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h3><p>这里以Centos6.5为例</p>
+<h3 id="U盘启动"><a href="#U盘启动" class="headerlink" title="U盘启动"></a>U盘启动</h3><p>将U盘查到电脑上，重启电脑，在开机引导界面按下F12,我的主机是ThinkPad的，其它品牌的机器可能有所区别，按下F12后在出现的界面上选择以USB启动，稍等片刻出现以下画面<br><img src="/img/installLinux/1.png" alt=""></p>
+<p>界面说明：</p>
+<ul>
+<li>Install or upgrade an existing system 安装和升级现有系统</li>
+<li>Install system with basic video driver 安装过程中采用基本的显卡驱动</li>
+<li>Rescue installed system 进入系统修复模式</li>
+<li>Boot from local drive 退出安装从硬盘启动</li>
+<li>Memory test 内存检测</li>
+</ul>
+<p>我们这里选择第一项，然后按回车,出现一下界面<br><img src="/img/installLinux/2.png" alt=""><br>选择English后出现下图所示<br><img src="/img/installLinux/3.png" alt=""><br>keyboard Type键盘类型选择us后出现下图所示<br><img src="/img/installLinux/4.png" alt=""><br>选择Hard drive硬件驱动后出现下图所示<br><img src="/img/installLinux/5.png" alt=""><br>这里不同的机器有可能出现不同的选项，有可能会出现/dev/sda1;/dev/sda2等等，这里你只需要选择你的镜像文件在哪个磁盘位置就可以了，我这里选择/dev/sda4这就是我的U盘，回车后出现下图所示，然后点击next<br><img src="/img/installLinux/6.png" alt=""></p>
+<h3 id="语言选择，键盘选择"><a href="#语言选择，键盘选择" class="headerlink" title="语言选择，键盘选择"></a>语言选择，键盘选择</h3><p><img src="/img/installLinux/7.png" alt=""></p>
+<p>语言选择可以选择简体中文，和English，最好是选择English，选择好后点击“next”出现下图所示<br><img src="/img/installLinux/8.png" alt=""><br>键盘选择美国英语式，点击“next”</p>
+<h3 id="选择安装设备"><a href="#选择安装设备" class="headerlink" title="选择安装设备"></a>选择安装设备</h3><p><img src="/img/installLinux/9.png" alt=""><br>选择“基本存储设备”，点击下一步出现下图所示，如果你不是在虚拟机上装的可能不会出现下图，所以如果你在真机上安装没有出现下图，请不必慌张。<br><img src="/img/installLinux/10.png" alt=""><br>选择“是，忽略所有数据”</p>
+<h3 id="设置主机名"><a href="#设置主机名" class="headerlink" title="设置主机名"></a>设置主机名</h3><p><img src="/img/installLinux/11.png" alt=""><br>这里取个主机名字，点击下一步</p>
+<h3 id="设置时区"><a href="#设置时区" class="headerlink" title="设置时区"></a>设置时区</h3><p><img src="/img/installLinux/12.png" alt=""><br>时区设置为亚洲上海，点击下一步</p>
+<h3 id="设置root密码"><a href="#设置root密码" class="headerlink" title="设置root密码"></a>设置root密码</h3><p><img src="/img/installLinux/13.png" alt=""><br>设置root密码，然后点击“下一步”，如果你的密码过于简单会出现下图所示<br><img src="/img/installLinux/14.png" alt=""><br>选择“无论如何都使用”</p>
+<h4 id="设置分区"><a href="#设置分区" class="headerlink" title="设置分区"></a>设置分区</h4><p><img src="/img/installLinux/15.png" alt=""><br>现在“创建自定义布局”，单机下一步</p>
+<h3 id="注意：创建分区要遵守如下原则"><a href="#注意：创建分区要遵守如下原则" class="headerlink" title="注意：创建分区要遵守如下原则"></a>注意：创建分区要遵守如下原则</h3><ul>
+<li>必须创建 / 分区，大小为50-100GB</li>
+<li>必须创建 swap 分区，大小为内存2倍</li>
+<li>必须创建 /boot分区，大小为200M</li>
+<li>必须创建 /app 分区，大小为200GB</li>
+</ul>
+<p><img src="/img/installLinux/16.png" alt=""></p>
+<p>鼠标点中sda,然后点击创建，出现下图所示<br><img src="/img/installLinux/17.png" alt=""><br>选择“标准分区”，然后点击“创建”<br><img src="/img/installLinux/18.png" alt=""><br>这里我的根目录分配的10G是因为我使用虚拟机安装的，若在真机上按照此根目录大小可以根据实际情况制定。创建“/”分区，然后点击确定，出现下图所示<br><img src="/img/installLinux/19.png" alt=""><br>点击“创建”，创建下一个分区/boot,分区大小为200MB<br><img src="/img/installLinux/17.png" alt=""><br>选择“标准分区”，点击“创建”<br><img src="/img/installLinux/21.png" alt=""><br>点击“确定”，/boot分区创建完成，出现下图所示<br><img src="/img/installLinux/20.png" alt=""><br>点击“创建”，创建下一个分区swap,分区大小为1024MB<br><img src="/img/installLinux/17.png" alt=""><br>选择“标准分区”，然后点击“创建”<br><img src="/img/installLinux/22.png" alt=""><br>选择“文件系统类型为swap”，大小内存2倍。点击“确定”<br><img src="/img/installLinux/23.png" alt=""><br>点击“创建”，创建/app 分区<br><img src="/img/installLinux/17.png" alt=""><br>选择“标准分区”，点击“创建”<br><img src="/img/installLinux/24.png" alt=""><br>挂载点输入/app,大小为磁盘剩余空间，点击“确定”，分区分配完成。<br><img src="/img/installLinux/25.png" alt=""><br>点击“下一步”,出现如下图所示<br><img src="/img/installLinux/26.png" alt=""><br>点击“将修改写入磁盘”</p>
+<h3 id="安装引导程序"><a href="#安装引导程序" class="headerlink" title="安装引导程序"></a>安装引导程序</h3><p>这一步非常，非常重要，因为我们是用U盘按照的，所以这里可能会出现“在/dev/sdbx中安装引导程序”，如果你看见的是这个的话一定要选择更换设备，在弹出来的对话框选择将引导程序安装在/dev/sda上，切记，切记！！！。<br><img src="/img/installLinux/27.png" alt=""><br>选择好后，单机“下一步”</p>
+<h3 id="选择安装包"><a href="#选择安装包" class="headerlink" title="选择安装包"></a>选择安装包</h3><p>这里你可以选择基本服务，基本服务就是没有界面终端的，如果你想要有像windows桌面一样的服务你就选择桌面，这里我选择的是基本服务<br><img src="/img/installLinux/28.png" alt=""><br>选择“现在自定义”，点击“下一步”出现下图所示<br><img src="/img/installLinux/29.png" alt=""></p>
+<h3 id="开发：选择如下"><a href="#开发：选择如下" class="headerlink" title="开发：选择如下"></a>开发：选择如下</h3><p><img src="/img/installLinux/30.png" alt=""><br>点击“下一步”出现下图所示<br><img src="/img/installLinux/31.png" alt=""><br>等待安装完成出现下图，点击重新引导完成系统安装<br><img src="/img/installLinux/32.png" alt=""></p>
+<h3 id="配置IP地址"><a href="#配置IP地址" class="headerlink" title="配置IP地址"></a>配置IP地址</h3><p>系统重启后，以管理员身份登陆，在命令行下执行命令后，修改网卡配置如下图所示<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vi /etc/sysconfig/network-scripts/ifcfg-eth0</div></pre></td></tr></table></figure></p>
+<p><img src="/img/installLinux/33.png" alt=""><br>修改网卡配置文件，修改参数 onboot=yes，保存退出（Esc + wq），重启网卡<br><img src="/img/installLinux/34.png" alt=""></p>
+<h3 id="关闭防火墙"><a href="#关闭防火墙" class="headerlink" title="关闭防火墙"></a>关闭防火墙</h3><p>关闭防火墙，设置防火墙开机不启动。<br><img src="/img/installLinux/35.png" alt=""></p>
+<h3 id="关闭SeLinux"><a href="#关闭SeLinux" class="headerlink" title="关闭SeLinux"></a>关闭SeLinux</h3><p>修改selinux 配置文件： vi /etc/selinux/config<br><img src="/img/installLinux/36.png" alt=""></p>
+<h3 id="配置yum本地源"><a href="#配置yum本地源" class="headerlink" title="配置yum本地源"></a>配置yum本地源</h3><p>上传ISO文件然后执行挂载iso文件命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mount ISO文件 -o loop /mnt</div></pre></td></tr></table></figure></p>
+<h3 id="添加配置文件"><a href="#添加配置文件" class="headerlink" title="添加配置文件"></a>添加配置文件</h3><p>vi /etc/yum.repos.d/rhel6.repo 文件内容如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[Server]</div><div class="line">name=rhel6server</div><div class="line">baseurl=file:///mnt</div><div class="line">enable=1</div><div class="line">gpcheck=1</div><div class="line">gpgkey=file:///mnt/RPM-GPG-KEY-CentOS6 #注意这里需要填写你所安装的系统，这个你可以去/mnt目录下看就知道要填哪一个。</div></pre></td></tr></table></figure></p>
+<hr>
+<blockquote>
+<p>推荐我的微信公众号：爱做饭的老谢<br><img src="/img/hexobuild/weixin.jpg" alt=""></p>
+</blockquote>
+<hr>
+<p>上一篇：<a href="/2017/02/14/rabbitmq-build">RabbitMq集群部署</a></p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                      
+<section id="comment">  
+  <!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="2017/02/16/installLinux/" data-title="U盘安装CentOS6.5" data-url="http://gavinxyj.com/2017/02/16/installLinux/"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"gavinxyj"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+</section>  
+  
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/Gavinxyj" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/Gavinxyj" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="https://gavinxyj.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="mailto:xie_youjiang@163.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
