@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="版权声明:本文为作者原创文章，可以随意转载，但必须在明确位置表明出处！！！
+安装Oracle环境需要的依赖包这里执行以下命令，需要接上一篇文档，yum源的配置，还有需要挂载ISO文件到/mnt目录下1234567891011121314151617yum -y install binutils-2.">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Gavin">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="CentOS6.5下Oracle 11gR2安装"/>
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Gavin Blog"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+        <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>CentOS6.5下Oracle 11gR2安装 - Gavin Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Gavin Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/Gavinxyj">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>CentOS6.5下Oracle 11gR2安装</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        2017-02-16
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/install/">#install</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <blockquote>
+<h3 id="版权声明-本文为作者原创文章，可以随意转载，但必须在明确位置表明出处！！！"><a href="#版权声明-本文为作者原创文章，可以随意转载，但必须在明确位置表明出处！！！" class="headerlink" title="版权声明:本文为作者原创文章，可以随意转载，但必须在明确位置表明出处！！！"></a>版权声明:本文为作者原创文章，可以随意转载，但必须在明确位置表明出处！！！</h3></blockquote>
+<h3 id="安装Oracle环境需要的依赖包"><a href="#安装Oracle环境需要的依赖包" class="headerlink" title="安装Oracle环境需要的依赖包"></a>安装Oracle环境需要的依赖包</h3><p>这里执行以下命令，需要接上一篇文档，yum源的配置，还有需要挂载ISO文件到/mnt目录下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">yum -y install binutils-2.*</div><div class="line">yum -y install compat-libcap1-*</div><div class="line">yum -y install compat-libstdc++*</div><div class="line">yum -y install compat-libstdc++-*</div><div class="line">yum -y install gcc-4*</div><div class="line">yum -y install gcc-c++-4*</div><div class="line">yum -y install glibc-2*</div><div class="line">yum -y install glibc-devel-2*</div><div class="line">yum -y install ksh</div><div class="line">yum -y install libgcc-4.*</div><div class="line">yum -y install libstdc++-4.*</div><div class="line">yum -y install libstdc++-devel-4*</div><div class="line">yum -y install libaio-0.*</div><div class="line">yum -y install libaio-devel-0.*</div><div class="line">yum -y install make-3.*</div><div class="line">yum -y install sysstat-9.*</div><div class="line">yum -y install unixODBC-*</div></pre></td></tr></table></figure></p>
+<h3 id="配置内核参数"><a href="#配置内核参数" class="headerlink" title="配置内核参数"></a>配置内核参数</h3><p>在命令行执行vi /etc/sysctl.conf命令，在最后一行添加以下内容，保存退出后，执行命令sysctl -p 使其设置生效<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">fs.aio-max-nr = 1048576</div><div class="line">fs.file-max = 6815744</div><div class="line">### 48G memory</div><div class="line">#kernel.shmall = 11324620</div><div class="line">#kernel.shmmax = 46385646800</div><div class="line">### 32G memory</div><div class="line">#kernel.shmall = 7549748</div><div class="line">#kernel.shmmax = 30923764532</div><div class="line">### 16G memory</div><div class="line">kernel.shmall = 3774873</div><div class="line">kernel.shmmax = 15461882265</div><div class="line">kernel.shmmni = 4096</div><div class="line">kernel.sem = 250 32000 100 128</div><div class="line">net.ipv4.ip_local_port_range = 9000 65500</div><div class="line">net.core.rmem_default = 262144</div><div class="line">net.core.rmem_max = 4194304</div><div class="line">net.core.wmem_default = 262144</div><div class="line">net.core.wmem_max = 1048586</div></pre></td></tr></table></figure></p>
+<h3 id="配置用户的资源限制"><a href="#配置用户的资源限制" class="headerlink" title="配置用户的资源限制"></a>配置用户的资源限制</h3><p>在命令行执行vi /etc/sysctl.conf命令，在最后一行添加如下配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">oracle               soft    nproc   2047</div><div class="line">oracle               hard    nproc   16384</div><div class="line">oracle               soft    nofile  1024</div><div class="line">oracle               hard    nofile  65536</div></pre></td></tr></table></figure></p>
+<p>执行命令vi /etc/pam.d/login，在最后一行添加一下内容<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">session    required     pam_limits.so</div></pre></td></tr></table></figure></p>
+<h3 id="创建用户和组"><a href="#创建用户和组" class="headerlink" title="创建用户和组"></a>创建用户和组</h3><p>执行一下命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">/usr/sbin/groupadd -g 501 oinstall</div><div class="line">/usr/sbin/groupadd -g 502 dba</div><div class="line">/usr/sbin/groupadd -g 503 oper                   </div><div class="line">/usr/sbin/useradd -g oinstall -G dba,oper oracle</div><div class="line"> </div><div class="line">passwd oracle</div><div class="line">Changing password for user oracle.</div><div class="line">New password: </div><div class="line">BAD PASSWORD: it is based on a dictionary word</div><div class="line">BAD PASSWORD: is too simple</div><div class="line">Retype new password: </div><div class="line">passwd: all authentication tokens updated successfully</div></pre></td></tr></table></figure></p>
+<p>默认输入密码不回显，输入完成直接回车即可。</p>
+<h3 id="创建安装目录"><a href="#创建安装目录" class="headerlink" title="创建安装目录"></a>创建安装目录</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">mkdir -p /u01/app/oracle</div><div class="line">mkdir -p /u01/app/oracle/product/11.2.0.4/db1</div><div class="line">chown -R oracle:oinstall /u01/app/oracle/product/11.2.0.4/db1</div><div class="line">chmod -R 775 /u01/app/oracle/product/11.2.0.4/db1</div><div class="line">chown -R oracle:oinstall /u01/app/</div><div class="line">chmod -R 775 /u01/app/</div></pre></td></tr></table></figure>
+<h3 id="配置Oracle用户的环境变量"><a href="#配置Oracle用户的环境变量" class="headerlink" title="配置Oracle用户的环境变量"></a>配置Oracle用户的环境变量</h3><p>vi /home/oracle/.bash_profile，在最后一行添加一下内容<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">export ORACLE_SID=orcl  #这里的SID是什么后面创建数据库的时候就是什么</div><div class="line">export ORACLE_BASE=/u01/app/oracle</div><div class="line">export ORACLE_HOME=$ORACLE_BASE/product/11.2.0.4/db1</div><div class="line">export PATH=$ORACLE_HOME/bin:$PATH</div><div class="line">export LD_LIBRARY_PATH=$ORACLE_HOME/lib:/lib:/usr/lib</div><div class="line">export CLASSPATH=$ORACLE_HOME/JRE:$ORACLE_HOME/jlib:$ORACLE_HOME/rdbms/jlib</div><div class="line">export NLS_DATE_FORMAT=&quot;yyyy-mm-dd HH24:MI:SS&quot;</div><div class="line">export NLS_LANG=AMERICAN_AMERICA.ZHS16GBK</div><div class="line">alias sqlplus=&quot;rlwrap sqlplus&quot;</div><div class="line">if [ $USER = &quot;oracle&quot; ]; then</div><div class="line">        if [ $SHELL = &quot;/bin/ksh&quot; ]; then</div><div class="line">         ulimit -p 16384</div><div class="line">              ulimit -n 65536</div><div class="line">        else</div><div class="line">              ulimit -u 16384 -n 65536</div><div class="line">        fi</div><div class="line">        umask 022</div><div class="line">fi</div></pre></td></tr></table></figure></p>
+<h3 id="配置-etc-hosts文件"><a href="#配置-etc-hosts文件" class="headerlink" title="配置/etc/hosts文件"></a>配置/etc/hosts文件</h3><p>vi /etc/hosts，在最后一行加上一下配置。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">10.2.111.73     dorondb</div><div class="line">文件格式：第一部分是本机IP地址，第二部分是主机名，中间用tab分割。</div></pre></td></tr></table></figure></p>
+<h3 id="安装rlwrap软件"><a href="#安装rlwrap软件" class="headerlink" title="安装rlwrap软件"></a>安装rlwrap软件</h3><p>rpm -ivh /root/rlwrap-0.37-1.el6.x86_64.rpm</p>
+<h3 id="解压安装包"><a href="#解压安装包" class="headerlink" title="解压安装包"></a>解压安装包</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">mkdir /u01/app/src</div><div class="line">mv /root/p10404</div><div class="line">cd /u01/app/src/</div><div class="line">unzip p10404530_112030_Linux-x86-64_1of7.zip</div><div class="line">unzip p10404530_112030_Linux-x86-64_2of7.zip</div><div class="line">chown oracle:oinstall /u01/app/src/database/ -R</div></pre></td></tr></table></figure>
+<h3 id="配置Xmanager"><a href="#配置Xmanager" class="headerlink" title="配置Xmanager"></a>配置Xmanager</h3><p>下载一个Xmanager，在windows主机上双击安装应用程序，然后双击启动Xmanager-passive如下图<br><img src="/img/installOracle/1.png" alt=""></p>
+<h3 id="开始安装"><a href="#开始安装" class="headerlink" title="开始安装"></a>开始安装</h3><p>在终端执行以下命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">su - oracle</div><div class="line">LANG=C</div><div class="line">#DISPLAY环境变量设置为启动xmanger客户端的ip地址，根据现场环境配置，不是固定的</div><div class="line">export DISPLAY=192.168.104.1:0.0</div><div class="line">cd /u01/app/src/database/</div><div class="line"> ./runInstaller</div></pre></td></tr></table></figure></p>
+<p>执行./runInstaller后，客户端出现下图界面<br><img src="/img/installOracle/2.png" alt=""><br>选择“YES”继续<br><img src="/img/installOracle/3.png" alt=""><br>选择跳过更新，点击“Next” 继续<br><img src="/img/installOracle/4.png" alt=""><br>选择“仅安装数据库软件”，点击“Next”继续<br><img src="/img/installOracle/5.png" alt=""><br>默认安装单实例，点击“Next”继续<br><img src="/img/installOracle/6.png" alt=""><br>语言选择，默认即可，点击“Next”继续<br><img src="/img/installOracle/7.png" alt=""><br>默认企业版安装，点击“Next”继续<br><img src="/img/installOracle/8.png" alt=""><br>安装路径默认，此路径在oracle 用户的环境变量中设置并且已经创建成功<br><img src="/img/installOracle/9.png" alt=""><br>点击“Next”继续<br><img src="/img/installOracle/10.png" alt=""><br>默认即可，点击“Next”继续<br><img src="/img/installOracle/11.png" alt=""><br>默认即可，点击“Next”开始安装<br><img src="/img/installOracle/12.png" alt=""><br>安装过程中，会跳出如下窗口，需要手动以root用户在Linux环境下执行如下脚本。<br><img src="/img/installOracle/13.png" alt=""></p>
+<p><img src="/img/installOracle/14.png" alt=""><br>运行完成之后，返回窗口，点击“OK”继续，如下软件安装完成。<br>点击“close”完成安装。<br><img src="/img/installOracle/15.png" alt=""></p>
+<h3 id="配置oracle监听"><a href="#配置oracle监听" class="headerlink" title="配置oracle监听"></a>配置oracle监听</h3><p>在终端执行以下命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">su - oracle</div><div class="line">LANG=C</div><div class="line">export DISPLAY=192.168.104.1:0.0</div><div class="line">netca</div></pre></td></tr></table></figure></p>
+<p>选择监听配置，点击“Next”继续<br><img src="/img/installOracle/16.png" alt=""><br>选择添加一个监听，点击“Next”继续<br><img src="/img/installOracle/17.png" alt=""><br>设置监听名字，默认即可，点击“Next”继续<br><img src="/img/installOracle/18.png" alt=""><br>选择协议，默认即可，点击“Next”继续<br><img src="/img/installOracle/19.png" alt=""><br>端口默认1521，点击“Next”继续<br><img src="/img/installOracle/20.png" alt=""><br>不做其他操作，点击“Next”继续<br><img src="/img/installOracle/21.png" alt=""><br>监听配置完成，点击“Next”继续<br><img src="/img/installOracle/22.png" alt=""><br>点击“Finish”完成<br><img src="/img/installOracle/23.png" alt=""><br>查看监听的状态<br><img src="/img/installOracle/24.png" alt=""></p>
+<h3 id="停止，启动监听"><a href="#停止，启动监听" class="headerlink" title="停止，启动监听"></a>停止，启动监听</h3><p><img src="/img/installOracle/25.png" alt=""></p>
+<h3 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h3><p>在终端执行以下命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">su - oracle</div><div class="line">LANG=C</div><div class="line">export DISPLAY=192.168.104.1:0.0</div><div class="line">dbca</div></pre></td></tr></table></figure></p>
+<p>执行dbca命令，windows客户端会弹出下图界面<br><img src="/img/installOracle/26.png" alt=""><br>新建一个数据库，点击“Next”继续<br><img src="/img/installOracle/27.png" alt=""><br>点击“Next”继续<br><img src="/img/installOracle/28.png" alt=""><br>此处的SID 必须和oracle用户的环境变量 ORACLE_SID 设置相同<br><img src="/img/installOracle/29.png" alt=""><br>点击“Next”继续<br><img src="/img/installOracle/30.png" alt=""><br>使用同一的密码，输入密码点击“Next“继续<br><img src="/img/installOracle/31.png" alt=""><br>出现下面窗口是说密码设置太简单，不符合oracle的安全标准，可以忽略，点击“Yes“继续使用这个密码<br><img src="/img/installOracle/32.png" alt=""><br>存储类型选择：文件系统<br>选择第三个使用OMF管理文件，点击“Next“继续<br><img src="/img/installOracle/33.png" alt=""><br>点击“Next“继续<br><img src="/img/installOracle/34.png" alt=""><br>默认即可，点击“Next“继续<br><img src="/img/installOracle/35.png" alt=""><br>Memory：内存选项默认即可<br><img src="/img/installOracle/36.png" alt=""><br>Size 选项： 进程数linux 系统默认改成200<br><img src="/img/installOracle/37.png" alt=""><br>选项：字符集设置当地字符集，中国默认简体中文，点击“Next“继续<br><img src="/img/installOracle/38.png" alt=""><br>数据库允许的最大文件数，设置成2048，点击“Next“继续<br><img src="/img/installOracle/39.png" alt=""><br>默认即可，点击“Finish“继续<br><img src="/img/installOracle/40.png" alt=""><br>点击“Ok“继续<br><img src="/img/installOracle/41.png" alt=""><br>创建数据库成功。<br><img src="/img/installOracle/42.png" alt=""></p>
+<h3 id="配置参数"><a href="#配置参数" class="headerlink" title="配置参数"></a>配置参数</h3><p><img src="/img/installOracle/43.png" alt=""></p>
+<p><img src="/img/installOracle/44.png" alt=""></p>
+<p>到这里所有安装就完成了</p>
+<hr>
+<blockquote>
+<p>推荐我的微信公众号：爱做饭的老谢<br><img src="/img/hexobuild/weixin.jpg" alt=""></p>
+</blockquote>
+<hr>
+<p>上一篇：<a href="/2017/02/16/installLinux">U盘安装CentOS6.5</a></p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                      
+<section id="comment">  
+  <!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="2017/02/16/installOracle/" data-title="CentOS6.5下Oracle 11gR2安装" data-url="http://gavinxyj.com/2017/02/16/installOracle/"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"gavinxyj"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+</section>  
+  
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/Gavinxyj" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/Gavinxyj" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="https://gavinxyj.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="mailto:xie_youjiang@163.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
