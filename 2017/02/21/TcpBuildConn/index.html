@@ -185,7 +185,12 @@ TCP（Transmission Control Protocol 传输控制协议）是一种面向连接�
 </li>
 <li><h4 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h4><p>网络层主要处理分组在网络中的活动，网络层协议包涵IP,ICMP,IGMP协议。</p>
 </li>
-<li><h4 id="链路层"><a href="#链路层" class="headerlink" title="链路层"></a>链路层</h4><p>链路层组要包涵网卡驱动程序，它处理和电缆或者其它传输介质的物理接口细节。</p>
+<li><h4 id="链路层"><a href="#链路层" class="headerlink" title="链路层"></a>链路层</h4><p>链路层组要包涵网卡驱动程序，它处理和电缆或者其它传输介质的物理接口细节。链路层的主要目的有三个</p>
+<ul>
+<li><strong>为IP模块接收和发送IP数据报</strong></li>
+<li><strong>为ARP模块发送ARP请求和接收ARP应答</strong></li>
+<li><strong>为RARP模块接收RARP应答和发送RARP请求</strong></li>
+</ul>
 </li>
 </ul>
 <p><img src="/img/tcp/1.png" alt=""><br>所谓的协议就是通信双方都需要遵守的规则，这样才能明白对方要表达什么，就像两个人打电话一样，A说的是重庆话，B说的是广东话，这两人打电话肯定不知道对方说的是什么，这就叫他们没有遵守协议，若是都让他们说普通话这样俩儿人就都能听懂对方说的是什么意识了，普通话这里就相当于协议大家都要遵守。下面我将结合Wireshark抓包工具来分析TCP/IP协议</p>
