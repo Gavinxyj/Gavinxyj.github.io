@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="版权声明:本文为作者原创文章，可以随意转载，但必须在明确位置表明出处！！！
+视音频格式：RGB/YUV视频像素格式，大多数摄像头采样的像素格式都是YUV格式。PCM音频采样数据，H.264/H.265视频编码格式，AAC音频编码格式，FLV封装数据格式，UDP/RTP协议数据
+音视频解码流程：
+YU">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Gavin">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="视频YUV格式解析"/>
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Gavin Blog"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+        <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>视频YUV格式解析 - Gavin Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Gavin Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/Gavinxyj">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>视频YUV格式解析</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        2017-03-06
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/FFMEPG/">#FFMEPG</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <blockquote>
+<h3 id="版权声明-本文为作者原创文章，可以随意转载，但必须在明确位置表明出处！！！"><a href="#版权声明-本文为作者原创文章，可以随意转载，但必须在明确位置表明出处！！！" class="headerlink" title="版权声明:本文为作者原创文章，可以随意转载，但必须在明确位置表明出处！！！"></a>版权声明:本文为作者原创文章，可以随意转载，但必须在明确位置表明出处！！！</h3></blockquote>
+<h3 id="视音频格式："><a href="#视音频格式：" class="headerlink" title="视音频格式："></a>视音频格式：</h3><p>RGB/YUV视频像素格式，大多数摄像头采样的像素格式都是YUV格式。PCM音频采样数据，H.264/H.265视频编码格式，AAC音频编码格式，FLV封装数据格式，UDP/RTP协议数据</p>
+<h3 id="音视频解码流程："><a href="#音视频解码流程：" class="headerlink" title="音视频解码流程："></a>音视频解码流程：</h3><p><img src="/img/ffmpeg/1.jpg" alt=""></p>
+<h3 id="YUV格式："><a href="#YUV格式：" class="headerlink" title="YUV格式："></a>YUV格式：</h3><p>YUV格式分为planar格式和packed格式</p>
+<ul>
+<li>planar格式：首先连续存储所有的Y像素点，然后存储U像素点，最后存储V像素点。</li>
+<li><p>packed格式：每个像素点的YUV分量是连续交叉存储的。</p>
+</li>
+<li><p>Y分量：表示明亮度即灰度值，如果我们要在一帧YUV格式的图片里得到灰度图像只需要把所有的Y分量分离出来就可以了，下面我们会讲到。</p>
+</li>
+<li>UV分量：表示色彩和饱和度</li>
+</ul>
+<h3 id="YUV采样"><a href="#YUV采样" class="headerlink" title="YUV采样"></a>YUV采样</h3><ul>
+<li>YUV4:4:4采样：每一个Y对应一组UV分量</li>
+<li>YUV4:2:2采样：每两个Y对应一组UV分量</li>
+<li>YUV4:2:0采样：每四个Y对应一组UV分量</li>
+</ul>
+<p>我们以一个YUV420p格式的数据为例分析一下YUV格式是如何存储的，若有一张YUV420p格式大小为720 * 488大小的图片，那么他的存储格式为：720 * 488 * 3 / 2，因YUV420p为每4个Y共用一组UV分量，若以一个2 * 2大小的图像，那么它的存储格式就是 2 * 2 * 3 / 2 = 6正好是YYYYUV，所以对于720 * 488大小的图像其Y分量为：<br>Y: 720 * 488<br>U: 720 * 488 —-&gt;  720 * 488 * 5 / 4 U分量是从第5个位置还是存储的。YYYYU<br>V: 720 * 488 * 5 / 4 —-&gt; 720 * 488 * 6 / 4 = 720 * 488 * 3 / 2 V分量是从第6个位置开始存储的YYYYUV</p>
+<h3 id="YUV视频像素格式解析"><a href="#YUV视频像素格式解析" class="headerlink" title="YUV视频像素格式解析"></a>YUV视频像素格式解析</h3><p>下面我们通过一个YUV视频格式文件来分析一下YUV420p是不是按照上面所有格式存储的。下图是一个256 * 256格式为YUV420p格式的文件<br><img src="/img/ffmpeg/2.png" alt=""><br>通过上面的公式我们能够算出Y分量的大小为 256 * 256 = 65536 = 0x0001 0000所以Y分量的大小应该在地址0x0001 0000处也就是下图所示(这里需要主要的是地址是从0开始存储的，所以Y分量的大小是0x0000 0000 –&gt; 0x000fff0 = 65535)：<br><img src="/img/ffmpeg/3.png" alt=""><br>跟着Y分量存储的是U分量，U分量的大小根据公式可以知道为 256 * 256 * 5 / 4 = 81920 = 0x0001 4000所以U分量的大小应该为81920 - 65536 = 16384个字节，所以U分量应该从0x0001 0000这一行到0x0001 4000地址所在的一行为止，如下图：<br><img src="/img/ffmpeg/4.png" alt=""><br>跟着U分量存储的是V分量，V分量应该从地址0x00014000地址开始到文件结尾。</p>
+<p>下面我们通过编码分离一个YUV420P格式的YUV分量分别写入到三个文件，然后跟上面的分析结果对比一下看看计算的是否正确。代码借鉴一下雷神的。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">  FILE *fp=fopen(<span class="string">"lena_256x256_yuv420p.yuv"</span>,<span class="string">"rb+"</span>);  </div><div class="line">  FILE *fp1=fopen(<span class="string">"output_420_y.y"</span>,<span class="string">"wb+"</span>);  </div><div class="line">  FILE *fp2=fopen(<span class="string">"output_420_u.y"</span>,<span class="string">"wb+"</span>);  </div><div class="line">  FILE *fp3=fopen(<span class="string">"output_420_v.y"</span>,<span class="string">"wb+"</span>);  </div><div class="line"></div><div class="line">  <span class="keyword">unsigned</span> <span class="keyword">char</span> *pic=(<span class="keyword">unsigned</span> <span class="keyword">char</span> *)<span class="built_in">malloc</span>(<span class="number">256</span>*<span class="number">256</span>*<span class="number">3</span>/<span class="number">2</span>);  </div><div class="line"></div><div class="line">  fread(pic,<span class="number">1</span>,<span class="number">256</span>*<span class="number">256</span>*<span class="number">3</span>/<span class="number">2</span>,fp);  </div><div class="line">  <span class="comment">//Y  </span></div><div class="line">  fwrite(pic,<span class="number">1</span>,<span class="number">256</span>*<span class="number">256</span>,fp1);  </div><div class="line">  <span class="comment">//U  </span></div><div class="line">  fwrite(pic+<span class="number">256</span>*<span class="number">256</span>,<span class="number">1</span>,<span class="number">256</span>*<span class="number">256</span>/<span class="number">4</span>,fp2);  </div><div class="line">  <span class="comment">//V  </span></div><div class="line">  fwrite(pic+<span class="number">256</span>*<span class="number">256</span>*<span class="number">5</span>/<span class="number">4</span>,<span class="number">1</span>,<span class="number">256</span>*<span class="number">256</span>/<span class="number">4</span>,fp3);  </div><div class="line"></div><div class="line">  <span class="built_in">free</span>(pic);  </div><div class="line">  fclose(fp);  </div><div class="line">  fclose(fp1);  </div><div class="line">  fclose(fp2);  </div><div class="line">  fclose(fp3);  </div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;  </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="首先看一下output-420-y-y文件，文件中存放的Y分量，如下图："><a href="#首先看一下output-420-y-y文件，文件中存放的Y分量，如下图：" class="headerlink" title="首先看一下output_420_y.y文件，文件中存放的Y分量，如下图："></a>首先看一下output_420_y.y文件，文件中存放的Y分量，如下图：</h4><p><img src="/img/ffmpeg/5.png" alt=""></p>
+<h4 id="第一行的数据和原始文件lena-256-256-yuv420p-yuv的第一行数据是完全相同的，我们看一看output-420-y-y文件的最后一行是不是0x0000-fff0，如下图所示："><a href="#第一行的数据和原始文件lena-256-256-yuv420p-yuv的第一行数据是完全相同的，我们看一看output-420-y-y文件的最后一行是不是0x0000-fff0，如下图所示：" class="headerlink" title="第一行的数据和原始文件lena_256*256_yuv420p.yuv的第一行数据是完全相同的，我们看一看output_420_y.y文件的最后一行是不是0x0000 fff0，如下图所示："></a>第一行的数据和原始文件lena_256*256_yuv420p.yuv的第一行数据是完全相同的，我们看一看output_420_y.y文件的最后一行是不是0x0000 fff0，如下图所示：</h4><p><img src="/img/ffmpeg/6.png" alt=""></p>
+<h4 id="U分量的第一行应该是原始文件0x0001-0000这一行开始的数据，如下图U分量的第一行："><a href="#U分量的第一行应该是原始文件0x0001-0000这一行开始的数据，如下图U分量的第一行：" class="headerlink" title="U分量的第一行应该是原始文件0x0001 0000这一行开始的数据，如下图U分量的第一行："></a>U分量的第一行应该是原始文件0x0001 0000这一行开始的数据，如下图U分量的第一行：</h4><p><img src="/img/ffmpeg/7.png" alt=""><br>原始文件0x0001 0000这一行的数据：<br><img src="/img/ffmpeg/8.png" alt=""><br>U分量的最后一行数据应该对应原始文件0x0013ff0地址这一行的数据，源文件这一行的数据如下图：<br><img src="/img/ffmpeg/9.png" alt=""><br>U分量最后一行的数据如下：<br><img src="/img/ffmpeg/10.png" alt=""></p>
+<h4 id="V分量的第一行数据应该是原始数据地址为0x00014000这一行的数据，源文件这一行的数据如下："><a href="#V分量的第一行数据应该是原始数据地址为0x00014000这一行的数据，源文件这一行的数据如下：" class="headerlink" title="V分量的第一行数据应该是原始数据地址为0x00014000这一行的数据，源文件这一行的数据如下："></a>V分量的第一行数据应该是原始数据地址为0x00014000这一行的数据，源文件这一行的数据如下：</h4><p><img src="/img/ffmpeg/11.png" alt=""><br>V分量的第一行数据如下：<br><img src="/img/ffmpeg/12.png" alt=""><br>原始文件最后一行的数据应该是V分量的最后一行数据，源文件的最后一行数据如下：<br><img src="/img/ffmpeg/13.png" alt=""><br>V分量文件的最后一行数据：<br><img src="/img/ffmpeg/14.png" alt=""></p>
+<h3 id="YUV原始文件的播放效果："><a href="#YUV原始文件的播放效果：" class="headerlink" title="YUV原始文件的播放效果："></a>YUV原始文件的播放效果：</h3><p><img src="/img/ffmpeg/15.png" alt=""></p>
+<h3 id="Y分量文件的播放效果："><a href="#Y分量文件的播放效果：" class="headerlink" title="Y分量文件的播放效果："></a>Y分量文件的播放效果：</h3><p><img src="/img/ffmpeg/16.png" alt=""></p>
+<h3 id="U分量文件的播放效果："><a href="#U分量文件的播放效果：" class="headerlink" title="U分量文件的播放效果："></a>U分量文件的播放效果：</h3><p><img src="/img/ffmpeg/17.png" alt=""></p>
+<h3 id="V分量文件的播放效果："><a href="#V分量文件的播放效果：" class="headerlink" title="V分量文件的播放效果："></a>V分量文件的播放效果：</h3><p><img src="/img/ffmpeg/18.png" alt=""></p>
+<p>要分离YUV444P，YUV422P格式的图像都是类似的方法，如果有兴趣可以去自己去尝试一下。</p>
+<h3 id="RGB采样"><a href="#RGB采样" class="headerlink" title="RGB采样"></a>RGB采样</h3><p>计算机彩色显示器显示色彩的原理与彩色电视机一样，都是采用R（Red）、G（Green）、B（Blue）相加混色的原理：通过发射出三种不同强度的电子束，使屏幕内侧覆盖的红、绿、蓝磷光材料发光而产生色彩。这种色彩的表示方法称为RGB色彩空间表示（它也是多媒体计算机技术中用得最 多的一种色彩空间表示方法）。根据色度学的介绍，不同波长的单色光会引起不同的彩色感觉，但相同的彩色感觉却可以来源于不同的光谱成分组合。自然界中几乎所有的颜色都能用三种基本彩色混合配出，在彩色电视技术中选择红色、绿色、和蓝色作为三基色。其他的颜色都可以用红色、绿色和蓝色按照不同的比例混合而成。所选取的红色、绿色和蓝色三基色空间。简称为RGB颜色空间。</p>
+<ul>
+<li>RGB565：每个像素用16位表示，RGB分量分别使用5位、6位、5位</li>
+<li>RGB555：每个像素用16位表示，RGB分量都使用5位（剩下1位不用）</li>
+<li>RGB24： 每个像素用24位表示，RGB分量各使用8位</li>
+<li>RGB32： 每个像素用32位表示，RGB分量各使用8位（剩下8位不用）</li>
+<li>ARGB32：每个像素用32位表示，RGB分量各使用8位（剩下的8位用于表示Alpha通道值）</li>
+</ul>
+<p>下面以一个RGB24的格式文件为例：<br>RGB24每个分量各占8位也就是每个分量各占一个字节，R占一个字节，G占一个字节，B占一个字节。可以从源文件根据规则知道对于第一行的R分量为E1,E1,E0,E5,E4,E2;G分量为89，88，87，87，8A;B分量为7E,83,75,5C,7C<br><img src="/img/ffmpeg/19.png" alt=""></p>
+<p>根据上面的规则用代码分割RGB分量<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line"> 	  FILE *fp=fopen(<span class="string">"lena_256x256_rgb24.rgb"</span>,<span class="string">"rb+"</span>);  </div><div class="line">    FILE *fp1=fopen(<span class="string">"output_r.y"</span>,<span class="string">"wb+"</span>);  </div><div class="line">    FILE *fp2=fopen(<span class="string">"output_g.y"</span>,<span class="string">"wb+"</span>);  </div><div class="line">    FILE *fp3=fopen(<span class="string">"output_b.y"</span>,<span class="string">"wb+"</span>);  </div><div class="line">  </div><div class="line">    <span class="keyword">unsigned</span> <span class="keyword">char</span> *pic=(<span class="keyword">unsigned</span> <span class="keyword">char</span> *)<span class="built_in">malloc</span>(<span class="number">256</span>*<span class="number">256</span>*<span class="number">3</span>);  </div><div class="line">  </div><div class="line">    fread(pic,<span class="number">1</span>,<span class="number">256</span>*<span class="number">256</span>*<span class="number">3</span>,fp);  </div><div class="line"></div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;<span class="number">256</span>*<span class="number">256</span>*<span class="number">3</span>;j=j+<span class="number">3</span>)</div><div class="line">    &#123;  </div><div class="line">        <span class="comment">//R  </span></div><div class="line">        fwrite(pic+j,<span class="number">1</span>,<span class="number">1</span>,fp1);  </div><div class="line">        <span class="comment">//G  </span></div><div class="line">        fwrite(pic+j+<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,fp2);  </div><div class="line">        <span class="comment">//B  </span></div><div class="line">        fwrite(pic+j+<span class="number">2</span>,<span class="number">1</span>,<span class="number">1</span>,fp3);  </div><div class="line">    &#125;  </div><div class="line">    </div><div class="line">    <span class="built_in">free</span>(pic);  </div><div class="line">    fclose(fp);  </div><div class="line">    fclose(fp1);  </div><div class="line">    fclose(fp2);  </div><div class="line">    fclose(fp3);  </div><div class="line">  </div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;  </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>其它的像RGB565,RGB555等格式按照相应的规则分割就是了。</p>
+<hr>
+<blockquote>
+<p>推荐我的微信公众号：爱做饭的老谢<br><img src="/img/hexobuild/weixin.jpg" alt=""></p>
+</blockquote>
+<hr>
+<p>上一篇：<a href="/2017/02/22/sport">运动健身</a></p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                      
+<section id="comment">  
+  <!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="2017/03/06/ffmepg-study/" data-title="视频YUV格式解析" data-url="http://gavinxyj.com/2017/03/06/ffmepg-study/"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"gavinxyj"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+</section>  
+  
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/Gavinxyj" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/Gavinxyj" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="https://gavinxyj.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="mailto:xie_youjiang@163.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
