@@ -178,7 +178,7 @@ FLV介绍FLV（Flash Video）是Adobe公司设计开发的一种流行的流媒�
 <h3 id="版权声明-本文为作者原创文章，可以随意转载，但必须在明确位置表明出处！！！"><a href="#版权声明-本文为作者原创文章，可以随意转载，但必须在明确位置表明出处！！！" class="headerlink" title="版权声明:本文为作者原创文章，可以随意转载，但必须在明确位置表明出处！！！"></a>版权声明:本文为作者原创文章，可以随意转载，但必须在明确位置表明出处！！！</h3></blockquote>
 <h3 id="FLV介绍"><a href="#FLV介绍" class="headerlink" title="FLV介绍"></a>FLV介绍</h3><p>FLV（Flash Video）是Adobe公司设计开发的一种流行的流媒体格式，由于其视频文件体积轻巧、封装简单等特点，使其很适合在互联网上进行应用。此外，FLV可以使用Flash Player进行播放，而Flash Player插件已经安装在全世界绝大部分浏览器上，这使得通过网页播放FLV视频十分容易。目前主流的视频网站如优酷网，土豆网，乐视网等网站无一例外地使用了FLV格式。FLV封装格式的文件后缀通常为“.flv”</p>
 <h3 id="FLV封装格式"><a href="#FLV封装格式" class="headerlink" title="FLV封装格式"></a>FLV封装格式</h3><p>总体来将FLV格式分为两大部分,分别是FLV文件头（FLV HEADER）和FLV BODY，FLV BODY里包涵多个Tag标签。我将结合一个FLV视频文件来辅助讲解FLV封装格式，以便能做到理论和实践的结合加深对FLV格式的理解，在开始之前以一张图来呈现FLV的封装格式：<br><img src="/img/flvformat/1.jpg" alt=""><br>从上图可以看出FLV BODY包涵了多个Tag标签，每个Tag标签的开始都是上一个Tag标签的大小+11个字节，这11个字节就是Tag Header的大小，每个Tag标签里同样包涵了两部分内容，分别是Tag Header, Tag Data，<strong>这里我们需要特别注释的是Tag Header里的第一个字节Type,如果这个字节是0x08表示该Tag是一个视频数据帧，如果是0x09表示该Tag是一个音频数据帧，如果是0x12则表示该Tag是一个控制帧</strong>， 该帧一般是FLV HEADER后第一个出现的Tag标签，而且只出现一次。改Tag包涵了一些视频文件的信息，如像素宽高，视频时长等等信息。既然type有三种类型那么它们所对应的Tag Data结果也会有所不同。下面介绍一下三种不通类型的Tag Data结构</p>
-<h3 id="Script-Data结构"><a href="#Script-Data结构" class="headerlink" title="Script Data结构"></a>Script Data结构</h3><p>| Tables| Are| Cool|</p>
+<h3 id="Script-Data结构"><a href="#Script-Data结构" class="headerlink" title="Script Data结构"></a>Script Data结构</h3><p><img src="/img/flvformat/19.jpg" alt=""></p>
 <ul>
 <li><p>AFM1:AFM1包第一个字节总是0x02表示字符串，紧跟着的两个字节表示该字符串的长度，一般为0x000A，表示向后10个字节的字符串一般为“onMetaData”，这里的0x02表示字符串和后面两个字节表示字符串长度是根据官方文档video_file_format_spec_v10_1.pdf所规定的，如下图：<br><img src="/img/flvformat/2.png" alt=""><br>从上图可以看到2表示String类型，而String类型表示如下图的结构：<br><img src="/img/flvformat/3.png" alt=""><br>我们可以看到SCRIPTDATASTRING结构包涵两个字段，一个是StringLength，一个是StringData，StringLength是一个UI16表示一个16位无符号的整形也就是两个字节，所以ox000A就代表了字符串的长度，如果你想要了解更多的细节可以仔细阅读官方文档。</p>
 </li>
@@ -202,7 +202,20 @@ FLV介绍FLV（Flash Video）是Adobe公司设计开发的一种流行的流媒�
 <li>PropertyName: 属性名，类型是SCRIPTDATASTRING类型，从文章的前半部我们知道SCRIPTDATASTRING也包涵了两个字段分别是2个字节的StringLength，和一个StringData</li>
 <li>PropertyValue: 属性值，类型是SCRIPTDATAVALUE类型。SCRIPTDATAVALUE结构如下：<br><img src="/img/flvformat/11.png" alt=""></li>
 </ul>
-<p>所以从这里我们可以知道0x00,0x0F = 15表示字符串长度，也就是属性名metadatacreator如下图：<br><img src="/img/flvformat/12.png" alt=""><br>接下来就是SCRIPTDATAVALUE类型，该类型占一个字节，也就是0x02，而0x02表示String类型，所以又会到SCRIPTDATASTRING结构了，0x00, 0x03 = 3表示器字符串长度，所以接下来的三个字节表示属性值0x69,0x6B,0x75 = “iku”，所以数组的第一个属性信息是metadatacreator = iku，后面就都是依据此规则解析出属性名和属性值。知道最后为0x00,0x00,0x09则表示到达数组结尾了。到这里Script Tag结构就介绍完了，和我们文章开始讲的是一致的。</p>
+<p>所以从这里我们可以知道0x00,0x0F = 15表示字符串长度，也就是属性名metadatacreator如下图：<br><img src="/img/flvformat/12.png" alt=""><br>接下来就是SCRIPTDATAVALUE类型，该类型占一个字节，也就是0x02，而0x02表示String类型，所以又会到SCRIPTDATASTRING结构了，0x00, 0x03 = 3表示器字符串长度，所以接下来的三个字节表示属性值0x69,0x6B,0x75 = “iku”，所以数组的第一个属性信息是metadatacreator = iku，后面就都是依据此规则解析出属性名和属性值。直到最后为0x00,0x00,0x09则表示到达数组结尾了。到这里Script Tag结构就介绍完了，和我们文章开始讲的是一致的。</p>
+<p>okay, 上文提到了Script Tag 的Tag Data大小是681个个字节，然后我们跳到Script Tag结尾，如下图：<br><img src="/img/flvformat/13.png" alt=""><br>从这个图中我们可以看到Script Tag的结尾部份的确是0x00,0x00,0x09,到这里就表示Script Tag结束了，那么接下来就是下一个Tag的开始了，0x00,0x00,0x02,0xB4表示的是上一个Tag的长度 + 11个Tag Header的长度，0x00,0x00,0x02,0xB4 = 692 = 681 + 11正好是上一个Tag Data的大小加上11个Tag Header长度。接下来就看该Tag是什么类型的Tag了，这里的type = 0x09则表示该Tag是个视频数据帧，视频帧的长度是0x00,0x00,0x2D = 45就是该视频帧Tag Data的长度如下图红线所标示出来的就是Tag Data的长度：<br><img src="/img/flvformat/14.png" alt=""><br>下面我看来看看Video Tag结构</p>
+<h3 id="Video-Tag结构"><a href="#Video-Tag结构" class="headerlink" title="Video Tag结构"></a>Video Tag结构</h3><p><img src="/img/flvformat/15.jpg" alt=""><br>第一个字节的前4位表示帧类型，后4位表示视频编码类型，下图中是目前所支持的帧类型，和视频编码类型。<br><img src="/img/flvformat/16.png" alt=""><br>上图红线表示出来的是Video Tag Data部分， 它的第一个字节是0x17 = 0001 0111,所有前4为的值为1，着表示该视频帧的类型是key frame (for AVC, a seekable frame)关键帧，后四为的值是7则表示它的视频编码类型是AVC类型。接下来的数据就是该视频帧的数据了，直到红线标识结尾都是该视频帧的数据。紧跟着红线结尾的数据这表示下一个Tag帧数据了，0x00,0x00,0x00,0x38 = 56 = 45 + 11正好是上一个Video Tag的大小，这里我们看看该Tag是什么类型的Tag， 该Tag的type = 0x08者表示该Tag帧是一个音频帧，音频帧的结构如下图：<br><img src="/img/flvformat/17.jpg" alt=""><br>音频帧的第一个字节的前4位表示音频编码类型，后四位分别表示采样率，精度，类型，下面的表格中是目前为止所支持的音频编码类型：<br><img src="/img/flvformat/20.png" alt=""></p>
+<p>音频采样率：<br><img src="/img/flvformat/21.png" alt=""><br>从上表可以看出FLV视频封装格式不支持48kHz的采样率</p>
+<p>音频采样精度：<br><img src="/img/flvformat/22.png" alt=""></p>
+<p>音频类型：<br><img src="/img/flvformat/23.png" alt=""></p>
+<p>下图红线标出的地方就是Audio Tag Data的大小为9个字节，它的第一个字节是0xAF = 1010 1111,那么它的音频编码类型就是1010 = 10这表示音频编码类型是AAC, 采样率11 = 3表示它的采样率为44kHz,采样精度是1表示使用的是16bit的采样精度，音频类型的值为1表示音频类型为sndStereo;到此我们就介绍完了FLV的封装格式了，有兴趣的朋友可以自己动手试试，下面是我用MFC写的一个FLV格式解析工具。<br><img src="/img/flvformat/18.png" alt=""></p>
+<p>项目地址：<a href="https://github.com/Gavinxyj/AVAnalysisTools" target="_blank" rel="external">https://github.com/Gavinxyj/AVAnalysisTools</a> </p>
+<hr>
+<blockquote>
+<p>推荐我的微信公众号：爱做饭的老谢<br><img src="/img/hexobuild/weixin.jpg" alt=""></p>
+</blockquote>
+<hr>
+<p>上一篇：<a href="/2017/03/06/ffmepg-study">视频YUV/RGB格式解析</a>                                                                                              </p>
 
 
                 
