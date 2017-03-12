@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="版权声明:本文为作者原创文章，可以随意转载，但必须在明确位置表明出处！！！
+FLV介绍FLV（Flash Video）是Adobe公司设计开发的一种流行的流媒体格式，由于其视频文件体积轻巧、封装简单等特点，使其很适合在互联网上进行应用。此外，FLV可以使用Flash Player进行播放，而Flas">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Gavin">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="FLV格式解析"/>
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Gavin Blog"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+        <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>FLV格式解析 - Gavin Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Gavin Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/Gavinxyj">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>FLV格式解析</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        2017-03-11
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/FFMPEG/">#FFMPEG</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <blockquote>
+<h3 id="版权声明-本文为作者原创文章，可以随意转载，但必须在明确位置表明出处！！！"><a href="#版权声明-本文为作者原创文章，可以随意转载，但必须在明确位置表明出处！！！" class="headerlink" title="版权声明:本文为作者原创文章，可以随意转载，但必须在明确位置表明出处！！！"></a>版权声明:本文为作者原创文章，可以随意转载，但必须在明确位置表明出处！！！</h3></blockquote>
+<h3 id="FLV介绍"><a href="#FLV介绍" class="headerlink" title="FLV介绍"></a>FLV介绍</h3><p>FLV（Flash Video）是Adobe公司设计开发的一种流行的流媒体格式，由于其视频文件体积轻巧、封装简单等特点，使其很适合在互联网上进行应用。此外，FLV可以使用Flash Player进行播放，而Flash Player插件已经安装在全世界绝大部分浏览器上，这使得通过网页播放FLV视频十分容易。目前主流的视频网站如优酷网，土豆网，乐视网等网站无一例外地使用了FLV格式。FLV封装格式的文件后缀通常为“.flv”</p>
+<h3 id="FLV封装格式"><a href="#FLV封装格式" class="headerlink" title="FLV封装格式"></a>FLV封装格式</h3><p>总体来将FLV格式分为两大部分,分别是FLV文件头（FLV HEADER）和FLV BODY，FLV BODY里包涵多个Tag标签。我将结合一个FLV视频文件来辅助讲解FLV封装格式，以便能做到理论和实践的结合加深对FLV格式的理解，在开始之前以一张图来呈现FLV的封装格式：<br><img src="/img/flvformat/1.jpg" alt=""><br>从上图可以看出FLV BODY包涵了多个Tag标签，每个Tag标签的开始都是上一个Tag标签的大小+11个字节，这11个字节就是Tag Header的大小，每个Tag标签里同样包涵了两部分内容，分别是Tag Header, Tag Data，<strong>这里我们需要特别注释的是Tag Header里的第一个字节Type,如果这个字节是0x08表示该Tag是一个视频数据帧，如果是0x09表示该Tag是一个音频数据帧，如果是0x12则表示该Tag是一个控制帧</strong>， 该帧一般是FLV HEADER后第一个出现的Tag标签，而且只出现一次。改Tag包涵了一些视频文件的信息，如像素宽高，视频时长等等信息。既然type有三种类型那么它们所对应的Tag Data结果也会有所不同。下面介绍一下三种不通类型的Tag Data结构</p>
+<h3 id="Script-Data结构"><a href="#Script-Data结构" class="headerlink" title="Script Data结构"></a>Script Data结构</h3><p>| Tables| Are| Cool|</p>
+<ul>
+<li><p>AFM1:AFM1包第一个字节总是0x02表示字符串，紧跟着的两个字节表示该字符串的长度，一般为0x000A，表示向后10个字节的字符串一般为“onMetaData”，这里的0x02表示字符串和后面两个字节表示字符串长度是根据官方文档video_file_format_spec_v10_1.pdf所规定的，如下图：<br><img src="/img/flvformat/2.png" alt=""><br>从上图可以看到2表示String类型，而String类型表示如下图的结构：<br><img src="/img/flvformat/3.png" alt=""><br>我们可以看到SCRIPTDATASTRING结构包涵两个字段，一个是StringLength，一个是StringData，StringLength是一个UI16表示一个16位无符号的整形也就是两个字节，所以ox000A就代表了字符串的长度，如果你想要了解更多的细节可以仔细阅读官方文档。</p>
+</li>
+<li><p>AFM2:AFM2包第一个字节一班为0x08表示ECMA array是一个数组类型，ECMA array的结构如下：<br><img src="/img/flvformat/4.png" alt=""><br>从上图我们可以知道ECMA array结构包涵了三个字段，</p>
+</li>
+</ul>
+<ul>
+<li>ECMAArrayLength: 数组长度，4个字节</li>
+<li>Variables: 变量，它的类型是一个数组，数组里面包涵列属性名和属性值</li>
+<li>List Terminator: 列表结束字段，改类型是一个SCRIPTDATAOBJECTEND类型，这个类型结构是固定的三个字节，内容是0x00, 0x00, 0x09，如下图：<br><img src="/img/flvformat/5.png" alt=""></li>
+</ul>
+<p>好了讲到这里我们队Script Data结构有了一些认识， 下面就通过一个flv格式文件来验证一下是否个上面所说的一致。如下图：<br><img src="/img/flvformat/6.png" alt=""><br>我们先看上图中第一行的前9个字节，这9个字节就表示FLV HEADER，0x46,0x4C,0x56（FLV）这三个字节表示文件标识符，我们这里主要看一下Flags字节，在上图中这个字节的值为0x05 = 0000 0101从这里可以看出第6个字节和第8个字节都是1则表示该文件既包含音频也包含视频。从第9个字节往后就是我们的FLV BODY部分了， BODY部分上面已经介绍了是由多个Tag组成的，从第9个字节向后数4个字节(0x00,0x00,0x00,0x00)就是我们的Previous Tag Size大小了，这里的大小是0是因为它是第一个Tag在它的前面没有其它Tag，所以自然为0了。接下来就是最关键的地方了，Tag中的Type字段值表明了该Tag是什么类型的Tag,从下图中我们可以看到该Tag的type值尾0x12，那么它表示该Tag是一个Scrip Tag。<br><img src="/img/flvformat/7.png" alt=""><br>紧跟0x12的三个字段就是DataSize了。</p>
+<ul>
+<li>DataSize: 0x00,0x02,0xA9 = 681表示该Tag的Tag Data大小为681个字节</li>
+<li>TimeStamp: 0x00,0x00,0x00 = 0时间戳</li>
+<li>TimeStampEx: 0x00 = 0</li>
+<li>StreamId: 0x00,0x00,0x00 = 0</li>
+</ul>
+<p>接下来就是Tag Data部分了，记住了这个Tag Data部分的大小是681个字节，接下来的0x02表示字符串，0x00 0x0A表示字符串长度为10，接下来的10个字节就是具体的字符串“onMetaData”正好10个字符如下图：<br><img src="/img/flvformat/8.png" alt=""><br>这就是AFM1这个包的内容了，跟上面所讲是一致的。再来看看AFM2如下图：<br><img src="/img/flvformat/9.png" alt=""><br>可以看到AFM2的第一个字节确实是0x08,数组的长度是0x00,0x00,0x00,0x19 = 25，这个时候我们看看数组里是如何存储的，从上文AFM2的介绍和结构图我们知道Variables是一个数组结构，该结构如下图：<br><img src="/img/flvformat/10.png" alt=""><br>该结构包涵了两个字段：</p>
+<ul>
+<li>PropertyName: 属性名，类型是SCRIPTDATASTRING类型，从文章的前半部我们知道SCRIPTDATASTRING也包涵了两个字段分别是2个字节的StringLength，和一个StringData</li>
+<li>PropertyValue: 属性值，类型是SCRIPTDATAVALUE类型。SCRIPTDATAVALUE结构如下：<br><img src="/img/flvformat/11.png" alt=""></li>
+</ul>
+<p>所以从这里我们可以知道0x00,0x0F = 15表示字符串长度，也就是属性名metadatacreator如下图：<br><img src="/img/flvformat/12.png" alt=""><br>接下来就是SCRIPTDATAVALUE类型，该类型占一个字节，也就是0x02，而0x02表示String类型，所以又会到SCRIPTDATASTRING结构了，0x00, 0x03 = 3表示器字符串长度，所以接下来的三个字节表示属性值0x69,0x6B,0x75 = “iku”，所以数组的第一个属性信息是metadatacreator = iku，后面就都是依据此规则解析出属性名和属性值。知道最后为0x00,0x00,0x09则表示到达数组结尾了。到这里Script Tag结构就介绍完了，和我们文章开始讲的是一致的。</p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                      
+<section id="comment">  
+  <!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="2017/03/11/flvFormat/" data-title="FLV格式解析" data-url="http://gavinxyj.com/2017/03/11/flvFormat/"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"gavinxyj"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+</section>  
+  
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/Gavinxyj" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/Gavinxyj" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="https://gavinxyj.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="mailto:xie_youjiang@163.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
