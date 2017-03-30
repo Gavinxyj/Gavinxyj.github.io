@@ -210,13 +210,14 @@ FLV介绍FLV（Flash Video）是Adobe公司设计开发的一种流行的流媒�
 <p>音频采样精度：<br><img src="/img/flvformat/22.png" alt=""></p>
 <p>音频类型：<br><img src="/img/flvformat/23.png" alt=""></p>
 <p>下图红线标出的地方就是Audio Tag Data的大小为9个字节，它的第一个字节是0xAF = 1010 1111,那么它的音频编码类型就是1010 = 10这表示音频编码类型是AAC, 采样率11 = 3表示它的采样率为44kHz,采样精度是1表示使用的是16bit的采样精度，音频类型的值为1表示音频类型为sndStereo;到此我们就介绍完了FLV的封装格式了，有兴趣的朋友可以自己动手试试，下面是我用MFC写的一个FLV格式解析工具。<br><img src="/img/flvformat/18.png" alt=""></p>
+<h3 id="格式分析工具"><a href="#格式分析工具" class="headerlink" title="格式分析工具"></a>格式分析工具</h3><p>格式分析工具是用VS 2010MFC开发的，开发工具主要是对格式协议的进一步理解<br><img src="/img/flvformat/24.png" alt=""></p>
 <p>项目地址：<a href="https://github.com/Gavinxyj/AVAnalysisTools" target="_blank" rel="external">https://github.com/Gavinxyj/AVAnalysisTools</a> </p>
 <hr>
 <blockquote>
 <p>推荐我的微信公众号：爱做饭的老谢<br><img src="/img/hexobuild/weixin.jpg" alt=""></p>
 </blockquote>
 <hr>
-<p>上一篇：<a href="/2017/03/06/ffmepg-study">视频YUV/RGB格式解析</a>                                                                                              </p>
+<p>上一篇：<a href="/2017/03/06/ffmepg-study">视频YUV/RGB格式解析</a><br>下一篇：<a href="/2017/03/30/h264-protocol">H.264码流协议解析</a>  </p>
 
 
                 
