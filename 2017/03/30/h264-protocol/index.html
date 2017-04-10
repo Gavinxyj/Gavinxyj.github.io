@@ -185,14 +185,13 @@ H.264介绍H.264是一种对视频数据编解码的一种协议，大家都知�
 <li>TYPE:示该NALU的类型是什么，类型定义如下表所示：<br><img src="/img/H264/4.png" alt=""></li>
 </ul>
 <p>下面结合一个h264码流文件分析一下，如下图是一个h264文件的二进制流数据<br><img src="/img/H264/5.png" alt=""><br>从上图可以看到start code是”00 00 00 01”； NALU indicator: 0x67 = 0110 0111，所以F = 0，NRI = 11，TYPE = 00111 = 7，所以该NALU类型为序列参数集SPS（Sequence parameter set），然后向后面查找，直到找到下一个NALU的start code为止，下图划红线的地方表示第二个NALU数据单元。<br><img src="/img/H264/6.png" alt=""><br>NALU indicator: 0x68 = 0110 1000，所以F = 0，NRI = 11，TYPE = 01000 = 8，所以该NALU类型为图像参数集PPS（Picture parameter set），依次类推知道文件结尾。</p>
-<h3 id="格式分析工具"><a href="#格式分析工具" class="headerlink" title="格式分析工具"></a>格式分析工具</h3><p>格式分析工具是用VS 2010MFC开发的，开发工具主要是对格式协议的进一步理解</p>
-<p>项目地址：<a href="https://github.com/Gavinxyj/AVAnalysisTools" target="_blank" rel="external">https://github.com/Gavinxyj/AVAnalysisTools</a> </p>
+<h3 id="格式分析工具"><a href="#格式分析工具" class="headerlink" title="格式分析工具"></a>格式分析工具</h3><p>格式分析工具是用VS 2010MFC开发的，开发工具主要是对格式协议的进一步理解<br><img src="/img/H264/7.png" alt=""><br>项目地址：<a href="https://github.com/Gavinxyj/AVAnalysisTools" target="_blank" rel="external">https://github.com/Gavinxyj/AVAnalysisTools</a> </p>
 <hr>
 <blockquote>
 <p>推荐我的微信公众号：爱做饭的老谢<br><img src="/img/hexobuild/weixin.jpg" alt=""></p>
 </blockquote>
 <hr>
-<p>上一篇：<a href="/2017/03/11/flvFormat">FLV格式解析</a>   </p>
+<p>上一篇：<a href="/2017/03/11/flvFormat">FLV格式解析</a><br>下一篇：<a href="/2017/04/09/rtsp">RTSP实时流协议解析</a>  </p>
 
 
                 

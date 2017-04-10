@@ -524,7 +524,8 @@ figure.highlight pre {
 }
 figure.highlight table {
   margin-top: 0;
-  border-spacing: 0;
+  border-spacing: 1;
+  width: 100%;
 }
 figure.highlight table .gutter {
   color: #999;
