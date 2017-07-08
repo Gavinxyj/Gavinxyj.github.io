@@ -250,12 +250,11 @@ Tips:最近公司有个需求，需要用到kafka，oracle数据库，后来设�
 <h3 id="python中使用cx-Oracle"><a href="#python中使用cx-Oracle" class="headerlink" title="python中使用cx_Oracle"></a>python中使用cx_Oracle</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> cx_Oracle</div><div class="line">dsn = cx_Oracle.makedsn(url, port, sid).replace(<span class="string">'SID'</span>, <span class="string">'SERVICE_NAME'</span>)</div><div class="line">conn = cx_Oracle.connect(username, password, dsn)</div><div class="line"><span class="keyword">print</span> conn</div></pre></td></tr></table></figure>
 <p>如果没有出什么错就证明可以连接到oracle数据库了，数据库操作这里不做详细介绍，cx_Oracle更多详细的介绍可以查看cx_Oracle文档，地址<em><a href="https://github.com/Gavinxyj/document/tree/master/python" target="_blank" rel="external">https://github.com/Gavinxyj/document/tree/master/python</a></em></p>
 <hr>
-<hr>
 <blockquote>
 <p>推荐我的微信公众号：爱做饭的老谢<br><img src="/img/hexobuild/weixin.jpg" alt=""></p>
 </blockquote>
 <hr>
-<p>上一篇：<a href="/2017/04/09/rtsp">H.264码流协议解析</a> </p>
+<p>上一篇：<a href="/2017/04/09/rtsp">H.264码流协议解析</a><br>下一篇：<a href="/2017/07/06/python-cx-Oracle">cx_Oracle订阅，SessionPool使用</a></p>
 
 
                 
