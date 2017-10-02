@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="版权声明:本文为作者原创文章，可以随意转载，但必须在明确位置表明出处！！！所谓工欲善其事，必先利其器。我本人接触python也没有多长时间，希望通过本系列能够帮助哪些还不知道怎么入门python的同学，我个人学习一种新的语言喜欢带有目标的去学习，就如本系列我将以爬虫为目标去学习怎么使用python，">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Gavin">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="聚沙成塔-爬虫系列（一）"/>
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Gavin Blog"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+        <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>聚沙成塔-爬虫系列（一） - Gavin Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Gavin Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/Gavinxyj">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>聚沙成塔-爬虫系列（一）</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        2017-10-02
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/聚沙成塔-爬虫系列/">#聚沙成塔-爬虫系列</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h3 id="版权声明-本文为作者原创文章，可以随意转载，但必须在明确位置表明出处！！！"><a href="#版权声明-本文为作者原创文章，可以随意转载，但必须在明确位置表明出处！！！" class="headerlink" title="版权声明:本文为作者原创文章，可以随意转载，但必须在明确位置表明出处！！！"></a>版权声明:本文为作者原创文章，可以随意转载，但必须在明确位置表明出处！！！</h3><p>所谓工欲善其事，必先利其器。我本人接触python也没有多长时间，希望通过本系列能够帮助哪些还不知道怎么入门python的同学，我个人学习一种新的语言喜欢带有目标的去学习，就如本系列我将以爬虫为目标去学习怎么使用python，在开始学习python之前我们需要先搭建好基础环境。</p>
+<h3 id="基础环境一：WMware-workstation-pro-虚拟机工作站"><a href="#基础环境一：WMware-workstation-pro-虚拟机工作站" class="headerlink" title="基础环境一：WMware workstation pro(虚拟机工作站)"></a>基础环境一：WMware workstation pro(虚拟机工作站)</h3><p>虚拟机是用来用来创建虚拟环境的，这里我们将用虚拟机来搭建一个linux环境，本系列都会采用linux环jianshu境来开放，各位才入门的同学不要觉得linux很高深，如果你要成为一个优秀的程序员，linux你是不得不会的，如果你用熟了你会觉得linux比windows好用，而且大部分开源的项目对linux都有很好的支持，如果你还没有接触过linux，那么本系列会帮助你熟悉常用的linux命令。WMware workstation pro资源在<strong><em><a href="https://pan.baidu.com/s/1c2NFM2O" target="_blank" rel="external">https://pan.baidu.com/s/1c2NFM2O</a></em></strong></p>
+<h3 id="基础环境二：ubuntu16-04安装"><a href="#基础环境二：ubuntu16-04安装" class="headerlink" title="基础环境二：ubuntu16.04安装"></a>基础环境二：ubuntu16.04安装</h3><p>这里linux环境我们使用ubuntu，ubuntu系统操作比较方便，资源也比较多，这里我使用的ubuntu的server（服务版）该版本不带桌面。安装步骤如下：</p>
+<ol>
+<li><strong>打开WMware workstation pro:</strong><br><img src="http://upload-images.jianshu.io/upload_images/3485329-00ec255e701adf0a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></li>
+<li><strong>创建一个虚拟机，默认选择典型安装：</strong><br><img src="http://upload-images.jianshu.io/upload_images/3485329-823ed59f2741d521.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></li>
+<li><p><strong>找到ubuntu-16.04.3-server-amd64.iso镜像，点击确认</strong><br><img src="http://upload-images.jianshu.io/upload_images/3485329-29e83b32eb71cae7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+</li>
+<li><p><strong>输入用户名和密码：</strong><br><img src="http://upload-images.jianshu.io/upload_images/3485329-c90d95063750a368.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+</li>
+<li><strong>选择安装位置：</strong><br><img src="http://upload-images.jianshu.io/upload_images/3485329-a1bc1927aa21c586.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></li>
+<li><strong>指定磁盘容量，这里默认为20G：</strong><br><img src="http://upload-images.jianshu.io/upload_images/3485329-4b80b4e463ac9388.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></li>
+<li><strong>点击完成，等待安装完成：</strong><br><img src="http://upload-images.jianshu.io/upload_images/3485329-3d133262cb098d2b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br><img src="http://upload-images.jianshu.io/upload_images/3485329-ff1958344f263abb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></li>
+</ol>
+<p>资源链接：<strong><em><a href="https://pan.baidu.com/s/1c2NFM2O" target="_blank" rel="external">https://pan.baidu.com/s/1c2NFM2O</a></em></strong></p>
+<h3 id="基础环境三：xshell安装"><a href="#基础环境三：xshell安装" class="headerlink" title="基础环境三：xshell安装"></a>基础环境三：xshell安装</h3><p>xshell使用SSH协议，主要是用来连接远程主机，方便我们复制、粘贴等动作，xshell安装一直默认安装即可，安装完成后如下：<br><img src="http://upload-images.jianshu.io/upload_images/3485329-fa22186d7753506a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<ul>
+<li><strong>使用xshell连接ubuntu操作系统：</strong></li>
+</ul>
+<ol>
+<li><p>输入你之前创建虚拟机使用用户名和密码进入ubuntu系统：<br><img src="http://upload-images.jianshu.io/upload_images/3485329-c54f5f668d8e9fa5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+</li>
+<li><p>进入到系统后在终端输入命令ifconfig查看系统ip地址：<br><img src="http://upload-images.jianshu.io/upload_images/3485329-b771b6520b6e9f83.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+</li>
+<li><p>执行命令ps -ef | grep ssh命令，查看系统是否安装了SSH，如果安装了SSH会出现下图所示：<br><img src="http://upload-images.jianshu.io/upload_images/3485329-ff07abe6f73ca08a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+</li>
+<li><p>本篇文章提供的云盘资源是没有默认安装SSH， 所以需要我们自己手动去安装，首先给系统的管理员设置一个密码，执行命令su passwd，然后回车，然后输入密码。 记住这个密码，因为很多时候修改配置文件等都需要用到管理员权限。管理员密码设置好后在终端输入sudo apt-get install openssh-server命令–》回车–》输入管理员密码–》y–&gt;回车等待安装，如果没有错误提示表示你安装完了。</p>
+</li>
+<li><p>使用xshell登录ubuntu，双击xshell出现下图：<br><img src="http://upload-images.jianshu.io/upload_images/3485329-001b10f2d02f94c3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+</li>
+<li><p>点击对话框中的新建出现下图， 在主机栏填写你的ubuntu系统的ip地址，名称可以任意取个名字，不过建议使用主机的ip地址命名。单机确认完成配置<br><img src="http://upload-images.jianshu.io/upload_images/3485329-d780d52c53b049fd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+</li>
+<li><p>双击回话里刚刚建立的会话，在出现的弹出框输入你的密码<br><img src="http://upload-images.jianshu.io/upload_images/3485329-99724e5a7464bcec.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+</li>
+<li>出现以下界面就表示你登录成功了<br><img src="http://upload-images.jianshu.io/upload_images/3485329-fd80fbb9371f51e7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>xshell连接资源：<strong><em><a href="https://pan.baidu.com/s/1o7O1fSI" target="_blank" rel="external">https://pan.baidu.com/s/1o7O1fSI</a></em></strong></li>
+</ol>
+<h3 id="基础环境四：开放工具安装"><a href="#基础环境四：开放工具安装" class="headerlink" title="基础环境四：开放工具安装"></a>基础环境四：开放工具安装</h3><p>开发工具可以有多钟选择，我自己主要选择的是两种，<strong>sublime text3</strong>、<strong>PyCharm</strong>, PyCharm是工程级别的开发工具，功能非常的全面，sublime text3是比较轻量级的工具，本系列我们采用sublime text3作为开发工具，不要问为什么，因为它太酷炫了。<br>Sublime Text安装完后是这样的：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3485329-00cf16437f8da731.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>Sublime Text具体使用可以看这篇文章<strong><em><a href="http://www.jianshu.com/p/dca423358574" target="_blank" rel="external">http://www.jianshu.com/p/dca423358574</a></em></strong></p>
+<h3 id="基础环境五：python3-6安装"><a href="#基础环境五：python3-6安装" class="headerlink" title="基础环境五：python3.6安装"></a>基础环境五：python3.6安装</h3><p>如果你是使用我提供的ubuntu资源，那么不需要再为其安装python3.6了，该ubuntu系统自带的就是python3.6，这里我们在windows机器上安装一个python3.x的执行环境，在windows安装一个python3.x版本主要是为了方便查看源码，在交互式终端验证一些条件。双击可执行文件，默认安装就可以。安装完后在系统环境变量里设置一下你的安装路径就可以使用了。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3485329-db92529a67504c99.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h3 id="hello-world"><a href="#hello-world" class="headerlink" title="hello world"></a>hello world</h3><p>在windows上打开cmd(命令行控制终端)输入python进入交互式终端， 输入print(‘hello world’)–&gt;回车；<strong>到此我们就正式开始了python爬虫之路。</strong><br><img src="http://upload-images.jianshu.io/upload_images/3485329-898faeaab12aca05.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>python-3.6资源连接：<strong><em><a href="https://pan.baidu.com/s/1skNFg0d" target="_blank" rel="external">https://pan.baidu.com/s/1skNFg0d</a></em></strong></p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                      
+<section id="comment">  
+  <!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="2017/10/02/python-scrap1/" data-title="聚沙成塔-爬虫系列（一）" data-url="http://gavinxyj.com/2017/10/02/python-scrap1/"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"gavinxyj"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+</section>  
+  
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/Gavinxyj" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/Gavinxyj" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="https://gavinxyj.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="mailto:xie_youjiang@163.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
