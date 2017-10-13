@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="版权声明:本文为作者原创文章，可以随意转载，但必须在明确位置表明出处！！！
+在开始爬虫之前我们至少还需要知道python的基础语法和基本数据类型、数据结构。
+可变数据类型（mutable）和不可变数据类型（immutable）在python中数据类型分为可变数据类型和不可变数据类型。可变数据类型指的">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Gavin">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="聚沙成塔--爬虫系列（二）（python3基础语法）"/>
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Gavin Blog"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+        <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>聚沙成塔--爬虫系列（二）（python3基础语法） - Gavin Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Gavin Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/Gavinxyj">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>聚沙成塔--爬虫系列（二）（python3基础语法）</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        2017-10-08
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/爬虫系列/">#爬虫系列</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <blockquote>
+<h3 id="版权声明-本文为作者原创文章，可以随意转载，但必须在明确位置表明出处！！！"><a href="#版权声明-本文为作者原创文章，可以随意转载，但必须在明确位置表明出处！！！" class="headerlink" title="版权声明:本文为作者原创文章，可以随意转载，但必须在明确位置表明出处！！！"></a>版权声明:本文为作者原创文章，可以随意转载，但必须在明确位置表明出处！！！</h3></blockquote>
+<p><strong>在开始爬虫之前我们至少还需要知道python的基础语法和基本数据类型、数据结构。</strong></p>
+<h3 id="可变数据类型（mutable）和不可变数据类型（immutable）"><a href="#可变数据类型（mutable）和不可变数据类型（immutable）" class="headerlink" title="可变数据类型（mutable）和不可变数据类型（immutable）"></a>可变数据类型（mutable）和不可变数据类型（immutable）</h3><p>在python中数据类型分为可变数据类型和不可变数据类型。可变数据类型指的是对象的内容是可变的，不可变数据类型指的是对象的内容是不可变的。可变和不可变数据类型有以下几种</p>
+<ul>
+<li><strong>不可变数据类型：</strong>int(整形类型)， string(字符串类型)， float(浮点数类型)，number(数值类型)， tuple(元组类型)</li>
+<li><strong>可变数据类型：</strong> list(列表类型)，dict(字典类型)。list列表数据类型在内存中是一种线性的存储结构，你可以把它想象成一个一维数组，每个索引在内存中的存储结构是连续的。dict字典类型是一种映射关系的数据类型，它是以key，value的存储结构在内存中存储的，对于查找数据来说，dict的效率是要远远大于list的。所以如果我们要对大量数据进行查找，那么用dict数据类型存储记录是种不错的选择，<strong>python意图把全世界的对象的变成字典结构。</strong></li>
+</ul>
+<h3 id="不可变数据类型需要注意的地方"><a href="#不可变数据类型需要注意的地方" class="headerlink" title="不可变数据类型需要注意的地方"></a>不可变数据类型需要注意的地方</h3><p>不可变数据类型特别需要主要的是数值类型，python3中把-5-256作为常用的数值，如果变量指向在这个区间的相同值，那么他们的地址是不变的，这个时候在你写逻辑判断的时候你可以使用a == b或者a is b这两种方式都是可以的， 但是如果超出这个范围， 那么逻辑判断a == b返回True，a is b返回False，这点大家一定要<strong>切记！切记</strong>。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3485329-00577567309efa4b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h3 id="什么是不可变数据类型"><a href="#什么是不可变数据类型" class="headerlink" title="什么是不可变数据类型"></a>什么是不可变数据类型</h3><p>不可变数据类型指的是其指向该对象的值是不可变的，对于字符串是不可变数据类型，str 赋值为“hello world”然后查看其id(str)值，然后在给str赋值为“hello”, 再使用id(str)查看启id值，这个时候可以看到前后的id值并不是一样的，那么就可以证明后一个str赋值是重新创建了一个对象，如下图所示：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3485329-29811e4a13eeb5f3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>对与不可变数据类型，元组数据结构类型更容以看出来，因为我们只要对元组的值进行修改python解释器就会抛出异常错误，如下图所示：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3485329-dab6f6887b5d9691.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>虽然元组数据结构类型是不可变数据类型，但是它可以包涵可变数据结构类型如list、dict如下图所示：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3485329-44f4ea60a6b3e64c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>list是可变数据结构类型，所以这里对list的第一个元素也就是下标索引0的值重新赋值为100是可行的。</p>
+<h3 id="可变数据类型"><a href="#可变数据类型" class="headerlink" title="可变数据类型"></a>可变数据类型</h3><p>列表数据类型（list）、字典数据类型（dict）是可变数据类型，与不可变数据类型相反，可变数据类型是指它所指向的对象的值是可变的，需要值得主要的一点是字段数据类型（dict）,字典数据类型是key，value键值对映射结构类型的，它的key是不能对应多个值的，如果对同一个key赋值，结果就是被最后一次的值覆盖，如下图所示：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3485329-7f93d6fc72ffab3c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h3 id="字符串切片"><a href="#字符串切片" class="headerlink" title="字符串切片"></a>字符串切片</h3><p>字符串切片是python处理字符串不得不了解的知识点，我认为python对字符串分割的处理是所有语言中做得最牛X的。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 字符串切片</span></div><div class="line"></div><div class="line">str = <span class="string">'abcdefghijklmn'</span></div><div class="line"><span class="keyword">print</span> (<span class="string">'str = %s'</span> % str)</div><div class="line"><span class="comment">#保留从第三个位置开始的所有字符串</span></div><div class="line">print(<span class="string">'保留从第三个位置开始的所有字符串:%s'</span> % str[<span class="number">3</span>:])</div><div class="line"></div><div class="line"><span class="comment">#从第三个位置开始往后切三个字符</span></div><div class="line">print(<span class="string">'从第三个位置开始往后切三个字符:%s'</span> % str[<span class="number">3</span>:<span class="number">6</span>])</div><div class="line"></div><div class="line"><span class="comment">#去掉最后三个字符</span></div><div class="line">print(<span class="string">'去掉最后三个字符:%s'</span> % str[:<span class="number">-3</span>])</div><div class="line"></div><div class="line"><span class="comment">#保留最后三个字符</span></div><div class="line">print(<span class="string">'保留最后三个字符:%s'</span> % str[<span class="number">-3</span>:])</div><div class="line"></div><div class="line"><span class="comment">#逆序</span></div><div class="line">print(<span class="string">'逆序:%s'</span> % str[::<span class="number">-1</span>])</div><div class="line"></div><div class="line"><span class="comment">#隔一个字符逆序</span></div><div class="line">print(<span class="string">'隔一个字符逆序:%s'</span> % str[::<span class="number">-2</span>])</div><div class="line"></div><div class="line"><span class="comment">#取出每隔三个字符</span></div><div class="line">print(<span class="string">'取出每隔三个字符:%s'</span> % str[::<span class="number">3</span>])</div><div class="line"></div><div class="line"><span class="comment">#从第二个字符每隔三个字符取一个字符</span></div><div class="line">print(<span class="string">'从第二个字符每隔三个字符取一个字符:%s'</span> % str[<span class="number">2</span>::<span class="number">3</span>])</div><div class="line"></div><div class="line"><span class="comment">#复制字符串str</span></div><div class="line">str1 = str[:]</div><div class="line">print(<span class="string">'复制字符串str:%s'</span> % str1)</div></pre></td></tr></table></figure></p>
+<p>###执行结果<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">str = abcdefghijklmn</div><div class="line">保留从第三个位置开始的所有字符串:defghijklmn</div><div class="line">从第三个位置开始往后切三个字符:def</div><div class="line">去掉最后三个字符:abcdefghijk</div><div class="line">保留最后三个字符:lmn</div><div class="line">逆序:nmlkjihgfedcba</div><div class="line">隔一个字符逆序:nljhfdb</div><div class="line">取出每隔三个字符:adgjm</div><div class="line">从第二个字符每隔三个字符取一个字符:cfil</div><div class="line">复制字符串str:abcdefghijklmn</div></pre></td></tr></table></figure></p>
+<h3 id="条件和循环语句"><a href="#条件和循环语句" class="headerlink" title="条件和循环语句"></a>条件和循环语句</h3><p><strong>python有最严格的语法缩进语法，表达式的主题部分和表达式需要有4个空格的缩进，在我用sublime编辑器或者其它编辑器的时候需要设置tab键为4个空格。</strong></p>
+<ul>
+<li><strong>if条件语句</strong><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> expression:</div><div class="line">    expr_true_suite</div><div class="line"><span class="keyword">elif</span> expression:</div><div class="line">    expr_true_suite</div><div class="line"><span class="keyword">else</span>:</div><div class="line">    expr_false_suite</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>条件判断语句，if expression(如果条件成立)那么执行 expr_true_suite， 如果不成立然后去判断elif expression:这个表达式的逻辑是否成立，如果成立则执行expr_true_suite，如果条件都不满足，则执行最后的else逻辑。条件表达示中可以有多个elif语句，也可以一个都没有，看应用程序中具体的逻辑判断条件。</p>
+<ul>
+<li><strong>while循环语句</strong><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">while</span> expression:</div><div class="line">    suite_to_repeat</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>while 循环的 suite_to_repeat 子句会一直循环执行, 直到 expression 值为布尔假。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">count = <span class="number">0</span></div><div class="line"><span class="keyword">while</span> (count &lt; <span class="number">9</span>):</div><div class="line">    <span class="keyword">print</span> (<span class="string">'the index is:%d'</span> % count)</div><div class="line">    count += <span class="number">1</span></div></pre></td></tr></table></figure></p>
+<h3 id="for循环语句"><a href="#for循环语句" class="headerlink" title="for循环语句"></a>for循环语句</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> item <span class="keyword">in</span> [<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]:</div><div class="line">    print(item)</div><div class="line">结果</div><div class="line"><span class="number">0</span></div><div class="line"><span class="number">1</span></div><div class="line"><span class="number">2</span></div><div class="line"><span class="number">3</span></div></pre></td></tr></table></figure>
+<p>for循环是传统的计数循环，直到循环到最后一个元素为止</p>
+<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><p>函数是对程序逻辑进行结构化或过程化的一种编程方法。能将整块代码巧妙地隔离成易于管理的小块，把重复代码放到函数中而不是进行大量的拷贝–这样既能节省空间，也有助于保持一致性，因为你只需改变单个的拷贝而无须去寻找再修改大量复制代码的拷贝。<br> <strong>函数的定义：</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">func1</span><span class="params">()</span>:</span></div><div class="line">    do something...</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">func</span><span class="params">(param1, param2)</span>:</span></div><div class="line">    do something...</div><div class="line">    <span class="keyword">return</span> xxx</div></pre></td></tr></table></figure></p>
+<p>函数可以有参数，也可有没有参数，函数可以有返回值，也可以没有返回值，具体情况具体应用。基础的语法部分就到这里结束，下一篇将介绍正则表达式的使用，学会正则表达式的使用就能爬一些简单的网址了，python中其它高级的用法我们在写爬虫中遇到了在回过头了学习。</p>
+<hr>
+<h3 id="欢迎关注我的公众号-「爱做饭的老谢」，老谢一直在努力…"><a href="#欢迎关注我的公众号-「爱做饭的老谢」，老谢一直在努力…" class="headerlink" title="欢迎关注我的公众号:「爱做饭的老谢」，老谢一直在努力…"></a><strong>欢迎关注我的公众号:「爱做饭的老谢」，老谢一直在努力…</strong></h3><p>上一篇：<a href="/2017/10/02/python-scrap1">聚沙成塔-爬虫系列（一）（基础环境搭建）</a></p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                      
+<section id="comment">  
+  <!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="2017/10/08/python-scrap2/" data-title="聚沙成塔--爬虫系列（二）（python3基础语法）" data-url="http://gavinxyj.com/2017/10/08/python-scrap2/"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"gavinxyj"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+</section>  
+  
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/Gavinxyj" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/Gavinxyj" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="https://gavinxyj.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="mailto:xie_youjiang@163.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
