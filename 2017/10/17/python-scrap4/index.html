@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="版权声明:本文为作者原创文章，可以随意转载，但必须在明确位置表明出处！！！
+通过上一遍文章我们对python的基础语法和正则表达式有了一定的了解，从这边文章开始我们将进入实战，大家不要害怕，学习爬虫我们首先要做的是定一个目标，要相信没有爬不下来的东西，毕竟网页都是人写得，它们也遵循html规则，关于">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Gavin">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="聚沙成塔--爬虫系列（四）（爬取糗事百科段子）"/>
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Gavin Blog"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+        <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>聚沙成塔--爬虫系列（四）（爬取糗事百科段子） - Gavin Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Gavin Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/Gavinxyj">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>聚沙成塔--爬虫系列（四）（爬取糗事百科段子）</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        2017-10-17
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/爬虫系列/">#爬虫系列</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <blockquote>
+<h3 id="版权声明-本文为作者原创文章，可以随意转载，但必须在明确位置表明出处！！！"><a href="#版权声明-本文为作者原创文章，可以随意转载，但必须在明确位置表明出处！！！" class="headerlink" title="版权声明:本文为作者原创文章，可以随意转载，但必须在明确位置表明出处！！！"></a>版权声明:本文为作者原创文章，可以随意转载，但必须在明确位置表明出处！！！</h3></blockquote>
+<p>通过上一遍文章我们对python的基础语法和正则表达式有了一定的了解，从这边文章开始我们将进入实战，大家不要害怕，学习爬虫我们首先要做的是定一个目标，要相信没有爬不下来的东西，毕竟网页都是人写得，它们也遵循html规则，关于html标签语言可以到<a href="http://www.runoob.com/html/html-tutorial.html" target="_blank" rel="external">菜鸟教材·</a>去稍微了解一下。这里我们通过爬取糗事百科的段子来作为python3爬虫系列的第一个教程，因为糗事百科基本上是静态网页，所以这类网页是是最好爬取的网页，非常适合爬虫的入门教程。</p>
+<h3 id="urllib和re-正则表达式模块"><a href="#urllib和re-正则表达式模块" class="headerlink" title="urllib和re(正则表达式模块)"></a>urllib和re(正则表达式模块)</h3><p>爬虫，爬虫，就是把网上的内容爬到本地来，urllib模块的作用就是把网页上的内容去回到本地来，urllib是封装了http协议，至于http协议是怎么回事本篇内容不做讨论，http协议会在该系列之后的文章中对它做出详细的讲解。这里我们只需要知道urllib的作用是将网页上的内容取回到本地。取回到本地后它就是文本信息了，而要从文本信息中提取我们需要的信息就需要我们使用re模块（正则表达式模块）。</p>
+<h3 id="查看页面元素"><a href="#查看页面元素" class="headerlink" title="查看页面元素"></a>查看页面元素</h3><p>首先我们来看一下糗事百科的主页长什么样子<br><img src="http://upload-images.jianshu.io/upload_images/3485329-f87f097d8f6764dd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="4-1 糗百主页"></p>
+<p>从主页上可以看到每一个用户发表的一条段子都是一块，一块的分割开的。这就是html标签语言<strong>&lt;\div&gt;…&lt;\/div&gt;</strong>的作用，如果你对htm标签语言不熟习，可以花个半天时间去了解了解，了解html标签语言有助于更好的理解网页的布局，当然对你编写正则表达式规则也有莫大的帮助。</p>
+<h3 id="F12开发则工具"><a href="#F12开发则工具" class="headerlink" title="F12开发则工具"></a>F12开发则工具</h3><p>浏览器上都自带了开发则工具，只要你是web开发人员，这个工具你肯定会使用到，不管你是调试JS，还是css都会用到此工具。当然我们爬虫程序更需要用到此工具了，下面我们在糗事百科的页面按下键盘上的F12将会出现下面界面。<br><img src="http://upload-images.jianshu.io/upload_images/3485329-51ed662d3402b84a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="4-2 开发者工具"><br>当然你看到的界面可能和我的不一样，这是浏览器不同造成的，我使用的是Chrome浏览器，如果你们使用的是IE或者Firefox浏览器按下F12肯定和我的是不一样的。</p>
+<h3 id="Elements、Network"><a href="#Elements、Network" class="headerlink" title="Elements、Network"></a>Elements、Network</h3><p>按下F12后在出现的界面中有一行菜单栏，这里我们主要用到Elements、Network两个菜单</p>
+<ul>
+<li><strong>Elements:</strong> 元素，指的是当前网页元素（如果是静态网页那么在当前页面右键鼠标–&gt;查看网页源代码所看到的页面元素和这里看到的页面元素是一样的，只是这里的看到的元素是格式化了的，方便开发人员查看）</li>
+<li><strong>Network:</strong> 网络，指的是浏览器和web服务器发生的所有网络交互</li>
+</ul>
+<h3 id="快速定位元素"><a href="#快速定位元素" class="headerlink" title="快速定位元素"></a>快速定位元素</h3><p>在Elements菜单下移动鼠标到<div class="article block untagged mb15 typs_long" id="qiushi_tag_119595801"></div>项，可以看到页面上有“遇奸”这个用户的块区域被选中了。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3485329-e5ebb8342eabf089.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="4-3 快速定位"><br>可以看到Elements菜单下有很多类是\<div class="...">…</div>这样的标签，每一对这样的标签表示包含一个用户的所有信息，所以我们要查看“遇奸”这个用户发布的段子，那么肯定是在<div class="article block untagged mb15 typs_long" id="qiushi_tag_119595801"></div>之间了。</p>
+<h3 id="快速的定位到发表的段子"><a href="#快速的定位到发表的段子" class="headerlink" title="快速的定位到发表的段子"></a>快速的定位到发表的段子</h3><ol>
+<li><strong>点击菜单栏最左边的按钮。</strong></li>
+<li><strong>滑动鼠标到发表的段子上。</strong><br>是的只需要两步，你可以看到开发则工具界面就定位到发布的段子上了。</li>
+</ol>
+<p><img src="http://upload-images.jianshu.io/upload_images/3485329-9388f8c779853cc8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="4-4 快速定位指定元素"></p>
+<h3 id="是时候表演真正的技术了"><a href="#是时候表演真正的技术了" class="headerlink" title="是时候表演真正的技术了"></a>是时候表演真正的技术了</h3><p>通过上面的介绍我们对页面的基本元素已经有所了解了，那么如何从页面元素中获取用户发表的段子呢，这里我们定一个目标，我们需要获取<strong>用户名</strong>、<strong>用户ID</strong>、<strong>段子</strong>、<strong>好笑数</strong>、如果用户发表的是图片我们还需要获取<strong>图片的url地址</strong>，下面正则表达式这位英雄就要登场了。</p>
+<h3 id="获取段子"><a href="#获取段子" class="headerlink" title="获取段子"></a>获取段子</h3><p>当然最重要的就是段子了，我们的目的不就是为了爬取段子吗。首先我们在糗百页面右键鼠标–&gt;产看页面源代码，然后<strong>Ctrl + a(全选)</strong>， <strong>Ctrl + c(复制)</strong>, 然后粘贴到正则表达式在线测试工具中。<br><img src="http://upload-images.jianshu.io/upload_images/3485329-690072830bb31e88.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="4-5 正则表达式在线工具"><br>我们先通过在线工具来测试我们写的正则表达式是否正确。</p>
+<h3 id="爬取思想"><a href="#爬取思想" class="headerlink" title="爬取思想"></a>爬取思想</h3><p>在解决一个事情之前我们首先要做的是先在脑子里想一想该怎么去解决这个问题，第一步做什么、第二步做什么、最后做什么、爬虫也一样我们首先要去想一想怎么去爬到我们需要的信息。从文章的前半部分开发者工具截图的Elements可以看出每个用户的信息都是包含在一对<div class="...">…</div>之中的，所以我们的第一步是把每个用户的所有信息取出来。</p>
+<ul>
+<li><strong>第一步</strong>：取出包含在<div class="..">…</div>中的所有信息</li>
+<li><strong>第二步</strong>：从第一步的结果中取出该用户发布的段子、用户名、用户ID、url图片地址、好笑数</li>
+</ul>
+<p>首先取出包含在<div class="..">…</div>中的所有信息，正则表达式如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;article block untagged mb15.*?&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<p>鼠标点击<strong>[测试匹配]</strong>发现匹配结果为<strong>[没有匹配]</strong>，如下图</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3485329-6f3ad9fe767e772b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="4-6 正则表达式在线工具"><br>这是怎么回事呢，点符号表示匹配任何字符除换行符外，星号表示匹配前面出现的正则表达式零次或多次，问号表示非贪婪匹配，非贪婪匹配的意思是尽可能少的匹配，我会在后面的章节中详细说明。按理说我们的正则表达式是没有问题的啊？这里需要特别主要了从上一篇<a href="http://www.jianshu.com/p/627fd77e2be1" target="_blank" rel="external">聚沙成塔–爬虫系列（三）（正则表达式）</a>文章介绍我们知道<strong>点符号匹配任何字符串（除换行符外）</strong>，所以这里我们不能用点符号来匹配了，我们需要用到特殊符号\s表示匹配所有的空白符，\S表示匹配左右的非空白符，所以这两个符号的组合就表示匹配所以字符包括换行符，下面我们改写正则如下：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div class="article block untagged mb15[\s\S]*&lt;/div&gt;</div></pre></td></tr></table></figure>
+<p>鼠标点击<strong>[测试匹配]</strong>发现匹配结果为<strong>[没有匹配]</strong>，如下图</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3485329-68bb7db4a80bd997.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="4-7 正则表达式在线工具"><br>结果显示了我们匹配到了25个结果，这25个结果正好是糗百一页发布的数量，也表示一页上有25个用户， 但是这个时候我们查看结果的时候发现并没有包含段子内容，为什么呢？是因为我们的正则表达式匹配到结束，但是在最外层的…之中还有类似的div对，所以就不会匹配到最外层的结束标记，修改正则表达式如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;article block untagged mb15[\s\S]*?class=&quot;stats-vote&quot;.*?&lt;/div&gt;</div></pre></td></tr></table></figure>
+<h3 id="取用户名、用户ID、段子、图片url地址"><a href="#取用户名、用户ID、段子、图片url地址" class="headerlink" title="取用户名、用户ID、段子、图片url地址"></a>取用户名、用户ID、段子、图片url地址</h3><p>通过上一步我们已经取到了25个用户的所有信息，那么用户名和用户ID等等需要从这25个用户信息中获取到。这里我们又要回到开发者工具，通过上面所讲的操作，可以轻松定位到用户名，用户ID，段子</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3485329-4ace5a9d2c019b8b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="4-8 定位用户名，用户ID，段子内容"><br>可以发现用户ID是在herf后面，用户名是在</p><h2>…</h2>之间，段子是在<span>…</span>之间的，所以我们需要的正则表达式如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;a href=&quot;(.*?)&quot;.*?&lt;h2&gt;(.*?)&lt;/h2&gt;.*?&lt;div class=&quot;content&quot;&gt;(.*?)&lt;/div&gt;</div></pre></td></tr></table></figure><p></p>
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> urllib <span class="keyword">import</span> request</div><div class="line"><span class="keyword">import</span> re</div><div class="line">url = <span class="string">'https://www.qiushibaike.com'</span></div><div class="line">user_agent = <span class="string">'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36'</span></div><div class="line">headers = &#123;<span class="string">'User-Agent'</span>: user_agent&#125;</div><div class="line"></div><div class="line"><span class="comment"># 构建一个请求对象</span></div><div class="line">req = request.Request(url, headers=headers)</div><div class="line"><span class="comment"># 打开一个url</span></div><div class="line">response = request.urlopen(req)</div><div class="line"><span class="comment"># 读取服务器返回的页面数据内容</span></div><div class="line">content = response.read().decode(<span class="string">'utf-8'</span>)</div><div class="line"><span class="comment"># 匹配所有用户信息</span></div><div class="line"><span class="comment">#pattern  = re.compile(r'&lt;div class="article block untagged mb15[\s\S]*?&lt;a href="(.*?)".*?&lt;h2&gt;(.*?)&lt;/h2&gt;.*?&lt;div class="content"&gt;(.*?)&lt;/div&gt;',re.S)</span></div><div class="line">pattern = re.compile(<span class="string">r'&lt;div class="article block untagged mb15[\s\S]*?class="stats-vote".*?&lt;/div&gt;'</span>, re.S)</div><div class="line">userinfos = re.findall(pattern, content)</div><div class="line">print(len(userinfos))</div><div class="line"></div><div class="line">pattern = re.compile(<span class="string">r'&lt;a href="(.*?)".*?&lt;h2&gt;(.*?)&lt;/h2&gt;.*?&lt;div class="content"&gt;(.*?)&lt;/div&gt;'</span>, re.S)</div><div class="line"><span class="keyword">for</span> userinfo <span class="keyword">in</span> userinfos:</div><div class="line">    item = re.findall(pattern, userinfo)</div><div class="line">    <span class="comment">#print(item)</span></div><div class="line">    userid, name, content = item[<span class="number">0</span>]</div><div class="line">    <span class="comment"># 去掉换行符，&lt;span&gt;&lt;/span&gt;，&lt;br/&gt;符号</span></div><div class="line">    userid = re.sub(<span class="string">r'\n|&lt;span&gt;|&lt;/span&gt;|&lt;br/&gt;'</span>, <span class="string">''</span>, userid)</div><div class="line">    name = re.sub(<span class="string">r'\n|&lt;span&gt;|&lt;/span&gt;|&lt;br/&gt;'</span>, <span class="string">''</span>, name)</div><div class="line">    content = re.sub(<span class="string">r'\n|&lt;span&gt;|&lt;/span&gt;|&lt;br/&gt;'</span>, <span class="string">''</span>, content)</div><div class="line">    print((userid, name, content))</div></pre></td></tr></table></figure>
+<h3 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a>运行结果</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">(<span class="string">'/users/34093917/'</span>, <span class="string">'杨槐树的花香'</span>, <span class="string">'逛商场，一美女把一条大狗拉到商场里了。样子很吓人。估计碰到一个男的，吓得他大叫一声：我的个妈呀，拉好你老公行不？美女不愿意说男的骂她。两人纠缠看热闹的越来越多，大家看美女把狗拉到商城都反感一边倒支持男的。人群中有人说话，着男的怎么这样，说狗是人家老公，真没素质。美女听到有人替她说话又硬气三分。另一个人回答就是，哪狗明明是人家儿子……\x01[生气了]\x01[生气了]\x01[生气了]'</span>)</div><div class="line">(<span class="string">'/users/24703920/'</span>, <span class="string">'甜甜橙※'</span>, <span class="string">'去浴池洗澡，发现一个大姐老是偷偷看我，也没在意！等我准备穿衣服的时候，偷瞄一眼大姐已经穿好了！突然大姐“嗖”的飘到我跟前，用手揉了一把我 咪 咪，嘴里碎碎念：“这么大这么好看居然是真的？！真的？！”我擦。。。'</span>)</div><div class="line">(<span class="string">'/users/226122/'</span>, <span class="string">'想爱爱就别给老婆'</span>, <span class="string">'阴天，LZ白天在家一直睡觉，3岁儿子在客厅玩耍一会跑过来问我：妈妈，你睡觉，睡醒了吗？一会又跑回来问：妈妈，你可以起床了吗？好吧，知道你无聊没事做了'</span>)</div><div class="line">(<span class="string">'/users/21674803/'</span>, <span class="string">'小晓超人'</span>, <span class="string">'我这个人最怕别人跟我比！若果你满世界的乱拉屎，我就可以把屎糊满你的全世界！'</span>)</div><div class="line">(<span class="string">'/users/31240860/'</span>, <span class="string">'残落之辉'</span>, <span class="string">'不知道有几个人有类似的经历。当你走在大街上，突然听见一苍老又陌生的声音在叫你的小名，你以为是许久未见的长辈而满怀激动的心情转过身时……却看见一只小土狗撒着欢的冲向一位老人……别拦我，让我咬死那只狗！！！'</span>)</div><div class="line">(<span class="string">'/users/34710929/'</span>, <span class="string">'星舞飞碟'</span>, <span class="string">'上公交车遇到一奶奶带一小孩，小孩又哭又闹，吵的全车人不得安宁，后来一高中生问他奶奶：你家小孩多少钱？瞬间不哭了'</span>)</div><div class="line">(<span class="string">'/users/32215536/'</span>, <span class="string">'吃了两碗又盛'</span>, <span class="string">'那天一朋友被他儿子的班主任请去谈话，回来时一脸俄罗斯方块。问他怎么了，他说:马 勒戈壁的，这小兔 崽 子不知道跟哪个王 八犊 子学会了说脏话！'</span>)</div><div class="line">(<span class="string">'/users/30381978/'</span>, <span class="string">'LOVE蓝可'</span>, <span class="string">'单身狗一枚 去参加朋友婚礼  结果把车炸成这样了，注定孤独一生吧'</span>)</div><div class="line">(<span class="string">'/users/30476775/'</span>, <span class="string">'我的个脑子呀'</span>, <span class="string">'分享#今天早上去帮弟弟买作业本的时候遇到弟弟的好朋友在骑自行车，速度很快结果没刹住车一头撞在了树上，我本来想关心他一下，可是想到了前几天发生的事，我竟大笑了起来。。。。。。弟弟的这个好朋友，刚刚买了一辆自行车勤学苦练终于学会了，可不久之后听弟弟说他掉进了粪坑，然后不久又钻进了水沟，有一次来我家找我弟弟玩就把车停在了大门外，我爸说让他推进家里来，可是他就是不听说没事，和弟弟玩了一会他们正准备出去玩，可是发现他的自行车不见啦，最后他们找啊找啊急得不得了就是找不到，吓得不敢回家，就去了他奶奶家，（他奶…&lt;span class="contentForAll"&gt;查看全文'</span>)</div><div class="line">(<span class="string">'/users/21447817/'</span>, <span class="string">'嘟嘟豆豆5'</span>, <span class="string">'洗洗睡觉了！！'</span>)</div><div class="line">(<span class="string">'/users/30998801/'</span>, <span class="string">'红尘一笑醉红颜～'</span>, <span class="string">'深 夜 缠 绵，情到深处忍不住呻 吟 浅 唱，老公说你小声点，我说不要，那样憋着多难受啊……然后他直接吻住我的嘴，把我憋的“呜呜”叫，奶奶的，一脚给他踹下去了，他委屈的爬起来告诉我，他听到隔壁有说话的声音，怕人家听到.....我说“你不在家我每天听他们家叫，现在也该让他们尝尝我的厉害了！”.....'</span>)</div><div class="line">(<span class="string">'/users/21821649/'</span>, <span class="string">'卟溫柔'</span>, <span class="string">'闺蜜老公感冒了，让我开车捎他们两口子去医院打针。看完医生去打针，只见那个小护士很利索的把针头扎了进去，闺蜜问她老公有感觉没？她老公看了看那么细的针头，说这么细，扎进去能有啥感觉？闺蜜看了她老公一眼说：“老公，你终于体会到我的感受了......”\x01[惊讶]\x01[惊讶]\x01[惊讶]我是不是发现了什么\x01[doge]\x01[doge]\x01[doge]'</span>)</div><div class="line">(<span class="string">'/users/12679679/'</span>, <span class="string">'o初恋o'</span>, <span class="string">'一个客户在我早上熟睡之际因为订单问题给我电话，我爱发嗲，加上没睡醒更是软绵绵的声音，然后连着5天他每天早上都给我打电话喊我起床，关键我凌晨三四点才睡觉的，可烦死人啦'</span>)</div><div class="line">(<span class="string">'/users/31973521/'</span>, <span class="string">'锤子是主谋'</span>, <span class="string">'背景：“国庆回家过了半个月荒诞的生活。一直没有运动，回到上海锻炼一小时以后喝了口冰水开始胃疼。”我：“医生我锻炼了以后胃疼什么情况？以前没发生过这种事。”医生：“你不用紧张，这种情况不用吃药，过一会自己就好了。”我：“谢谢，那耽误我晚上喝酒不？”医生：“那我还是给你开点药吧。”我：......'</span>)</div><div class="line">(<span class="string">'/users/16696217/'</span>, <span class="string">'黄半仙Demigo…'</span>, <span class="string">'男：，，，，，，女：。。。。。。男：好女：来接我'</span>)</div><div class="line">(<span class="string">'/users/13521795/'</span>, <span class="string">'哥裤裆有杀气'</span>, <span class="string">'万恶的马赛克（转）'</span>)</div><div class="line">(<span class="string">'/users/30683297/'</span>, <span class="string">'傻妞也'</span>, <span class="string">'老师：“凡事要争第一，第二和倒数第一没什么区别。”小宝：“为什么？”老师：“我举个例子，你说世界上最高的山峰是什么峰？”小宝：“不知道啊，啥峰啊？”'</span>)</div><div class="line">(<span class="string">'/users/31087078/'</span>, <span class="string">'大冰冰儿儿'</span>, <span class="string">'别再自欺欺人了，鹿晗关晓彤俩人就是在一起了，我和彭于晏也要宣布了请大家不要伤心我们会幸福的[微笑]       @所有人'</span>)</div><div class="line">(<span class="string">'/users/9005124/'</span>, <span class="string">'男人不将就'</span>, <span class="string">'同事儿子六岁，上幼儿园。经常被一同学欺负，老师训斥也不管用。同事气不过，又不能和小孩一般见识，晚上怒气冲冲对他儿子说“你明天上学不把他（欺负他的同学）揍一顿，回来你就要挨打，若是打赢了晚上回来还有奖励。”第二天他儿子一入园就找那小子报仇去了，还把他打的流鼻血。老师问为什么打架，他儿子理直气壮的说“不打他晚上回去我爸要打我的。”搞的老师有点哭笑不得。同事被请去学校，在办公室老师当着好几个老师的面讲给他听，同事说当时真觉得丢人，过后又觉得很赞。当晚同事就带他儿子肯德基去了，还奖励了20。之后再也没…&lt;span class="contentForAll"&gt;查看全文'</span>)</div><div class="line">(<span class="string">'/users/28264578/'</span>, <span class="string">'屌丝小叔'</span>, <span class="string">'我想说在群里抢红包说少的发，抢了个最少的0.53元，到我发时想发个5.3元手一抖53元没了糗吧！这还不是经典，经典的刚洗澡时把洗面膏当洗发膏用了，半天不起沫才发现用错了！唉'</span>)</div><div class="line">(<span class="string">'/users/19216493/'</span>, <span class="string">'CTR小诺'</span>, <span class="string">'小仙女请发言      过麦'</span>)</div><div class="line">(<span class="string">'/users/9942197/'</span>, <span class="string">'植哥哥'</span>, <span class="string">'太单纯，怪我不懂……'</span>)</div><div class="line">(<span class="string">'/users/27749688/'</span>, <span class="string">'无言，无缘'</span>, <span class="string">'两手抓咪咪'</span>)</div><div class="line">(<span class="string">'/users/33390668/'</span>, <span class="string">'吃土吃够了'</span>, <span class="string">'我爸要给我买火箭了，再过两天就是我27岁的生日了，我跟我爸说想出去玩，让他给我买张机票当礼物，我爸说∶“我给你买个火箭你直接上天，免得老嫁不出去呆在地球上丢人！”我∶\x01[捂脸]\x01[捂脸]……'</span>)</div><div class="line">(<span class="string">'/users/26260464/'</span>, <span class="string">'紫燕双飞飞飞的'</span>, <span class="string">'好像很拉风。'</span>)</div></pre></td></tr></table></figure>
+<h3 id="代码解读"><a href="#代码解读" class="headerlink" title="代码解读"></a>代码解读</h3><ul>
+<li><strong>import：</strong> 关键字，是导入python库文件的，当然也可以导入你自己写得文件，它的意思是要引用哪个模块，这里我们需要引用两个模块，一个是urllib模块，一个是re（正则表达式模块），引用了这两个模块后我们就能使用这两个模块提供的方法</li>
+<li><strong>url：</strong> 变量，这里的变量赋值为糗事百科的网址</li>
+<li><p><strong>user_agent：</strong> 用户代理，这个参数很关键，爬虫所有的动作都需要模拟人怎么去操作，这样服务器才不会拦截你的访问，user_agent表示我们使用的是什么浏览器去访问的，这里需要说明一下反爬策略，常见的反爬策略是服务器端会监测你的user_agent，ip, 访问频率，如果你同一个ip地址短时间内访问过多，服务器端会认为你不是人为操作，它会认为你是个机器人，因为人为操作没有这么频繁。所以爬和反爬是一对天敌，后面我会讲爬虫的高级应用，所谓“道高一尺，魔高一丈”是也。user_agent参数可以通过开发者工具Network菜单下的Headers查看<br><img src="http://upload-images.jianshu.io/upload_images/3485329-66ed80a5532946c9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="4-9 user_agent参数查看"></p>
+</li>
+<li><p><strong>Request(…)：</strong>该函数是创建一个请求实例，我们可以看看开发文档的描述<br><img src="http://upload-images.jianshu.io/upload_images/3485329-75d7c34e4a7c78c6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="4-10 python3开发文档urllib.request模块定义"></p>
+</li>
+<li><strong>urlopen(…)：</strong> 打开一个url，该函数的定义如下<br>urllib.request.urlopen(url, data=None, [timeout, ]*, cafile=None, capath=None, cadefault=False, context=None)<br>url参数可以是一个字符串也可以是一个Request对象，更多的介绍可以查看开发文档</li>
+<li><strong>read()：</strong> 读取页面返回的内容。</li>
+<li><strong>decode()：</strong>解码，我们读取回来的内容是经过编码后的字符串，如果不解码就看不明白都会来的字符串，如何查看页面是什么编码呢？我们可以通过开发者工具查看，也可以通过查看页面源代码查看网页编码。<br><img src="http://upload-images.jianshu.io/upload_images/3485329-932ace668d01c7c1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="4-11 页面编码查看"></li>
+<li><strong>compile()：</strong>  编译正则表达式模块，这个函数将返回一个匹配模式对象，这里推荐大家写正则表达式的时候先把正则表达式预编译成一个对象，这样在查找的时候程序就不需要每次都再去编译一次正则表达式了，特别是对于在海量文本中查找的时候预编译正则规则尤为重要，预编译正则规则能提高你的代码执行效率<br>findall，sub等函数上一篇<a href="http://www.jianshu.com/p/627fd77e2be1" target="_blank" rel="external">聚沙成塔–爬虫系列（三）（正则表达式）</a>文章已经介绍过了，这里不在累诉。</li>
+</ul>
+<p><strong>note：</strong> 这里我们用到了前面章节介绍到的python的两种数据结果，列表和元组，还有for循环语法，函数findall返回的是一个list(列表)，所以我们需要循环列表里的每个元素，每个元素代表一个被匹配上的用户信息，正则表达式中用（）括号括起来的表示你要取的元素，它将会以元组的形式方法。到这里我们就完成了一个最基本的爬虫程序了，你是不是可以收集海量段子了，时不时的给妹子发个段子，是不是可以在妹子面前展示一下你的幽默诙谐了，哈哈。。。。，骚年这还不够，继续努力吧。。。。</p>
+<p>更多的文章可以关注我的blog:<a href="http://www.gavinxyj.com" target="_blank" rel="external">http://www.gavinxyj.com</a></p>
+<hr>
+<h3 id="欢迎关注我的公众号-爱做饭的老谢，老谢一直在努力…"><a href="#欢迎关注我的公众号-爱做饭的老谢，老谢一直在努力…" class="headerlink" title="欢迎关注我的公众号:爱做饭的老谢，老谢一直在努力…"></a><strong>欢迎关注我的公众号:爱做饭的老谢，老谢一直在努力…</strong></h3>
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                      
+<section id="comment">  
+  <!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="2017/10/17/python-scrap4/" data-title="聚沙成塔--爬虫系列（四）（爬取糗事百科段子）" data-url="http://gavinxyj.com/2017/10/17/python-scrap4/"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"gavinxyj"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+</section>  
+  
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/Gavinxyj" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/Gavinxyj" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="https://gavinxyj.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="mailto:xie_youjiang@163.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
