@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="版权声明:本文为作者原创文章，可以随意转载，但必须在明确位置标明出处！！！
+上一篇文章我们介绍了函数的使用，以及函数设计应该参考的原则，但这些还不够的，函数只是让我们的代码可读性、可复用性提高了。并没有让我们的程序看上去那么健壮，专业术语叫「稳定行」；什么是稳定性呢，就是我们的程序经不起考验，就像大">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Gavin">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="聚沙成塔--爬虫系列（六）（请做个内外兼修的高手）"/>
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Gavin Blog"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+        <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>聚沙成塔--爬虫系列（六）（请做个内外兼修的高手） - Gavin Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Gavin Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/Gavinxyj">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>聚沙成塔--爬虫系列（六）（请做个内外兼修的高手）</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        2017-10-22
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/爬虫系列/">#爬虫系列</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p><img src="http://upload-images.jianshu.io/upload_images/3485329-26d6739a066a4d40.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="风清扬"></p>
+<blockquote>
+<h3 id="版权声明-本文为作者原创文章，可以随意转载，但必须在明确位置标明出处！！！"><a href="#版权声明-本文为作者原创文章，可以随意转载，但必须在明确位置标明出处！！！" class="headerlink" title="版权声明:本文为作者原创文章，可以随意转载，但必须在明确位置标明出处！！！"></a>版权声明:本文为作者原创文章，可以随意转载，但必须在明确位置标明出处！！！</h3></blockquote>
+<p>上一篇文章我们介绍了函数的使用，以及函数设计应该参考的原则，但这些还不够的，函数只是让我们的代码可读性、可复用性提高了。并没有让我们的程序看上去那么健壮，专业术语叫<strong>「稳定行」</strong>；什么是稳定性呢，就是我们的程序经不起考验，就像大海中的孤舟经不起一点风浪的拍打，我们上一篇文章的代码只适合在风平浪静的时候出海，因为程序并没有一点容错处理，下面该是修炼内功的时候了，不能只有招式没有内涵啊…，那样的话你讲永远成为不了高手。</p>
+<h3 id="内功修炼总纲–异常处理"><a href="#内功修炼总纲–异常处理" class="headerlink" title="内功修炼总纲–异常处理"></a>内功修炼总纲–异常处理</h3><p>什么是异常处理，异常处理就是处理程序运行期间出现的任何意外或异常情况，程序员的日常生活中，错误几乎是每天都会发现，有些错误是致命的，会直接导致程序终止，直到错误被修复后再次执行程序，但是有些错误是可以忽略的，所有我们需要有一个机制能在程序运行中捕获到异常信息，这样可以帮助我们更快的解决问题。</p>
+<h3 id="什么是错误"><a href="#什么是错误" class="headerlink" title="什么是错误"></a>什么是错误</h3><p>错误是指语法或是逻辑上的，语法错误是值不能被解释器解释或不能被编译器编译，这些错误必须在程序执行前纠正。</p>
+<p>当语法上没有什么错后，就剩下逻辑上的错误了，逻辑错误可能是由用户不完整或不合法的输入所致。</p>
+<h3 id="什么是异常"><a href="#什么是异常" class="headerlink" title="什么是异常"></a>什么是异常</h3><p>程序出现了错误而在正常流程以外采取的行为，这个行为分为两个阶段，首先是引起异常发生的错误，其次是采取可能措施的阶段。</p>
+<p>第一个阶段是发生在一个异常条件后发生的，只要检测到并意识到异常条件，解释器就会触发一个异常。<br>第二个阶段是异常发生后，程序员可以做出各种不同的处理逻辑，当然也也可忽略异常。异常发生后需要特别注意的是<strong>当前异常发生后的逻辑都不会被执行了</strong>，如下我们定义了一个长度为4的list，而我们试图去访问第五个元素，那么就会产生一个越界的异常，而hello world将不再会被执行到<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">items = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]</div><div class="line">print(items[<span class="number">5</span>])</div><div class="line"></div><div class="line">print(<span class="string">'hello world'</span>)</div></pre></td></tr></table></figure></p>
+<h3 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Traceback (most recent call last):</div><div class="line">  File <span class="string">"exception.py"</span>, line <span class="number">2</span>, <span class="keyword">in</span> &lt;module&gt;</div><div class="line">    print(items[<span class="number">5</span>])</div><div class="line">IndexError: list index out of range</div></pre></td></tr></table></figure>
+<h3 id="检测和处理异常语法"><a href="#检测和处理异常语法" class="headerlink" title="检测和处理异常语法"></a>检测和处理异常语法</h3><p>异常可以通过try语句来检测，任何在try语句块里的代码都将被监测，except用来捕获异常，任何在try语句块里被检测到的异常都会被except捕获到，所以对于程序员来说我们需要考虑当异常发生后做一些收尾工作，像释放资源，重连数据库等等…</p>
+<h3 id="常见的异常错误"><a href="#常见的异常错误" class="headerlink" title="常见的异常错误"></a>常见的异常错误</h3><table>
+<thead>
+<tr>
+<th>错误类型</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AttributeError</td>
+<td style="text-align:left">属性错误，特性引用和赋值失败时会引发属性错误</td>
+</tr>
+<tr>
+<td>NameError</td>
+<td style="text-align:left">试图访问的变量名不存在</td>
+</tr>
+<tr>
+<td>SyntaxError</td>
+<td style="text-align:left">语法错误，代码形式错误</td>
+</tr>
+<tr>
+<td>Exception</td>
+<td style="text-align:left">所有异常的基类，因为所有python异常类都是基类Exception的其中一员，异常都是从基类Exception继承的，并且都在exceptions模块中定义。</td>
+</tr>
+<tr>
+<td>IOError</td>
+<td style="text-align:left">一般常见于打开不存在文件时会引发IOError错误，也可以解理为输出输入错误</td>
+</tr>
+<tr>
+<td>KeyError</td>
+<td style="text-align:left">使用了映射中不存在的关键字（键）时引发的关键字错误</td>
+</tr>
+<tr>
+<td>IndexError</td>
+<td style="text-align:left">索引错误，使用的索引不存在，常索引超出序列范围，什么是索引</td>
+</tr>
+<tr>
+<td>TypeError</td>
+<td style="text-align:left">类型错误，内建操作或是函数应于在了错误类型的对象时会引发类型错误</td>
+</tr>
+<tr>
+<td>ZeroDivisonError</td>
+<td style="text-align:left">除数为0，在用除法操作时，第二个参数为0时引发了该错误</td>
+</tr>
+<tr>
+<td>ValueError</td>
+<td style="text-align:left">值错误，传给对象的参数类型不正确，像是给int()函数传入了字符串数据类型的参数。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="try-except语句"><a href="#try-except语句" class="headerlink" title="try-except语句"></a>try-except语句</h3><p>try-except是最常见的异常检测捕获写法，它由try块和except块组成，也可以有一个可选的错误原因<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">try</span>:</div><div class="line">	try_suite <span class="comment"># watch for exceptions here 监控这里的异常</span></div><div class="line"><span class="keyword">except</span> Exception[, reason]:</div><div class="line">	except_suite <span class="comment"># exception-handling code 异常处理代码</span></div></pre></td></tr></table></figure></p>
+<h3 id="try-except-finally语句"><a href="#try-except-finally语句" class="headerlink" title="try-except-finally语句"></a>try-except-finally语句</h3><p>在try-except语句中我们可以有多个except语句块来捕获不同的错误类型，finally语句块是不管有没有异常发生都会被执行到，它通常用来最后释放资源。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">try</span>:</div><div class="line">    try_suite</div><div class="line"><span class="keyword">except</span> Exception1:</div><div class="line">    suite_for_Exception1</div><div class="line"><span class="keyword">except</span> (Exception2, Exception3, Exception4):</div><div class="line">    suite_for_Exceptions_2_3_and_4</div><div class="line"><span class="keyword">except</span> Exception5, Argument5:</div><div class="line">    suite_for_Exception5_plus_argument</div><div class="line"><span class="keyword">except</span> (Exception6, Exception7), Argument67:</div><div class="line">    suite_for_Exceptions6_and_7_plus_argument</div><div class="line"><span class="keyword">except</span>:</div><div class="line">    suite_for_all_other_exceptions</div><div class="line"><span class="keyword">else</span>:</div><div class="line">    no_exceptions_detected_suite</div><div class="line"><span class="keyword">finally</span>:</div><div class="line">    always_execute_suite</div></pre></td></tr></table></figure></p>
+<h3 id="总纲目录"><a href="#总纲目录" class="headerlink" title="总纲目录"></a>总纲目录</h3><p>同过上面的介绍可能有人要问我写代码的时候不知道可能会发生什么异常，有可能一种异常，也有可能几种异常，那怎么办呢，嗯，不错能想到这个问题的人证明都是认真去思考过的人，下面我们看看异常的继承关系，这里还没有讲到类的继承关系，不过不要紧，你就想象成你与你爹，你爷爷的关系就好，你爷爷把财产都留给你了你爹，你爹以后也会把财产留给你。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div></pre></td><td class="code"><pre><div class="line">BaseException</div><div class="line"> +-- SystemExit</div><div class="line"> +-- KeyboardInterrupt</div><div class="line"> +-- GeneratorExit</div><div class="line"> +-- Exception</div><div class="line">      +-- StopIteration</div><div class="line">      +-- StopAsyncIteration</div><div class="line">      +-- ArithmeticError</div><div class="line">      |    +-- FloatingPointError</div><div class="line">      |    +-- OverflowError</div><div class="line">      |    +-- ZeroDivisionError</div><div class="line">      +-- AssertionError</div><div class="line">      +-- AttributeError</div><div class="line">      +-- BufferError</div><div class="line">      +-- EOFError</div><div class="line">      +-- ImportError</div><div class="line">           +-- ModuleNotFoundError</div><div class="line">      +-- LookupError</div><div class="line">      |    +-- IndexError</div><div class="line">      |    +-- KeyError</div><div class="line">      +-- MemoryError</div><div class="line">      +-- NameError</div><div class="line">      |    +-- UnboundLocalError</div><div class="line">      +-- OSError</div><div class="line">      |    +-- BlockingIOError</div><div class="line">      |    +-- ChildProcessError</div><div class="line">      |    +-- ConnectionError</div><div class="line">      |    |    +-- BrokenPipeError</div><div class="line">      |    |    +-- ConnectionAbortedError</div><div class="line">      |    |    +-- ConnectionRefusedError</div><div class="line">      |    |    +-- ConnectionResetError</div><div class="line">      |    +-- FileExistsError</div><div class="line">      |    +-- FileNotFoundError</div><div class="line">      |    +-- InterruptedError</div><div class="line">      |    +-- IsADirectoryError</div><div class="line">      |    +-- NotADirectoryError</div><div class="line">      |    +-- PermissionError</div><div class="line">      |    +-- ProcessLookupError</div><div class="line">      |    +-- TimeoutError</div><div class="line">      +-- ReferenceError</div><div class="line">      +-- RuntimeError</div><div class="line">      |    +-- NotImplementedError</div><div class="line">      |    +-- RecursionError</div><div class="line">      +-- SyntaxError</div><div class="line">      |    +-- IndentationError</div><div class="line">      |         +-- TabError</div><div class="line">      +-- SystemError</div><div class="line">      +-- TypeError</div><div class="line">      +-- ValueError</div><div class="line">      |    +-- UnicodeError</div><div class="line">      |         +-- UnicodeDecodeError</div><div class="line">      |         +-- UnicodeEncodeError</div><div class="line">      |         +-- UnicodeTranslateError</div><div class="line">      +-- Warning</div><div class="line">           +-- DeprecationWarning</div><div class="line">           +-- PendingDeprecationWarning</div><div class="line">           +-- RuntimeWarning</div><div class="line">           +-- SyntaxWarning</div><div class="line">           +-- UserWarning</div><div class="line">           +-- FutureWarning</div><div class="line">           +-- ImportWarning</div><div class="line">           +-- UnicodeWarning</div><div class="line">           +-- BytesWarning</div><div class="line">           +-- ResourceWarning</div></pre></td></tr></table></figure></p>
+<p>可以看到BaseException是异常的祖先，BaseException下有4兄弟，分别是SystemExit、KeyboardInterrupt、GeneratorExit、Exception异常，所以如何你要捕捉<strong>Ctrl + c</strong>终端异常那么你的except语句应该写成except KeyboardInterrupt as e；那么从上图我们可以看到绝大部分的异常都是继承自Exception的，所以如果我们要捕获除SystemExit、KeyboardInterrupt、GeneratorExit三种异常外都可以写成except Exception as e；</p>
+<h3 id="努力做个像风清扬一样的高手"><a href="#努力做个像风清扬一样的高手" class="headerlink" title="努力做个像风清扬一样的高手"></a>努力做个像风清扬一样的高手</h3><p>通过上面的介绍，接下来我们来分析分析我为什么说之前的代码只适合在风平浪静的时候出海呢，从我们的代码可以看出我们的代码写出来的逻辑是理想中没有任何错误才能得出正确结果的，那么如果我们的url地址是个不可访问的地址会发生什么呢，我们将url地址改为「<a href="https://www.qiushibaike1.com」看看会有什么结果：" target="_blank" rel="external">https://www.qiushibaike1.com」看看会有什么结果：</a><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> urllib <span class="keyword">import</span> request</div><div class="line"><span class="keyword">import</span> re</div><div class="line"></div><div class="line">url = <span class="string">'https://www.qiushibaike1.com'</span></div><div class="line">user_agent = <span class="string">'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36'</span></div><div class="line">headers = &#123;<span class="string">'User-Agent'</span>: user_agent&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">read_html</span><span class="params">(url, headers, codec)</span>:</span></div><div class="line">    <span class="string">'''[read_html]</span></div><div class="line">    </div><div class="line">    [读取html页面内容]</div><div class="line">    </div><div class="line">    Arguments:</div><div class="line">        url &#123;[string]&#125; -- [url地址]</div><div class="line">        headers &#123;[dict]&#125; -- [用户代理，这里是一个字典类型]</div><div class="line">        codec &#123;[string]&#125; -- [编码方式]</div><div class="line">    </div><div class="line">    Returns:</div><div class="line">        [string] -- [页面内容]</div><div class="line">    '''</div><div class="line">    <span class="comment"># 构建一个请求对象</span></div><div class="line">    req = request.Request(url, headers=headers)</div><div class="line">    <span class="comment"># 打开一个请求</span></div><div class="line">    response = request.urlopen(req)</div><div class="line">    <span class="comment"># 读取服务器返回的页面数据内容</span></div><div class="line">    content = response.read().decode(codec)</div><div class="line"></div><div class="line">    <span class="keyword">return</span> content</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">match_element</span><span class="params">(content, pattern)</span>:</span></div><div class="line">    <span class="string">'''[match_element]</span></div><div class="line">    </div><div class="line">    [匹配元素]</div><div class="line">    </div><div class="line">    Arguments:</div><div class="line">        content &#123;[string]&#125; -- [文本内容]</div><div class="line">        pattern &#123;[object]&#125; -- [匹配模式]</div><div class="line"></div><div class="line">    Returns:</div><div class="line">        [list] -- [匹配到的元素]</div><div class="line">    '''</div><div class="line">    <span class="comment"># 匹配所有用户信息</span></div><div class="line">    </div><div class="line">    userinfos = re.findall(pattern, content)</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> userinfos</div><div class="line"></div><div class="line">content = read_html(url, headers, <span class="string">'utf-8'</span>)</div><div class="line">pattern = re.compile(<span class="string">r'&lt;div class="article block untagged mb15[\s\S]*?class="stats-vote".*?&lt;/div&gt;'</span>, re.S)</div><div class="line">userinfos = match_element(content, pattern)</div><div class="line"></div><div class="line"><span class="keyword">if</span> userinfos:</div><div class="line">    pattern = re.compile(<span class="string">r'&lt;a href="(.*?)".*?&lt;h2&gt;(.*?)&lt;/h2&gt;.*?&lt;div class="content"&gt;(.*?)&lt;/div&gt;'</span>, re.S)</div><div class="line">    <span class="keyword">for</span> userinfo <span class="keyword">in</span> userinfos:</div><div class="line">        item = match_element(userinfo, pattern)</div><div class="line">        <span class="comment">#print(item)</span></div><div class="line">        <span class="keyword">if</span> item:</div><div class="line">            userid, name, content = item[<span class="number">0</span>]</div><div class="line">            <span class="comment"># 去掉换行符，&lt;span&gt;&lt;/span&gt;，&lt;br/&gt;符号</span></div><div class="line">            userid = re.sub(<span class="string">r'\n|&lt;span&gt;|&lt;/span&gt;|&lt;br/&gt;'</span>, <span class="string">''</span>, userid)</div><div class="line">            name = re.sub(<span class="string">r'\n|&lt;span&gt;|&lt;/span&gt;|&lt;br/&gt;'</span>, <span class="string">''</span>, name)</div><div class="line">            content = re.sub(<span class="string">r'\n|&lt;span&gt;|&lt;/span&gt;|&lt;br/&gt;'</span>, <span class="string">''</span>, content)</div><div class="line">            print((userid, name, content))</div></pre></td></tr></table></figure></p>
+<h3 id="结果-1"><a href="#结果-1" class="headerlink" title="结果"></a>结果</h3> <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">Traceback (most recent call last):</div><div class="line">  File <span class="string">"func_scrap.py"</span>, line <span class="number">49</span>, <span class="keyword">in</span> &lt;module&gt;</div><div class="line">    content = read_html(url, headers, <span class="string">'utf-8'</span>)</div><div class="line">  File <span class="string">"func_scrap.py"</span>, line <span class="number">25</span>, <span class="keyword">in</span> read_html</div><div class="line">    response = request.urlopen(req)</div><div class="line">  File <span class="string">"E:\Program Files\Python36\lib\urllib\request.py"</span>, line <span class="number">223</span>, <span class="keyword">in</span> urlopen</div><div class="line">    <span class="keyword">return</span> opener.open(url, data, timeout)</div><div class="line">  File <span class="string">"E:\Program Files\Python36\lib\urllib\request.py"</span>, line <span class="number">526</span>, <span class="keyword">in</span> open</div><div class="line">    response = self._open(req, data)</div><div class="line">  File <span class="string">"E:\Program Files\Python36\lib\urllib\request.py"</span>, line <span class="number">544</span>, <span class="keyword">in</span> _open</div><div class="line">    <span class="string">'_open'</span>, req)</div><div class="line">  File <span class="string">"E:\Program Files\Python36\lib\urllib\request.py"</span>, line <span class="number">504</span>, <span class="keyword">in</span> _call_chain</div><div class="line">    result = func(*args)</div><div class="line">  File <span class="string">"E:\Program Files\Python36\lib\urllib\request.py"</span>, line <span class="number">1361</span>, <span class="keyword">in</span> https_open</div><div class="line">    context=self._context, check_hostname=self._check_hostname)</div><div class="line">  File <span class="string">"E:\Program Files\Python36\lib\urllib\request.py"</span>, line <span class="number">1320</span>, <span class="keyword">in</span> do_open</div><div class="line">    <span class="keyword">raise</span> URLError(err)</div><div class="line">urllib.error.URLError: &lt;urlopen error [Errno <span class="number">11001</span>] getaddrinfo failed&gt;</div></pre></td></tr></table></figure>
+<p>可以从结果中看出我们解释器检测到了一个urllib.error.URLError异常，异常信息是urlopen error [Errno 11001] getaddrinfo failed（获取地址信息失败）</p>
+<h3 id="为程序增加容错处理机制，让程序变得更健壮"><a href="#为程序增加容错处理机制，让程序变得更健壮" class="headerlink" title="为程序增加容错处理机制，让程序变得更健壮"></a>为程序增加容错处理机制，让程序变得更健壮</h3><p>修改后的程序代码如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> urllib <span class="keyword">import</span> request</div><div class="line"><span class="keyword">import</span> re</div><div class="line"></div><div class="line">url = <span class="string">'https://www.qiushibaike1.com'</span></div><div class="line">user_agent = <span class="string">'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36'</span></div><div class="line">headers = &#123;<span class="string">'User-Agent'</span>: user_agent&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">read_html</span><span class="params">(url, headers, codec)</span>:</span></div><div class="line">    <span class="string">'''[read_html]</span></div><div class="line">    </div><div class="line">    [读取html页面内容]</div><div class="line">    </div><div class="line">    Arguments:</div><div class="line">        url &#123;[string]&#125; -- [url地址]</div><div class="line">        headers &#123;[dict]&#125; -- [用户代理，这里是一个字典类型]</div><div class="line">        codec &#123;[string]&#125; -- [编码方式]</div><div class="line">    </div><div class="line">    Returns:</div><div class="line">        [string] -- [页面内容]</div><div class="line">    '''</div><div class="line">    <span class="comment"># 构建一个请求对象</span></div><div class="line">    <span class="keyword">try</span>:</div><div class="line">        req = request.Request(url, headers=headers)</div><div class="line">        <span class="comment"># 打开一个请求</span></div><div class="line">        response = request.urlopen(req)</div><div class="line">        <span class="comment"># 读取服务器返回的页面数据内容</span></div><div class="line">        content = response.read().decode(codec)</div><div class="line"></div><div class="line">        <span class="keyword">return</span> content</div><div class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</div><div class="line">        print(e)</div><div class="line">        <span class="keyword">return</span> <span class="keyword">None</span></div><div class="line">    </div><div class="line"></div><div class="line">    </div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">match_element</span><span class="params">(content, pattern)</span>:</span></div><div class="line">    <span class="string">'''[match_element]</span></div><div class="line">    </div><div class="line">    [匹配元素]</div><div class="line">    </div><div class="line">    Arguments:</div><div class="line">        content &#123;[string]&#125; -- [文本内容]</div><div class="line">        pattern &#123;[object]&#125; -- [匹配模式]</div><div class="line"></div><div class="line">    Returns:</div><div class="line">        [list] -- [匹配到的元素]</div><div class="line">    '''</div><div class="line">    <span class="comment"># 匹配所有用户信息</span></div><div class="line">    </div><div class="line">    userinfos = re.findall(pattern, content)</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> userinfos</div><div class="line"></div><div class="line">content = read_html(url, headers, <span class="string">'utf-8'</span>)</div><div class="line">pattern = re.compile(<span class="string">r'&lt;div class="article block untagged mb15[\s\S]*?class="stats-vote".*?&lt;/div&gt;'</span>, re.S)</div><div class="line">print(<span class="string">'执行到这里了，表示我还没有终止！'</span>)</div><div class="line"><span class="keyword">if</span> content:</div><div class="line">    userinfos = match_element(content, pattern)</div><div class="line"></div><div class="line">    <span class="keyword">if</span> userinfos:</div><div class="line">        pattern = re.compile(<span class="string">r'&lt;a href="(.*?)".*?&lt;h2&gt;(.*?)&lt;/h2&gt;.*?&lt;div class="content"&gt;(.*?)&lt;/div&gt;'</span>, re.S)</div><div class="line">        <span class="keyword">for</span> userinfo <span class="keyword">in</span> userinfos:</div><div class="line">            item = match_element(userinfo, pattern)</div><div class="line">            <span class="comment">#print(item)</span></div><div class="line">            <span class="keyword">if</span> item:</div><div class="line">                userid, name, content = item[<span class="number">0</span>]</div><div class="line">                <span class="comment"># 去掉换行符，&lt;span&gt;&lt;/span&gt;，&lt;br/&gt;符号</span></div><div class="line">                userid = re.sub(<span class="string">r'\n|&lt;span&gt;|&lt;/span&gt;|&lt;br/&gt;'</span>, <span class="string">''</span>, userid)</div><div class="line">                name = re.sub(<span class="string">r'\n|&lt;span&gt;|&lt;/span&gt;|&lt;br/&gt;'</span>, <span class="string">''</span>, name)</div><div class="line">                content = re.sub(<span class="string">r'\n|&lt;span&gt;|&lt;/span&gt;|&lt;br/&gt;'</span>, <span class="string">''</span>, content)</div><div class="line">                print((userid, name, content))</div></pre></td></tr></table></figure></p>
+<h3 id="执行结果"><a href="#执行结果" class="headerlink" title="执行结果"></a>执行结果</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;urlopen error [Errno <span class="number">11001</span>] getaddrinfo failed&gt;</div><div class="line">执行到这里了，表示我还没有终止！</div></pre></td></tr></table></figure>
+<p>可以看到我们的程序并没有在抛出异常导致程序终止，如果我们不写try-except再去执行上面的代码，程序肯定执行不到“执行到这里了，表示我还没有终止！”这里了。大家可以试试</p>
+<h3 id="urllib-error-URLError异常"><a href="#urllib-error-URLError异常" class="headerlink" title="urllib.error.URLError异常"></a>urllib.error.URLError异常</h3><p>从上面的途中我们可以看到程序抛出了urllib.error.URLError异常，所以我们可以捕捉这个异常，这个异常的参数定义可以查看开发文档如下</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3485329-7b1b47f97335fa0b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="urllib.error.URLError定义"><br>所以我们可以把except Exception as e:，改写城except urllib.error.URLError as e:异常的精准捕获。</p>
+<hr>
+<p><strong>note：</strong> 做为开发人员要时刻提醒自己对异常，对容错能力的处理，让我们开发的程序能够更稳定，更坚固，让我们的程序能在服务器上长时间运行不宕机，当然这也是成为一个高手的必要素质。</p>
+<h3 id="欢迎关注我的公众号-「爱做饭的老谢」，老谢一直在努力…"><a href="#欢迎关注我的公众号-「爱做饭的老谢」，老谢一直在努力…" class="headerlink" title="欢迎关注我的公众号:「爱做饭的老谢」，老谢一直在努力…"></a><strong>欢迎关注我的公众号:「爱做饭的老谢」，老谢一直在努力…</strong></h3>
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                      
+<section id="comment">  
+  <!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="2017/10/22/python-scrap6/" data-title="聚沙成塔--爬虫系列（六）（请做个内外兼修的高手）" data-url="http://gavinxyj.com/2017/10/22/python-scrap6/"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"gavinxyj"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+</section>  
+  
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/Gavinxyj" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/Gavinxyj" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="https://gavinxyj.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="mailto:xie_youjiang@163.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
