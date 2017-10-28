@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="版权声明:本文为作者原创文章，可以随意转载，但必须在明确位置标明出处！！！
+文章讲到这里，我不得不想先把面向对象的编程讲了，否则我们的代码看上去将会越来越乱，越来也不易管理。
+什么是类类是对现实生活中一类具有共同特征的事物的抽象。所有的事物都来源于生活，不管哪行哪业都是为了解决我们生活中的问题，编程">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Gavin">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="聚沙成塔--爬虫系列（八）（物以「类」聚，人以群分）"/>
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Gavin Blog"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+        <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>聚沙成塔--爬虫系列（八）（物以「类」聚，人以群分） - Gavin Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Gavin Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/Gavinxyj">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>聚沙成塔--爬虫系列（八）（物以「类」聚，人以群分）</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        2017-10-27
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/爬虫系列/">#爬虫系列</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p><img src="http://upload-images.jianshu.io/upload_images/3485329-8af78aea3839d30a.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<blockquote>
+<h3 id="版权声明-本文为作者原创文章，可以随意转载，但必须在明确位置标明出处！！！"><a href="#版权声明-本文为作者原创文章，可以随意转载，但必须在明确位置标明出处！！！" class="headerlink" title="版权声明:本文为作者原创文章，可以随意转载，但必须在明确位置标明出处！！！"></a>版权声明:本文为作者原创文章，可以随意转载，但必须在明确位置标明出处！！！</h3></blockquote>
+<p>文章讲到这里，我不得不想先把面向对象的编程讲了，否则我们的代码看上去将会越来越乱，越来也不易管理。</p>
+<h3 id="什么是类"><a href="#什么是类" class="headerlink" title="什么是类"></a>什么是类</h3><p>类是对现实生活中一类具有共同特征的事物的抽象。所有的事物都来源于生活，不管哪行哪业都是为了解决我们生活中的问题，编程亦是。</p>
+<h3 id="类的三大属性"><a href="#类的三大属性" class="headerlink" title="类的三大属性"></a>类的三大属性</h3><ul>
+<li><strong>封装</strong>：类将具有共同特征的一类事物抽象在一起，比如水果类包含苹果、香蕉、梨子、西瓜等等，这些具有同样属性的我们可以归为到一个类里</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/3485329-4abb3bb45453d706.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="封装"></p>
+<ul>
+<li><strong>继承</strong>：类是有继承关系的，继承关系的作用是让子类具有自己特有的行为，不如西瓜是它是继承水果的，那么西瓜它可以定义自己特有的行为、属性，像有籽西瓜、无籽西瓜两种属性，子类可以继承父类的公有方法和属性。什么意思呢，就像你可以继承你爸妈的财产，但是你不能继承你爸妈的朋友，或隐私方面的东西，隐私方面的东西在编程语言中我们称之为private(私有的)，私有的东西子女是不可以继承的。还有一点就是继承可以是多层级结构的，就像你可以继承你爸妈的财产，你儿子也能继承你的财产，那么你儿子的财产就包含了你的和爸妈的财产。</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/3485329-35816bf0303baf9e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="继承"></p>
+<ul>
+<li><strong>多态</strong>：从字面意思理解就是多钟形态，专业的解释就是：多态性是允许你将父对象设置成为一个或更多的他的子对象相等的技术，赋值之后，父对象就可以根据当前赋值给它的子对象的特性以不同的方式运作。专业解释我想信大多初学者都不明白啥意思。举个例子：某公司A和几个快递服务公司有合作关系，比如顺风、中通、申通。顺风快递给A公司打电话说你们公司今年的快件服务我包了，那么从签订合同日起，A公司的所有快递服务都会自动的通过顺风快递走，同理，明年若是中通签了合同，那么A公司明年的快递服务都自动的走中通快递服务。我相信讲到这里大家应该能明白多态是什么意思了，多态说百了就是种接口服务。就像公司A它提供了一个快递服务接口，那么只要是快递公司都可以去调用这个接口。调用接口后就按照自己公司的物流走就是了。</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/3485329-7608aff7d9838e95.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="多态-擎天柱"></p>
+<h3 id="类的定义"><a href="#类的定义" class="headerlink" title="类的定义"></a>类的定义</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">myclass</span><span class="params">(object)</span>:</span></div><div class="line">    class_suite</div></pre></td></tr></table></figure>
+<p>类的定义主要是使用关键字「class」，类定义好了以后可以在类里定义方法，变量；专业术语称之为行为，属性。</p>
+<h3 id="类的继承"><a href="#类的继承" class="headerlink" title="类的继承"></a>类的继承</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">foo</span><span class="params">(self)</span>:</span></div><div class="line">        print(<span class="string">'this is A'</span>)</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span><span class="params">(A)</span>:</span></div><div class="line">    <span class="keyword">pass</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span><span class="params">(B)</span>:</span></div><div class="line">    <span class="keyword">pass</span></div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    cc = C()</div><div class="line">    cc.foo()</div></pre></td></tr></table></figure>
+<p>类C继承类B，类B继承类A，pass关键字的意思是什么也不做，在类中定义方法第一个参数都是self，表示类本身，如果你接触过C/C++语言，那么这里的self就跟C/C++语言里的this指针一个意思。 </p>
+<ul>
+<li><strong>「if __name__ == ‘__main__’」：</strong>这一句是入口函数，当我们运行该程序时解释器从这里开始执行。</li>
+<li><strong>「cc = C()」：</strong>创建一个C类型的实例，只有创建了实例才能去调用类中的方法和属性，</li>
+<li><strong>「cc.foo()」：</strong> 这一句就充分体现了类的继承关系， 类C没有定义foo()方法，当时它继承了B，B又继承了A，所以C自然也就继承了A的foo方法，这就是继承的好处，如果父类提供了你需要的方法，你就不需要再去重复定义实现了。</li>
+</ul>
+<h3 id="继承中的覆盖（Overriding）"><a href="#继承中的覆盖（Overriding）" class="headerlink" title="继承中的覆盖（Overriding）"></a>继承中的覆盖（Overriding）</h3><p>继承中的覆盖是什么意思呢，如果类B也要实现方法foo，当时它的方法和类A的行为是不是一样的，那我们就称这种行为为覆盖<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">foo</span><span class="params">(self)</span>:</span></div><div class="line">        print(<span class="string">'this is A'</span>)</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span><span class="params">(A)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">foo</span><span class="params">(self)</span>:</span></div><div class="line">        print(<span class="string">'this is B'</span>)</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span><span class="params">(B)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">foo</span><span class="params">(self)</span>:</span></div><div class="line">        print(<span class="string">'this is C'</span>)</div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    cc = C()</div><div class="line">    cc.foo()</div></pre></td></tr></table></figure></p>
+<p>结果将会输出‘this is C’，类C中的foo方法就是C类特有的行为。那么到这里有认真思考过的同学就要问，我又想有自己的行为，也想调用父类的行为怎么办呢，看下面的代码<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">foo</span><span class="params">(self)</span>:</span></div><div class="line">        print(<span class="string">'this is A'</span>)</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span><span class="params">(A)</span>:</span> </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">foo</span><span class="params">(self)</span>:</span></div><div class="line">        A.foo(self)</div><div class="line">        print(<span class="string">'this is B'</span>)</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span><span class="params">(B)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">foo</span><span class="params">(self)</span>:</span></div><div class="line">        B.foo(self)</div><div class="line">        print(<span class="string">'this is C'</span>)</div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    cc = C()</div><div class="line">    cc.foo()</div></pre></td></tr></table></figure></p>
+<p>执行的结果将会输出<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">this is A</div><div class="line">this is B</div><div class="line">this is C</div></pre></td></tr></table></figure></p>
+<h3 id="super的使用"><a href="#super的使用" class="headerlink" title="super的使用"></a>super的使用</h3><p>上面例子的写法虽然可以达到目的，但不是一种好的写法，它的不好之处在于若在你的工程中有大量的此种写法，那么若是类的继承关系变了，那你不得不在整个工程中去查找修改相应的代码，这里我们使用super的方式改写它。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">foo</span><span class="params">(self)</span>:</span></div><div class="line">        print(<span class="string">'this is A'</span>)</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span><span class="params">(A)</span>:</span> </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">foo</span><span class="params">(self)</span>:</span></div><div class="line">        super(B, self).foo()</div><div class="line">        print(<span class="string">'this is B'</span>)</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span><span class="params">(B)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">foo</span><span class="params">(self)</span>:</span></div><div class="line">        super(C, self).foo()</div><div class="line">        print(<span class="string">'this is C'</span>)</div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    cc = C()</div><div class="line">    cc.foo()</div></pre></td></tr></table></figure></p>
+<p>输出的结果和上面一致，使用super()的漂亮之处在于，你不需要明确给出任何基类名字…“跑腿事儿”，它帮你干了！使用super()的重点，是你不需要明确提供父类。这意味着如果你改变了类继承关系，你只需要改一行代码（class 语句本身）而不必在大量代码中去查找所有被修改的那个类的名字。</p>
+<h3 id="构造器init"><a href="#构造器init" class="headerlink" title="构造器init()"></a>构造器<strong>init</strong>()</h3><p>构造器也叫构造函数，当一个类实例化的时候它将会自动调用该函数，这里我们需要提点的是，在python中类B继承了类A，他们都实现了<strong>__init__()</strong>函数，<strong>那么当类B实例化的时候不会去调用类A的构造方法了，</strong>这个和C/C++，JAVA语言是不同的，大家要注意这点<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">        print(<span class="string">'this is A init'</span>)</div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">foo</span><span class="params">(self)</span>:</span></div><div class="line">        print(<span class="string">'this is A'</span>)</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span><span class="params">(A)</span>:</span> </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">        print(<span class="string">'this is B init'</span>)</div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">foo</span><span class="params">(self)</span>:</span></div><div class="line">        super(B, self).foo()</div><div class="line">        print(<span class="string">'this is B'</span>)</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span><span class="params">(B)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">        print(<span class="string">'this is C init'</span>)</div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">foo</span><span class="params">(self)</span>:</span></div><div class="line">        super(C, self).foo()</div><div class="line">        print(<span class="string">'this is C'</span>)</div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    cc = C()</div><div class="line">    cc.foo()</div></pre></td></tr></table></figure></p>
+<p>执行结果将会输出<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">this is C init</div><div class="line">this is A</div><div class="line">this is B</div><div class="line">this is C</div></pre></td></tr></table></figure></p>
+<p>可以看到它并没有去调用A,B类的构造器<strong>init</strong>()方法，如果C不定义会输出什么大家可以自己去试试</p>
+<h3 id="私有属性，私有方法"><a href="#私有属性，私有方法" class="headerlink" title="私有属性，私有方法"></a>私有属性，私有方法</h3><p>在python中，类中的所有方法和属性默认是‘public’共有的，可以被继承的，那么如果想要属性和方法不能被继承怎么办呢，那就是在属性和方法的定义前加两个下划线， 特别需要提点的是我们自己内中定义的函数不要有想__xxx__()这种定义，这种定义是python内建函数的定义，<strong>切记、切记</strong>。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span><span class="params">(object)</span>:</span></div><div class="line">   </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__foo</span><span class="params">(self)</span>:</span></div><div class="line">        print(<span class="string">'this is A'</span>)</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span><span class="params">(A)</span>:</span> </div><div class="line">   <span class="keyword">pass</span></div><div class="line">   </div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span><span class="params">(B)</span>:</span></div><div class="line">   <span class="keyword">pass</span></div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    print(dir(C))</div><div class="line">    cc = C()</div><div class="line">    cc.__foo()</div></pre></td></tr></table></figure></p>
+<p>执行结果将会出现下面错误<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Traceback (most recent call last):</div><div class="line">  File &quot;classtest.py&quot;, line 16, in &lt;module&gt;</div><div class="line">    cc.__foo()</div><div class="line">AttributeError: &apos;C&apos; object has no attribute &apos;__foo&apos;</div></pre></td></tr></table></figure></p>
+<h3 id="多态的实现"><a href="#多态的实现" class="headerlink" title="多态的实现"></a>多态的实现</h3><p>下面我们将实现一个多态的例子来结束本章的内容，例子的来源还是用上面提供的快递服务<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Company</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="comment">#提供一个快递服务接口</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">express_service</span><span class="params">(self, express_company)</span>:</span></div><div class="line">         express_company.send()</div><div class="line"></div><div class="line"><span class="comment">#顺风快递公司</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">FS</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">send</span><span class="params">(self)</span>:</span></div><div class="line">        print(<span class="string">'welcome to express by FS'</span>)</div><div class="line"></div><div class="line"><span class="comment">#中通跨地公司</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ZT</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">send</span><span class="params">(self)</span>:</span></div><div class="line">        print(<span class="string">'welcome to express by ZT'</span>)</div><div class="line"></div><div class="line"><span class="comment">#申通跨地公司</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ST</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">send</span><span class="params">(self)</span>:</span></div><div class="line">        print(<span class="string">'welcome to express by ST'</span>)</div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    service = Company()</div><div class="line">    <span class="comment">#使用FS快递服务</span></div><div class="line">    fs = FS()</div><div class="line">    service.express_service(fs)</div><div class="line">    <span class="comment">#使用ZT快递服务</span></div><div class="line">    zt = ZT()</div><div class="line">    service.express_service(zt)</div><div class="line">    <span class="comment">#使用ST快递服务</span></div><div class="line">    st = ST()</div><div class="line">    service.express_service(st)</div></pre></td></tr></table></figure></p>
+<p>各位若是初学者一定要敲代码，去执行，去体会一下类的三大属性</p>
+<hr>
+<p><strong>note</strong>: 初学者最容易犯的错就是书面上看着挺简单的啊，把书一关上就懵了，想要成为一个程序员，一定要多去敲代码，切记，切记</p>
+<blockquote>
+<p><strong>欢迎关注我的公众号:「爱做饭的老谢」，老谢一直在努力…</strong><br><img src="/img/hexobuild/weixin.jpg" alt=""></p>
+</blockquote>
+<p>上一篇：<a href="/2017/10/25/python-scrap7">聚沙成塔–爬虫系列（七）（妹子，快到碗里来）</a></p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                      
+<section id="comment">  
+  <!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="2017/10/27/python-scrap8/" data-title="聚沙成塔--爬虫系列（八）（物以「类」聚，人以群分）" data-url="http://gavinxyj.com/2017/10/27/python-scrap8/"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"gavinxyj"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+</section>  
+  
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/Gavinxyj" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/Gavinxyj" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="https://gavinxyj.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="mailto:xie_youjiang@163.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
