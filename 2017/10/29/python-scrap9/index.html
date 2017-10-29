@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="版权声明:本文为作者原创文章，可以随意转载，但必须在明确位置标明出处！！！
+上一章我们讲了类的概念，专业术语叫OOP（面向对象的编程），同时也讲了类的三大属性，「封装」、「继承」、「多态」，并且也用代码实现了继承和多态，让初学者更能直观的去理解继承和多态究竟是怎么回事的。相信认真阅读过的同学对类已经">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Gavin">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="聚沙成塔--爬虫系列（九）（落地生根）"/>
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Gavin Blog"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+        <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>聚沙成塔--爬虫系列（九）（落地生根） - Gavin Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Gavin Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/Gavinxyj">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>聚沙成塔--爬虫系列（九）（落地生根）</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        2017-10-29
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/爬虫系列/">#爬虫系列</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <blockquote>
+<h3 id="版权声明-本文为作者原创文章，可以随意转载，但必须在明确位置标明出处！！！"><a href="#版权声明-本文为作者原创文章，可以随意转载，但必须在明确位置标明出处！！！" class="headerlink" title="版权声明:本文为作者原创文章，可以随意转载，但必须在明确位置标明出处！！！"></a>版权声明:本文为作者原创文章，可以随意转载，但必须在明确位置标明出处！！！</h3></blockquote>
+<p>上一章我们讲了类的概念，专业术语叫OOP（面向对象的编程），同时也讲了类的三大属性，<strong>「封装」、「继承」、「多态」</strong>，并且也用代码实现了继承和多态，让初学者更能直观的去理解继承和多态究竟是怎么回事的。相信认真阅读过的同学对类已经有了一个初步的认识。那么本章将会把上一篇文章的代码使用面向对象的编程去改写它。但这不是本章的重点，本章的重点是把我们的数据保存到磁盘上，专业术语叫<strong>「持久化」</strong>。</p>
+<h3 id="持久化"><a href="#持久化" class="headerlink" title="持久化"></a>持久化</h3><p>将数据写到磁盘文件，也就是普通的文本文件是本章的主题，也是最简单的持久化方案，但是简单文件的存储不便于我们查找和统计，所以后面的章节我们将会讲到把数据存储到Excel、数据库中。</p>
+<p>###内建函数open()<br>open内建函数返回一个文件对象，如果文件对象不存在，则抛出一个OSError异常。文件对象不仅可以用来访问普通的磁盘文件，它也可以访问其它抽象层面的文件，像网络文件，你也可以使用open打开一个url来读取页面的元素。</p>
+<h3 id="open函数的定义"><a href="#open函数的定义" class="headerlink" title="open函数的定义"></a>open函数的定义</h3><p><strong>open(file, mode=’r’, buffering=-1, encoding=None, errors=None, newline=None, closefd=True, opener=None)</strong></p>
+<ul>
+<li><strong>file：</strong> file是一个类似路径的对象，给出要打开的文件的路径名，可以是绝对路径也可以是相对于当前工作目录的路径<ul>
+<li><strong>mode：</strong> 模式，就是以什么样的方式去打开文件。</li>
+<li><strong>buffering：</strong>缓冲是用于设置缓冲策略的可选整数。 通过0以切换缓冲（仅允许在二进制模式下），1选择行缓冲（仅在文本模式下可用），整数&gt; 1表示固定大小的块缓冲区的大小（以字节为单位），该参数大于零的意思是对文件对象的读写操作为当前设置的值</li>
+<li><strong>encodeing：</strong> 编码，意思是以什么样的编码方式去读写文件，你可以设置该参数为‘utf-8’、‘gbk’等编码方式</li>
+<li><strong>errors：</strong> error参数是一个可选字符串，指定如何处理编码和解码错误，但是在二进制模式模式下无效</li>
+<li><strong>newline：</strong>  通用换行符控制，它的作用是用来帮助我们访问不同平台的文件，不同平台用来表示结束符号是不同的，如\r，\n，或者\r\n</li>
+<li><strong>closefd：</strong> 如果closefd为False，并且提供了文件描述符而不是文件名，则当文件关闭时，底层文件描述符将保持打开状态。 如果给定文件名，则closefd必须为True（默认值），否则会引发错误。</li>
+<li><strong>opener：</strong> 自定义打开器。</li>
+</ul>
+</li>
+</ul>
+<h3 id="文件的打开模式"><a href="#文件的打开模式" class="headerlink" title="文件的打开模式"></a>文件的打开模式</h3><table>
+<thead>
+<tr>
+<th>符号</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>‘r’</td>
+<td style="text-align:left">open for reading (default)</td>
+</tr>
+<tr>
+<td>‘w’</td>
+<td style="text-align:left">open for writing, truncating the file first</td>
+</tr>
+<tr>
+<td>‘x’</td>
+<td style="text-align:left">open for exclusive creation, failing if the file already exists</td>
+</tr>
+<tr>
+<td>‘a’</td>
+<td style="text-align:left">open for writing, appending to the end of the file if it exists</td>
+</tr>
+<tr>
+<td>‘b’</td>
+<td style="text-align:left">binary mode</td>
+</tr>
+<tr>
+<td>‘t’</td>
+<td style="text-align:left">text mode (default)</td>
+</tr>
+<tr>
+<td>‘+’</td>
+<td style="text-align:left">open a disk file for updating (reading and writing)</td>
+</tr>
+<tr>
+<td>‘U’</td>
+<td style="text-align:left">universal newlines mode (deprecated)</td>
+</tr>
+</tbody>
+</table>
+<p>模式之间都可以通过‘+’符号来组合，‘r+w’打开一个可读又可写的文件对象，open默认打开模式为可读。</p>
+<h3 id="从文件读"><a href="#从文件读" class="headerlink" title="从文件读"></a>从文件读</h3><p>open打开一个已存在的文件后，我们需要从文件里读取文件内容，读取文件内容有以下几个函数</p>
+<ul>
+<li>read()方法用来直接读取字节到字符串中, 最多读取给定数目个字节. 如果没有给定 size参数(默认值为 -1)或者 size 值为负, 文件将被读取直至末尾</li>
+<li>readline()每次读取文件中的一行</li>
+<li>readlines()将文件中的每一行都读取到一个list列表中。<h3 id="写入文件"><a href="#写入文件" class="headerlink" title="写入文件"></a>写入文件</h3>写入文件同样用的的文件对象依然是open内建函数返回的，写入文件提供了以下函数</li>
+<li>write()和read，readline()函数相反，它把含有文本数据或二进制数据块的字符串写入到文件中去.</li>
+<li>writelines()将一个列表的数据写入打开的文件中，参数一定要是一个list类型的<h3 id="文件内移动"><a href="#文件内移动" class="headerlink" title="文件内移动"></a>文件内移动</h3>seek()可以在文件中移动文件指针到不同位置，如果你学过C语言那么就跟C语言的fseek函数是一样的，0默认位置表示从文件开头算起，1当前位置表示从当前位置算起，2表示从为文件末尾算起。</li>
+</ul>
+<h3 id="写入数据到磁盘文件"><a href="#写入数据到磁盘文件" class="headerlink" title="写入数据到磁盘文件"></a>写入数据到磁盘文件</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">try</span>:</div><div class="line">	fp = open(<span class="string">'./test.txt'</span>, <span class="string">'w'</span>)</div><div class="line">	<span class="keyword">for</span> index <span class="keyword">in</span> range(<span class="number">100</span>):</div><div class="line">		fp.write(<span class="string">'hello world'</span> + <span class="string">'\n'</span>)</div><div class="line">	fp.close()</div><div class="line"><span class="keyword">except</span> Exception <span class="keyword">as</span> e:</div><div class="line">	<span class="keyword">raise</span> e</div></pre></td></tr></table></figure>
+<p>在当前路径下打开一个test.txt文件，如果当前路径下没有这个文件那么它将会在当前目录下创建这个文件。fp是我们打开文件返回的文件句柄对象，这个是系统资源，拿到这个文件对象了就可以对它进行相应的操作，操作完后一定要记得释放对象，因为这个对象是系统资源。w是操作文件的模式，如果我们想要每次在文件的末尾追加新写入的数据可以用模式‘a+’，执行程序后你将会在程序的当前目录下看到一个test.txt文件，打开文件可以看到文件写入了100行‘hello world’</p>
+<h3 id="从磁盘中读取文件"><a href="#从磁盘中读取文件" class="headerlink" title="从磁盘中读取文件"></a>从磁盘中读取文件</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">try</span>:</div><div class="line">	fp = open(<span class="string">'./test.txt'</span>, <span class="string">'r'</span>)</div><div class="line">	<span class="keyword">for</span> content <span class="keyword">in</span> fp.readlines():</div><div class="line">		print(content)</div><div class="line">	fp.close()</div><div class="line"><span class="keyword">except</span> Exception <span class="keyword">as</span> e:</div><div class="line">	<span class="keyword">raise</span> e</div></pre></td></tr></table></figure>
+<p>如果以‘r’模式打开文件，若test.txt文件不存在于当前目录，那么程序将会抛出一个FileNotFoundError异常，执行程序可以后终端上会打印出100行‘hello world’。</p>
+<h3 id="with语句"><a href="#with语句" class="headerlink" title="with语句"></a>with语句</h3><p>with语句是个大神器啊， with语句的然而，with 语句的目的在于从流程图中把 try,except 和finally 关键字和资源分配释放相关代码统统去掉, 而不是像 try-except-finally 那样仅仅简化代码使之易用，不过with语句只支持上下文管理协议的对象。这显然意味着只有内建了”上下文管理”的对象可以和with 一起工作，上下文管理协议本章不做详细介绍，看到这里的同学如果有兴趣可以自己在网上了解了解。既然with语句这么神奇了，那么我们的读写文件就可以写成如下形式。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#读文件</span></div><div class="line"><span class="keyword">with</span> open(<span class="string">'./test.txt'</span>) <span class="keyword">as</span> fp:</div><div class="line">    <span class="keyword">for</span> content <span class="keyword">in</span> fp.readlines():</div><div class="line">        print(content)</div><div class="line"></div><div class="line"><span class="comment">#写文件</span></div><div class="line"><span class="keyword">with</span> open(<span class="string">'./test.txt'</span>, <span class="string">'w'</span>) <span class="keyword">as</span> fp:</div><div class="line">    fp.write(<span class="string">'hello world'</span> + <span class="string">'\n'</span>)</div></pre></td></tr></table></figure></p>
+<p>try-except语句没有了，释放资源的close函数也没有了，这些都被with语句做了，是不是再也不用担心忘记释放资源了。本章要讲的内容就到此介绍了，最后奉上改写后的源码</p>
+<pre><code class="python"><span class="keyword">from</span> urllib <span class="keyword">import</span> request
+<span class="keyword">from</span> urllib <span class="keyword">import</span> error
+<span class="keyword">import</span> re
+<span class="keyword">import</span> os
+
+
+<span class="class"><span class="keyword">class</span> <span class="title">Scheduler</span><span class="params">(object)</span>:</span>
+
+    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, url, user_agent)</span>:</span>
+        self.url = url
+        self.headers = {<span class="string">'User-Agent'</span>: user_agent}
+
+    <span class="function"><span class="keyword">def</span> <span class="title">read_html</span><span class="params">(self, codec)</span>:</span>
+        <span class="string">'''[read_html]
+
+        [读取html页面内容]
+
+        Arguments:
+            url {[string]} -- [url地址]
+            headers {[dict]} -- [用户代理，这里是一个字典类型]
+            codec {[string]} -- [编码方式]
+
+        Returns:
+            [string] -- [页面内容]
+        '''</span>
+        <span class="comment"># 构建一个请求对象</span>
+        <span class="keyword">try</span>:
+            req = request.Request(self.url, headers=self.headers)
+            <span class="comment"># 打开一个请求</span>
+            response = request.urlopen(req)
+            <span class="comment"># 读取服务器返回的页面数据内容</span>
+            content = response.read().decode(codec)
+
+            <span class="keyword">return</span> content
+
+        <span class="keyword">except</span> error.URLError <span class="keyword">as</span> e:
+            print(e.reason)
+            <span class="keyword">return</span> <span class="keyword">None</span>       
+
+    <span class="function"><span class="keyword">def</span> <span class="title">match_element</span><span class="params">(self, content, pattern)</span>:</span>
+        <span class="string">'''[match_element]
+
+        [匹配元素]
+
+        Arguments:
+            content {[string]} -- [文本内容]
+            pattern {[object]} -- [匹配模式]
+
+        Returns:
+            [list] -- [匹配到的元素]
+        '''</span>
+        <span class="comment"># 匹配所有用户信息</span>
+
+        userinfos = re.findall(pattern, content)
+
+        <span class="keyword">return</span> userinfos
+    <span class="function"><span class="keyword">def</span> <span class="title">write_file</span><span class="params">(self, content)</span>:</span>
+        <span class="keyword">with</span> open(<span class="string">'./qiubai.txt'</span>, <span class="string">'a+'</span>) <span class="keyword">as</span> fp:
+            fp.write(content + <span class="string">'\n'</span>)
+
+    <span class="function"><span class="keyword">def</span> <span class="title">get_content</span><span class="params">(self)</span>:</span>
+        content = self.read_html(<span class="string">'utf-8'</span>)
+        pattern = re.compile(<span class="string">r'&lt;div class="article block untagged mb15[\s\S]*?class="stats-vote".*?&lt;/div&gt;'</span>, re.S)
+        <span class="keyword">if</span> content:
+            userinfos = self.match_element(content, pattern)
+
+            <span class="keyword">if</span> userinfos:
+                pattern = re.compile(<span class="string">r'&lt;a href="(.*?)".*?&lt;h2&gt;(.*?)&lt;/h2&gt;.*?&lt;div class="content"&gt;(.*?)&lt;/div&gt;.*?&lt;i class="number"&gt;(.*?)&lt;/i&gt;'</span>, re.S)
+                picture = re.compile(<span class="string">r'&lt;div class="thumb"&gt;.*?src="(.*?)"'</span>, re.S)
+                <span class="keyword">for</span> userinfo <span class="keyword">in</span> userinfos:
+                    item = self.match_element(userinfo, pattern)
+                    pictures = self.match_element(userinfo, picture)
+                    <span class="keyword">try</span>:
+                        <span class="keyword">if</span> item:
+                            userid, name, content, num = item[<span class="number">0</span>]
+                            <span class="comment"># 去掉换行符，&lt;span&gt;&lt;/span&gt;，&lt;br/&gt;符号</span>
+                            userid = re.sub(<span class="string">r'\n|&lt;span&gt;|&lt;/span&gt;|&lt;br/&gt;'</span>, <span class="string">''</span>, userid)
+                            name = re.sub(<span class="string">r'\n|&lt;span&gt;|&lt;/span&gt;|&lt;br/&gt;'</span>, <span class="string">''</span>, name)
+                            content = re.sub(<span class="string">r'\n|&lt;span&gt;|&lt;/span&gt;|&lt;br/&gt;'</span>, <span class="string">''</span>, content)
+
+                            <span class="keyword">if</span> pictures:
+                                path = <span class="string">'./users/'</span>
+                                <span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(path):
+                                    os.makedirs(path)
+
+                                request.urlretrieve(<span class="string">'http:'</span> + pictures[<span class="number">0</span>], path + os.path.basename(pictures[<span class="number">0</span>]))
+
+                                print((userid, name, content, num, pictures[<span class="number">0</span>]))
+                                self.write_file(userid + <span class="string">'\t'</span> + name + <span class="string">'\t'</span> + content + <span class="string">'\t'</span> + num + <span class="string">'\t'</span> + pictures[<span class="number">0</span>])
+                            <span class="keyword">else</span>:
+                                print((userid, name, content, num ))
+                                self.write_file(userid + <span class="string">'\t'</span> + name + <span class="string">'\t'</span> + content + <span class="string">'\t'</span> + num)
+                    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:
+                        print(e)
+
+<span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:
+  url = <span class="string">'https://www.qiushibaike.com'</span>
+  user_agent = <span class="string">'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36'</span>
+  handle = Scheduler(url, user_agent)
+  handle.get_content()
+</code></pre>
+<h3 id="执行结果"><a href="#执行结果" class="headerlink" title="执行结果"></a>执行结果</h3><p><img src="http://upload-images.jianshu.io/upload_images/3485329-25df4230c211f9f7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="执行结果"></p>
+<blockquote>
+<p><strong>欢迎关注我的公众号:「爱做饭的老谢」，老谢一直在努力…</strong><br><img src="/img/hexobuild/weixin.jpg" alt=""></p>
+</blockquote>
+<p>上一篇：<a href="/2017/10/27/python-scrap8">聚沙成塔–爬虫系列（八）（物以「类」聚，人以群分）</a></p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                      
+<section id="comment">  
+  <!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="2017/10/29/python-scrap9/" data-title="聚沙成塔--爬虫系列（九）（落地生根）" data-url="http://gavinxyj.com/2017/10/29/python-scrap9/"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"gavinxyj"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+</section>  
+  
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/Gavinxyj" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/Gavinxyj" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="https://gavinxyj.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="mailto:xie_youjiang@163.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
