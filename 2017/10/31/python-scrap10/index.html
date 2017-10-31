@@ -21,7 +21,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="python-scrap10"/>
+        <meta property="og:title" content="聚沙成塔--爬虫系列（十）（这一刻你觉得找个程序员男朋友真幸福）"/>
     
 
     <!--Open Graph Description-->
@@ -43,7 +43,7 @@
 
     <!-- Title -->
     
-    <title>python-scrap10 - Gavin Blog</title>
+    <title>聚沙成塔--爬虫系列（十）（这一刻你觉得找个程序员男朋友真幸福） - Gavin Blog</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -134,7 +134,7 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-heading">
-                    <h1>python-scrap10</h1>
+                    <h1>聚沙成塔--爬虫系列（十）（这一刻你觉得找个程序员男朋友真幸福）</h1>
                     
                     <span class="meta">
                         <!-- Date and Author -->
@@ -154,6 +154,20 @@
 
             <!-- Tags and categories -->
            
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/爬虫系列/">#爬虫系列</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
+            
 
             <!-- Gallery -->
             
@@ -164,7 +178,7 @@
 <h3 id="版权声明-本文为作者原创文章，可以随意转载，但必须在明确位置标明出处！！！"><a href="#版权声明-本文为作者原创文章，可以随意转载，但必须在明确位置标明出处！！！" class="headerlink" title="版权声明:本文为作者原创文章，可以随意转载，但必须在明确位置标明出处！！！"></a>版权声明:本文为作者原创文章，可以随意转载，但必须在明确位置标明出处！！！</h3></blockquote>
 <p>最近知乎上有一篇文章《月入五万的西二旗人教你如何活得像月薪五千》说的是北京西二旗程序员月入五万却过着月薪五千一样的生活，相比较其它行业，程序员的工资相对来说算是比较高的，程序员给人的形象永远都是眼镜、没刮过的胡须、乱糟糟的头发、还有个必备的电脑包（毕竟这可是吃饭的家伙），就是这种形象的人拿着月薪五万却过着月薪五千的生活，不过这是有原因的，996的工作时间（朝九晚九+周六），公司发的工装和冲锋衣可以一年四季穿到头，全年都不带买衣服的，唯一的爱好可能就是打打游戏，买买电子产品了，显示器一定要大，而且不止一个。所以如果你是妹子，那么找个程序员也是不错的，安全、放心。当然本章的重点不是讲怎么月入五万，本章的重点是讲怎么将数据写入到Excel表格中，方便我们做简单的统计。</p>
 <p>上一章讲到了将如何将数据写入到文本文件里，但文本文件操作比较简单，如果我们要对数据做一些统计之类的操作那么文本文件就提供不了这些支持了，所以本章我们将数据写到Excel表格里做一些简单的统计。</p>
-<p>###openpyxl库<br>读写Excel需要用到第三方库，这里我们选择openpyxl库，这个库可以操作新版本的Excel，xlrt、xlwt两个库是用来读写老版本的Execl的，也就是扩展名是*.xls</p>
+<h3 id="openpyxl库"><a href="#openpyxl库" class="headerlink" title="openpyxl库"></a>openpyxl库</h3><p>读写Excel需要用到第三方库，这里我们选择openpyxl库，这个库可以操作新版本的Excel，xlrt、xlwt两个库是用来读写老版本的Execl的，也就是扩展名是*.xls</p>
 <h3 id="安装openpyxl库"><a href="#安装openpyxl库" class="headerlink" title="安装openpyxl库"></a>安装openpyxl库</h3><p>在ubuntu命令行终端输入以下命令就可以安装openpydl库了，如果没有报错则证明你安装好了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo pip install openpyxl</div></pre></td></tr></table></figure></p>
 <h3 id="校验openpyxl是否安装"><a href="#校验openpyxl是否安装" class="headerlink" title="校验openpyxl是否安装"></a>校验openpyxl是否安装</h3><p>在终端执行python–》回车–》import openpyxl–》回车。如果没有抛出异常证明该库已经安装好了。</p>
 <h3 id="workbook、worksheet"><a href="#workbook、worksheet" class="headerlink" title="workbook、worksheet"></a>workbook、worksheet</h3><p>要读写Excel我们首先要弄清楚两个概念，</p>
@@ -177,8 +191,7 @@
 <h3 id="执行结果"><a href="#执行结果" class="headerlink" title="执行结果"></a>执行结果</h3><p><img src="http://upload-images.jianshu.io/upload_images/3485329-266c8dc36c8b8f29.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="执行结果"><br>从结果可以看到A1单元确实被赋值为test了。Sheet及时我们的活动表格。<br>如果你想修改Sheet的名称，或者想创建其它Sheet，下面这么做就可以了。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> openpyxl <span class="keyword">import</span> Workbook</div><div class="line"><span class="comment">#创建一个工作簿</span></div><div class="line">wb = Workbook()</div><div class="line"><span class="comment">#活取一个活动的工作表</span></div><div class="line">ws = wb.active</div><div class="line"><span class="comment">#给A1单元赋值</span></div><div class="line">ws[<span class="string">'A1'</span>] = <span class="string">'test'</span></div><div class="line"></div><div class="line">ws.title = <span class="string">'test'</span></div><div class="line"></div><div class="line">ws1 = wb.create_sheet(<span class="string">"test1"</span>)</div><div class="line">ws2 = wb.create_sheet(<span class="string">"test2"</span>)</div><div class="line"></div><div class="line"><span class="comment">#保存Excel</span></div><div class="line">wb.save(<span class="string">'sample.xlsx'</span>)</div></pre></td></tr></table></figure></p>
 <h3 id="执行结果-1"><a href="#执行结果-1" class="headerlink" title="执行结果"></a>执行结果</h3><p><img src="http://upload-images.jianshu.io/upload_images/3485329-1ec370b19e09f4ff.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="执行结果"><br>从结果中可以看到我们将Sheet该成了test，并且新创建了test1,test2表格页签。</p>
 <h3 id="访问元素"><a href="#访问元素" class="headerlink" title="访问元素"></a>访问元素</h3><p>这里需要注意的是，当我们在内存中创建一个worksheet的时候，它是不包含cells的，也就是不包含创建了单元格，只有当我们第一次去访问它的时候它才回去创建单元格，就像上面的代码ws[‘A1’] = ‘test’，当给A1单元格赋值的时候才回去创建单元格A1，这样做的目的相信大家都已经看出来了，节约资源，提高效率。cells操作还可以通过行、列来操作，如ws.cell(row=4, column=2, value=10)，就是给第4行第二列赋值为10，各位可是执行运行试试，看看结果是不是这样的。</p>
-<p>###多行多列范围访问</p>
-<ul>
+<h3 id="多行多列范围访问"><a href="#多行多列范围访问" class="headerlink" title="多行多列范围访问"></a>多行多列范围访问</h3><ul>
 <li><strong>切片式范围访问：</strong> 切片是python里经常用到的操作，openpyxl库对范围访问也可以切片，语法如下<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> openpyxl <span class="keyword">import</span> Workbook</div><div class="line"><span class="comment">#创建一个工作簿</span></div><div class="line">wb = Workbook()</div><div class="line"><span class="comment">#活取一个活动的工作表</span></div><div class="line">ws = wb.active</div><div class="line">cell_range = ws[<span class="string">'A1'</span> : <span class="string">'C4'</span>]</div><div class="line">print(cell_range)</div></pre></td></tr></table></figure>
 </li>
 </ul>
@@ -226,7 +239,7 @@
                       
 <section id="comment">  
   <!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="2017/10/31/python-scrap10/" data-title="python-scrap10" data-url="http://gavinxyj.com/2017/10/31/python-scrap10/"></div>
+	<div class="ds-thread" data-thread-key="2017/10/31/python-scrap10/" data-title="聚沙成塔--爬虫系列（十）（这一刻你觉得找个程序员男朋友真幸福）" data-url="http://gavinxyj.com/2017/10/31/python-scrap10/"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
