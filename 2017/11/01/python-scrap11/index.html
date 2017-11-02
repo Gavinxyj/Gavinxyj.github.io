@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="版权声明:本文为作者原创文章，可以随意转载，但必须在明确位置标明出处！！！
+上一章讲了如何将数据存储到Excel表格中并做了简单的统计，对于少量的数据我们使用Excel统计就已经足够了，如果数据变成了百万量级甚至千万量级的时候，Excel就没有这么好的表现了，这个时候我们就需要用到数据库技术了，为什">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Gavin">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="聚沙成塔--爬虫系列（十一）（如何正确的使用数据库一）"/>
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Gavin Blog"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+        <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>聚沙成塔--爬虫系列（十一）（如何正确的使用数据库一） - Gavin Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Gavin Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/Gavinxyj">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>聚沙成塔--爬虫系列（十一）（如何正确的使用数据库一）</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        2017-11-01
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/爬虫系列/">#爬虫系列</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p><img src="http://upload-images.jianshu.io/upload_images/3485329-5b2c77619b457efe.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<blockquote>
+<h3 id="版权声明-本文为作者原创文章，可以随意转载，但必须在明确位置标明出处！！！"><a href="#版权声明-本文为作者原创文章，可以随意转载，但必须在明确位置标明出处！！！" class="headerlink" title="版权声明:本文为作者原创文章，可以随意转载，但必须在明确位置标明出处！！！"></a>版权声明:本文为作者原创文章，可以随意转载，但必须在明确位置标明出处！！！</h3></blockquote>
+<p>上一章讲了如何将数据存储到Excel表格中并做了简单的统计，对于少量的数据我们使用Excel统计就已经足够了，如果数据变成了百万量级甚至千万量级的时候，Excel就没有这么好的表现了，这个时候我们就需要用到数据库技术了，为什么数据库也能持久化呢，那是因为我们存储在数据库的数据同样是以文件的形式存储在磁盘上的，所以对数据库的访问瓶颈也就是I/O瓶颈。</p>
+<p>对于那些初入职场的同学，你的前辈经常会告诉了不要频繁的去读写数据库，那样会使你的程序变得很慢，原因就是I/O频繁操作造成的。学过计算机原理的同学应该知道磁盘是由柱面和扇区组成的，当要去磁盘取出一个数据时，磁头左右摆动的时候需要去定位柱面、磁道、扇区。想想这个速度是不是很慢了，所以为了解决I/O瓶颈就出现了内存数据库，像Oracle公司的coherence,开源的Redis、MongoDB等等，对这些感兴趣的同学可以去学习学习，后面的章节我们也会用到这些内存数据库。</p>
+<h3 id="python-DB-API"><a href="#python-DB-API" class="headerlink" title="python DB-API"></a>python DB-API</h3><p>为了解决Python 数据库连接问题的特殊兴趣小组成立了，它为不同的关系数据库提供了一致性的接口，在还没有这个协议之前，有很多的数据库，并且很多人实现了自己的数据库适配器，这意味着使用这些接口的应用代码需要与他们选择使用的数据库模块进行定制化处理。所以Python的DP-API规范出现了，让我们不管使用何种数据库都可以使用一致的接口。</p>
+<h3 id="模块属性"><a href="#模块属性" class="headerlink" title="模块属性"></a>模块属性</h3><p>DB-API 标准要求必须提供下文列出的功能和属性</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>apilevel</td>
+<td style="text-align:left">需要适配器兼容的DB-API 版本</td>
+</tr>
+<tr>
+<td>threadsafety</td>
+<td style="text-align:left">本模块的线程安全级别</td>
+</tr>
+<tr>
+<td>paramstyle</td>
+<td style="text-align:left">本模块的SQL 语句参数风格</td>
+</tr>
+<tr>
+<td>connect()</td>
+<td style="text-align:left">Connect()函数</td>
+</tr>
+<tr>
+<td>多种异</td>
+<td style="text-align:left">异常说明</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>apilevel</strong>: 该字符串（注意，不是浮点型）指明了模块需要兼容的DBAPI 最高版本，比如，1.0、2.0 等。该属性的默认值是1.0。</li>
+<li><strong>threadsafety</strong>: 这是一个整型值，可选值如下。<ul>
+<li>0：不支持线程安全。线程间不能共享模块。</li>
+<li>1：最小化线程安全支持：线程间可以共享模块，但是不能共享连接。<ul>
+<li>2：适度的线程安全支持：线程间可以共享模块和连接，但是不能共享游标。</li>
+<li>3：完整的线程安全支持：线程间可以共享模块、连接和游标。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="参数风格"><a href="#参数风格" class="headerlink" title="参数风格"></a>参数风格</h3><table>
+<thead>
+<tr>
+<th>参数风格</th>
+<th style="text-align:left">描述</th>
+<th style="text-align:right">示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>umeric</td>
+<td style="text-align:left">数值位置风格</td>
+<td style="text-align:right">WHERE name=:1</td>
+</tr>
+<tr>
+<td>named</td>
+<td style="text-align:left">命名风格</td>
+<td style="text-align:right">WHERE name=:name</td>
+</tr>
+<tr>
+<td>pyformat</td>
+<td style="text-align:left">Python 字典printf()格式转换</td>
+<td style="text-align:right">WHERE name=%(name)s</td>
+</tr>
+<tr>
+<td>qmark</td>
+<td style="text-align:left">问号风格</td>
+<td style="text-align:right">WHERE name=?</td>
+</tr>
+<tr>
+<td>format</td>
+<td style="text-align:left">ANSIC 的printf()格式转换</td>
+<td style="text-align:right">WHERE name=%s</td>
+</tr>
+</tbody>
+</table>
+<h3 id="函数属性"><a href="#函数属性" class="headerlink" title="函数属性"></a>函数属性</h3><p>上面说过根据DP-API规定，所有的数据库适配器都必须实现connect函数，connect函数参数定义如下：<br>| 参数         | 描述           |<br>| ————- |:————-  |<br>| user | 用户名 |<br>| password | 密码 |<br>| host | 主机名 |<br>| database           | 数据库名 |<br>| dsn           | 数据源名 |<br>使用DSN 还是独立参数主要基于所连接的系统。比如，如果你使用的是像ODBC（OpenDatabase Connectivity）或JDBC（Java Database Connectivity）的API，则需要使用DSN；而如果你直接使用数据库，则更倾向于使用独立的登录参数。另一个使用独立参数的原因是很多数据库适配器并没有实现对DSN 的支持。</p>
+<h3 id="异常定义"><a href="#异常定义" class="headerlink" title="异常定义"></a>异常定义</h3><p><img src="http://upload-images.jianshu.io/upload_images/3485329-d0e8f0373642f8b9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="异常定义"></p>
+<h3 id="Connection对象"><a href="#Connection对象" class="headerlink" title="Connection对象"></a>Connection对象</h3><p>应用与数据库之间进行通信需要建立数据库连接。它是最基本的机制，只有通过数据库连接才能把命令传递到服务器，并得到返回的结果。当一个连接（或一个连接池）建立后，可以创建一个游标，向数据库发送请求，然后从数据库中接收回应。从上面我们知道connect函数返回的是一个Connection对象，那么该对象都拥有哪些方法呢，如下：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3485329-b35a5a534ad0bec0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Connection对象方法"></p>
+<h3 id="Cursor-对象"><a href="#Cursor-对象" class="headerlink" title="Cursor 对象"></a>Cursor 对象</h3><p>当建立连接后，就可以和数据库进行通信了。游标可以让用户提交数据库命令，并获得查询的结果行。Python DB-API 游标对象总能提供游标的功能，即使是那些不支持游标的数据库。基本所有的数据库适配器都须要实现cursor 对象，以扮演类似游标的角色。这样，无论你将数据库系统切换到支持游标的数据库还是不支持游标的数据库，都能保持Python 代码的一致性。</p>
+<p>当游标创建好后，就可以执行查询或命令（或多个查询和命令），并从结果集中取回一行或多行结果。游标对象最重要的属性是execute*()和fet*()方法，所有针对数据库的服务请求都是通过它们执行的。arraysize 数据属性在为fetchmany()设置默认大小时非常有用。当然，在不需要时关闭游标是个好主意， 而如果你的数据库支持存储过程，可能会用到callproc()。Cursor对象都有如下方法：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3485329-e797c0c5680853c6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Cursor对象方法"></p>
+<h3 id="类型对象和构造函数"><a href="#类型对象和构造函数" class="headerlink" title="类型对象和构造函数"></a>类型对象和构造函数</h3><p>通常来讲，两个不同系统间接口是最脆弱的，Python对象与数据库对象之间同样存在着这个问题，虽然你传递给数据库的参数是字符串，但数据库可能将其转换成多种不同类型，所以对数据库优化查询的时候也要特别注意数据类型，比如你要查询的一个表字段是VARCHAR类型，而你WHERE条件给出的是一个整形，那么数据库去检索的时候都会先把VARCHAR字段值先转换为整形然后在去匹配，这样就增加了查询时间，所以对于初学者来说写查询语句一定要养成一个好的习惯。下面是一些类型对象和构造函数</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3485329-1668a7e6805bee80.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="类型对象和构造函数"></p>
+<p>限于篇幅的原因本章就到这里结束了，若文章太长我想大部分人都没有耐心去看完，下一章我们将会使用Python自带的数据库适配器sqlite3，和第三方数据库适配器pymysql，将我们爬到的糗百数据写入进去。</p>
+<hr>
+<blockquote>
+<p><strong>欢迎关注我的公众号:「爱做饭的老谢」，老谢一直在努力…</strong><br><img src="/img/hexobuild/weixin.jpg" alt=""></p>
+</blockquote>
+<p>上一篇：<a href="/2017/10/31/python-scrap10">聚沙成塔–爬虫系列（十）（这一刻你觉得找个程序员男朋友真幸福）</a></p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                      
+<section id="comment">  
+  <!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="2017/11/01/python-scrap11/" data-title="聚沙成塔--爬虫系列（十一）（如何正确的使用数据库一）" data-url="http://gavinxyj.com/2017/11/01/python-scrap11/"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"gavinxyj"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+</section>  
+  
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/Gavinxyj" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/Gavinxyj" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="https://gavinxyj.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="mailto:xie_youjiang@163.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
