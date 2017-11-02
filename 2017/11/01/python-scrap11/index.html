@@ -257,7 +257,37 @@
 </tr>
 </tbody>
 </table>
-<h3 id="函数属性"><a href="#函数属性" class="headerlink" title="函数属性"></a>函数属性</h3><p>上面说过根据DP-API规定，所有的数据库适配器都必须实现connect函数，connect函数参数定义如下：<br>| 参数         | 描述           |<br>| ————- | ————- :|<br>| user | 用户名 |<br>| password | 密码 |<br>| host | 主机名 |<br>| database           | 数据库名 |<br>| dsn           | 数据源名 |</p>
+<h3 id="函数属性"><a href="#函数属性" class="headerlink" title="函数属性"></a>函数属性</h3><p>上面说过根据DP-API规定，所有的数据库适配器都必须实现connect函数，connect函数参数定义如下：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>user</td>
+<td>用户名</td>
+</tr>
+<tr>
+<td>password</td>
+<td>密码</td>
+</tr>
+<tr>
+<td>host</td>
+<td>主机名</td>
+</tr>
+<tr>
+<td>database</td>
+<td>数据库名</td>
+</tr>
+<tr>
+<td>dsn</td>
+<td>数据源名</td>
+</tr>
+</tbody>
+</table>
 <p>使用DSN 还是独立参数主要基于所连接的系统。比如，如果你使用的是像ODBC（OpenDatabase Connectivity）或JDBC（Java Database Connectivity）的API，则需要使用DSN；而如果你直接使用数据库，则更倾向于使用独立的登录参数。另一个使用独立参数的原因是很多数据库适配器并没有实现对DSN 的支持。</p>
 <h3 id="异常定义"><a href="#异常定义" class="headerlink" title="异常定义"></a>异常定义</h3><p><img src="http://upload-images.jianshu.io/upload_images/3485329-d0e8f0373642f8b9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="异常定义"></p>
 <h3 id="Connection对象"><a href="#Connection对象" class="headerlink" title="Connection对象"></a>Connection对象</h3><p>应用与数据库之间进行通信需要建立数据库连接。它是最基本的机制，只有通过数据库连接才能把命令传递到服务器，并得到返回的结果。当一个连接（或一个连接池）建立后，可以创建一个游标，向数据库发送请求，然后从数据库中接收回应。从上面我们知道connect函数返回的是一个Connection对象，那么该对象都拥有哪些方法呢，如下：</p>
