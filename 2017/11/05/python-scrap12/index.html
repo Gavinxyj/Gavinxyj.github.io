@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="版权声明:本文为作者原创文章，可以随意转载，但必须在明确位置标明出处！！！
+上一章讲了DB-API接口协议约定，个人觉得很有必要了解DB-API协议，因为之前我还不知道python的数据库适配器是遵循这个协议约定的时候总是到网上去找对应的数据库接口，然而你们懂的，基本上都是说的怎么去连接数据库，怎么">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Gavin">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="聚沙成塔--爬虫系列（十二）（如何正确的使用数据库二）"/>
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Gavin Blog"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+        <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>聚沙成塔--爬虫系列（十二）（如何正确的使用数据库二） - Gavin Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Gavin Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/Gavinxyj">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>聚沙成塔--爬虫系列（十二）（如何正确的使用数据库二）</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        2017-11-05
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/爬虫系列/">#爬虫系列</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <blockquote>
+<h3 id="版权声明-本文为作者原创文章，可以随意转载，但必须在明确位置标明出处！！！"><a href="#版权声明-本文为作者原创文章，可以随意转载，但必须在明确位置标明出处！！！" class="headerlink" title="版权声明:本文为作者原创文章，可以随意转载，但必须在明确位置标明出处！！！"></a>版权声明:本文为作者原创文章，可以随意转载，但必须在明确位置标明出处！！！</h3></blockquote>
+<p>上一章讲了DB-API接口协议约定，个人觉得很有必要了解DB-API协议，因为之前我还不知道python的数据库适配器是遵循这个协议约定的时候总是到网上去找对应的数据库接口，然而你们懂的，基本上都是说的怎么去连接数据库，怎么去操作数据库，并没有讲到这些接口文档的定义，对于那些大牛来说不屑于讲，对于哪些刚入门的初学者又不知道，所以我个人觉得很有必要了解DB-API协议约定的。</p>
+<p>本章将通过sqlite3，和mysql两个数据库俩说明DP-API协议约定带给我的接口一致性是多么的棒。sqlite3自Python2.5就已经被纳入到Python的标准库中了，所以不需要我们额外的安装它就可以直接使用，对于mysql数据库的适配器我们需要安装一个PyMySQL库，这里我们是用的Python3.6版本的MySQLdb不支持Python3.x的版本。</p>
+<h3 id="哪些数据库提供了Python接口"><a href="#哪些数据库提供了Python接口" class="headerlink" title="哪些数据库提供了Python接口"></a>哪些数据库提供了Python接口</h3><p>现在我们准备开始学习数据库操作知识了，有些同学就会问Python都有哪些数据库系统的接口或者说Python支持哪些平台呢，答案是：“几乎所有的数据库，几乎所有的平台”。</p>
+<h3 id="sqlite3模块"><a href="#sqlite3模块" class="headerlink" title="sqlite3模块"></a>sqlite3模块</h3><p>首先我们先从sqlite3模块讲起，因为它现在已经是Python的标准库了，从上一章我们知道根据DB-API协议约定，所有的数据库适配器都必须实现connect函数接口以返回一个Connection对象，所以这里也不例外，首先我们要去操作数据库是第一步就是要先去连接数据库。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> sqlite3</div><div class="line">conn = sqlite3.connect(<span class="string">'qiubai.db'</span>)</div></pre></td></tr></table></figure></p>
+<p>连接一个数据库就是这么简单，执行上面的代码后会在当前文件中生成一个qiubai.db文件，当下次在执行时会去检查当前目录下是否存在qiubai.db文件，若存在就不会再去创建，反之创建。当然如果你想在内存中生成一个db文件像下面这么做就可以<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> sqlite3</div><div class="line">conn = sqlite3.connect(<span class="string">':memory:'</span>)</div></pre></td></tr></table></figure></p>
+<p>数据库连接获取到了，第二步就是拿到游标了，上一章也提过游标是操作数据库的基础，游标的获取如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> sqlite3</div><div class="line">conn = sqlite3.connect(<span class="string">'qiubai.db'</span>)</div><div class="line">_cursor = conn.cursor()</div></pre></td></tr></table></figure></p>
+<p>游标获得了就是操作数据库了，执行数据库操作使用execute*，获取查询结果fetch*这些都是DB-API协议约定的，所以以后遇到Python的其它数据库适配器直接这么用就是了；剩下的就是数据库的增、删、改、查了</p>
+<h3 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a>创建表</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> sqlite3</div><div class="line">conn = sqlite3.connect(<span class="string">'sqlite.db'</span>)</div><div class="line">create_table = <span class="string">'''CREATE TABLE IF NOT EXISTS QIUBAI</span></div><div class="line">                              (USERID   TEXT NOT NULL,</div><div class="line">                               USERNAME TEXT NOT NULL,</div><div class="line">                               FUNNY_NUM INT NOT NULL,</div><div class="line">                               CONTENT TEXT,</div><div class="line">                               URL TEXT);</div><div class="line">                            '''</div><div class="line">_cursor = self.conn.cursor()</div><div class="line">_cursor.execute(create_table)</div><div class="line">conn.commit()</div></pre></td></tr></table></figure>
+<h3 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a>插入数据</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> sqlite3</div><div class="line">sql = <span class="string">'INSERT INTO QIUBAI(USERID, USERNAME, FUNNY_NUM, CONTENT, URL) VALUES(‘userid’, '</span>username<span class="string">', 100, '</span>content<span class="string">', '</span>url<span class="string">')'</span> </div><div class="line">conn = sqlite3.connect(<span class="string">'sqlite.db'</span>)</div><div class="line">_cursor = self.conn.cursor()</div><div class="line">_cursor.executemany(sql, infos)</div><div class="line">self.conn.commit()</div><div class="line">self._cursor.close()</div></pre></td></tr></table></figure>
+<h3 id="删除数据"><a href="#删除数据" class="headerlink" title="删除数据"></a>删除数据</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">import sqlite3</div><div class="line">sql ='''DELETE QIUBAI WHERE userid = 'userid'''' </div><div class="line">conn = sqlite3.connect('sqlite.db')</div><div class="line">_cursor = self.conn.cursor()</div><div class="line">_cursor.execute(sql)</div><div class="line">self.conn.commit()</div><div class="line">self._cursor.close()</div></pre></td></tr></table></figure>
+<h3 id="查询数据"><a href="#查询数据" class="headerlink" title="查询数据"></a>查询数据</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> sqlite3</div><div class="line">sql =<span class="string">'''SELECT * FROM  QIUBAI WHERE '''</span> </div><div class="line">conn = sqlite3.connect(<span class="string">'sqlite.db'</span>)</div><div class="line">_cursor = self.conn.cursor()</div><div class="line">_cursor.execute(sql)</div><div class="line">print(_cursor.fetchall())</div><div class="line">self.conn.commit()</div><div class="line">self._cursor.close()</div></pre></td></tr></table></figure>
+<h3 id="修改数据"><a href="#修改数据" class="headerlink" title="修改数据"></a>修改数据</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> sqlite3</div><div class="line">sql =<span class="string">'''UPDATE QIUBAI set userid = '123456' where userid='1' '''</span> </div><div class="line">conn = sqlite3.connect(<span class="string">'sqlite.db'</span>)</div><div class="line">_cursor = self.conn.cursor()</div><div class="line">_cursor.execute(sql)</div><div class="line">print(_cursor.fetchall())</div><div class="line">self.conn.commit()</div><div class="line">self._cursor.close()</div></pre></td></tr></table></figure>
+<p>简单的增删查改就上面这里，当然像其它关联查询、左连接、右连接、join等操作本章不做介绍，感兴趣的同学可以去了解一下。<strong>这里需要值得注意的是游标用完以后一定要记得关闭</strong>，也就是释放掉游标资源，不要问我为什么，这些都是写血泪教训，如果长期不本关闭游标数据库会抛出maximum open cursors exceeded。异常。</p>
+<h3 id="PyMySQL模块"><a href="#PyMySQL模块" class="headerlink" title="PyMySQL模块"></a>PyMySQL模块</h3><p>该模块是第三方模块，所以我们必须要先安装它，安装它很简单直接在ubuntu终端执行下面的命令回车就可以了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo pip install PyMySQL</div></pre></td></tr></table></figure></p>
+<p>若安装没有问题可以执行下面的命令查看PySQLdb都提供了哪些方法属性<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> pymysql</div><div class="line">dir(pymysql)</div></pre></td></tr></table></figure></p>
+<p>执行后的结果如下：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3485329-427b1d761292a12d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="执行结果"><br>从结果中我们可以看到PyMySQL模块是遵循了DB-API协议约定的，apilevel，threadsafety等属性都有。既然模块是遵循DP-API协议的那么第一步任然是链接数据，第二步是获取游标，第三步才是操作数据库，所以这里不在把pymysql模块的增、删、改、查再说一遍了，跟上面的sqlite使用是一样的，这里是给出创建表的语句，因为sqlite数据库的数据类型定义与mysql数据库的数据定义是不一样的。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">create_table = <span class="string">'''CREATE TABLE IF NOT EXISTS QIUBAI</span></div><div class="line">                              (ID   INT(11) NOT NULL AUTO_INCREMENT,</div><div class="line">                               USERID   VARCHAR(20) NOT NULL,</div><div class="line">                               USERNAME VARCHAR(20) NOT NULL,</div><div class="line">                               FUNNY_NUM INT NOT NULL,</div><div class="line">                               CONTENT VARCHAR(1024),</div><div class="line">                               URL VARCHAR(256),</div><div class="line">                               PRIMARY KEY (ID))ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin</div><div class="line">                               AUTO_INCREMENT=1;</div><div class="line">                            '''</div></pre></td></tr></table></figure></p>
+<h3 id="客户端概念"><a href="#客户端概念" class="headerlink" title="客户端概念"></a>客户端概念</h3><p>这里需要着重提一点的是客户端的概念，PyMySQL模块只是客户端模块，这个模块提供的是和mysql数据库服务之间的交互。并不是mysql数据库，这点概念大家一定要切记、切记。所以如果操作数据库那么还得安装一个mysql数据库服务。MySQL可以到官网下载<a href="https://dev.mysql.com/doc/" target="_blank" rel="external">https://dev.mysql.com/doc/</a>， sqlite数据库则不需要，sqlite设计之处就要让它成为程序的一部分，它是一个轻量级的数据库系统，像安卓系统上基本都使用自带的sqlite数据库，让它成为应用的一部分。</p>
+<h3 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h3><p>讲了这么多该是自己动手时间的时候了，实战的内容是把我们从糗百爬到的数据分别写入到sqlite数据库和mysql数据库里，我们的程序又新增了两个文件分别是SqliteImpl.py、MySQLImpl.py；从文件名上我们就可以看出两个文件分别是处理sqlite、mysql数据库的。所以大家在对文件命名的时候一定要想一个有意义的名字，一定要养成一个好习惯，我个人有些强迫症，有时候想一个变量名都要想很久。下面给出两个文件的代码实现，看不清的可以到我的git上去fork <a href="https://github.com/Gavinxyj/Python/tree/master/python_study/Scrapy/modules" target="_blank" rel="external">https://github.com/Gavinxyj/Python/tree/master/python_study/Scrapy/modules</a>欢迎大家fork、star<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># SqliteImpl.py</span></div><div class="line"><span class="keyword">import</span> sqlite3</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">SqliteImpl</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="string">"""docstring for SqliteImpl"""</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">        super(SqliteImpl, self).__init__()</div><div class="line">        <span class="keyword">try</span>:</div><div class="line">            self.conn = sqlite3.connect(<span class="string">'sqlite.db'</span>)</div><div class="line">            create_table = <span class="string">'''CREATE TABLE IF NOT EXISTS QIUBAI</span></div><div class="line">                              (USERID   TEXT NOT NULL,</div><div class="line">                               USERNAME TEXT NOT NULL,</div><div class="line">                               FUNNY_NUM INT NOT NULL,</div><div class="line">                               CONTENT TEXT,</div><div class="line">                               URL TEXT);</div><div class="line">                            '''</div><div class="line">            self._cursor = self.conn.cursor()</div><div class="line">            self._cursor.execute(create_table)</div><div class="line">            self.conn.commit()</div><div class="line">        <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</div><div class="line">            <span class="keyword">raise</span> e</div><div class="line">        </div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">insert_record</span><span class="params">(self, infos)</span>:</span></div><div class="line">        <span class="keyword">try</span>:</div><div class="line">            sql = <span class="string">'INSERT INTO QIUBAI(USERID, USERNAME, FUNNY_NUM, CONTENT, URL) VALUES(?, ?, ?, ?, ?)'</span></div><div class="line">           </div><div class="line">            <span class="comment">#for info in infos:</span></div><div class="line">            self._cursor.executemany(sql, infos)</div><div class="line">            self.conn.commit()</div><div class="line">            self._cursor.close()</div><div class="line">        <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</div><div class="line">            self.conn.rollback()</div><div class="line">            <span class="keyword">raise</span> e</div><div class="line">        </div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">delete_record</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">pass</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">dump</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">try</span>:</div><div class="line">            sql = <span class="string">'SELECT * FROM QIUBAI'</span></div><div class="line">            </div><div class="line">            self._cursor.execute(sql)</div><div class="line">            self._cursor.close()</div><div class="line">            ret = _cursor.fetchall()</div><div class="line">            print(len(ret))</div><div class="line">        <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</div><div class="line">            <span class="keyword">raise</span> e</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">update_record</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">pass</span></div></pre></td></tr></table></figure></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># MySQLImpl.py</span></div><div class="line"><span class="keyword">import</span> pymysql</div><div class="line"></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MySQLImpl</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="string">"""docstring for MySQLImpl"""</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">        super(MySQLImpl, self).__init__()</div><div class="line">        self.conn = pymysql.connect(host=<span class="string">'localhost'</span>, port=<span class="number">3306</span>, user=<span class="string">'root'</span>, passwd=<span class="string">'root'</span>, db=<span class="string">'test'</span>, charset=<span class="string">'utf8'</span>)</div><div class="line">        </div><div class="line">        <span class="keyword">try</span>:</div><div class="line">            create_table = <span class="string">'''CREATE TABLE IF NOT EXISTS QIUBAI</span></div><div class="line">                              (ID   INT(11) NOT NULL AUTO_INCREMENT,</div><div class="line">                               USERID   VARCHAR(20) NOT NULL,</div><div class="line">                               USERNAME VARCHAR(20) NOT NULL,</div><div class="line">                               FUNNY_NUM INT NOT NULL,</div><div class="line">                               CONTENT VARCHAR(1024),</div><div class="line">                               URL VARCHAR(256),</div><div class="line">                               PRIMARY KEY (ID))ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin</div><div class="line">                               AUTO_INCREMENT=1;</div><div class="line">                            '''</div><div class="line">                            </div><div class="line">            self._cursor = self.conn.cursor()</div><div class="line">            self._cursor.execute(create_table)</div><div class="line">            self.conn.commit()</div><div class="line"></div><div class="line"></div><div class="line">        <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</div><div class="line">            <span class="keyword">raise</span> e</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">insert_record</span><span class="params">(self, infos)</span>:</span></div><div class="line">        <span class="keyword">try</span>:</div><div class="line">            sql = <span class="string">'INSERT INTO QIUBAI(USERID, USERNAME, FUNNY_NUM, CONTENT, URL) VALUES(%s, %s, %s, %s, %s)'</span></div><div class="line">            self._cursor = self.conn.cursor()</div><div class="line">            <span class="comment"># for info in infos:</span></div><div class="line">            self._cursor.executemany(sql, infos)</div><div class="line">            self.conn.commit()</div><div class="line">            self._cursor.close()</div><div class="line">        <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</div><div class="line">            <span class="comment"># self.conn.rollback()</span></div><div class="line">            <span class="keyword">raise</span> e</div><div class="line">        </div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">delete_record</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">pass</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">dump</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">try</span>:</div><div class="line">            self._cursor = self.conn.cursor()</div><div class="line">            sql = <span class="string">'SELECT * FROM QIUBAI'</span></div><div class="line">            self._cursor.execute(sql)</div><div class="line">            self._cursor.close()</div><div class="line">            ret = self._cursor.fetchall()</div><div class="line">            print(len(ret))</div><div class="line">        <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</div><div class="line">            <span class="keyword">raise</span> e</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">update_record</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">pass</span></div></pre></td></tr></table></figure>
+<p>从代码中可以看到增、删、改、查的使用都是一样的，程序执行后的结果如下（sqlite的可视化工具可以使用sqlitestudio，mysql可视化工具可以使用SQLyog，可以自行到网上去下，当然你也可以私信我）</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3485329-fb424d00296f2e10.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="mysql结果.png"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3485329-45b285bb39e8e42a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="sqlite结果.png"></p>
+<p>okay，到这里本章就结束了，还是老生长谈，一定要动手啊。下一章将会讲到对象关系映射(Object Relational Mapping，简称ORM)编程。</p>
+<hr>
+<blockquote>
+<p><strong>欢迎关注我的公众号:「爱做饭的老谢」，老谢一直在努力…</strong><br><img src="/img/hexobuild/weixin.jpg" alt=""></p>
+</blockquote>
+<p>上一篇：<a href="/2017/11/01/python-scrap11">聚沙成塔–爬虫系列（十一）（如何正确的使用数据库一）</a></p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                      
+<section id="comment">  
+  <!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="2017/11/05/python-scrap12/" data-title="聚沙成塔--爬虫系列（十二）（如何正确的使用数据库二）" data-url="http://gavinxyj.com/2017/11/05/python-scrap12/"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"gavinxyj"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+</section>  
+  
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/Gavinxyj" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/Gavinxyj" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="https://gavinxyj.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="mailto:xie_youjiang@163.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
