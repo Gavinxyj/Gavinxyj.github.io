@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="版权声明:本文为作者原创文章，可以随意转载，但必须在明确位置标明出处！！！
+tips：本基础系列旨在以爬虫带大家入门Python语言 
+本章并不是要教你如何去打群架，本篇文章将主要介绍如何使用多线程来帮我们的提高程序的执行效率，「群架」只是为了更加生动的去描述多线程的现象，相信大部分读者都看过《叶问">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Gavin">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="聚沙成塔--爬虫系列（十四）（多现在在Python中的使用）"/>
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Gavin Blog"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+        <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>聚沙成塔--爬虫系列（十四）（多现在在Python中的使用） - Gavin Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Gavin Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/Gavinxyj">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>聚沙成塔--爬虫系列（十四）（多现在在Python中的使用）</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        2017-11-11
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/爬虫系列/">#爬虫系列</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <blockquote>
+<h3 id="版权声明-本文为作者原创文章，可以随意转载，但必须在明确位置标明出处！！！"><a href="#版权声明-本文为作者原创文章，可以随意转载，但必须在明确位置标明出处！！！" class="headerlink" title="版权声明:本文为作者原创文章，可以随意转载，但必须在明确位置标明出处！！！"></a>版权声明:本文为作者原创文章，可以随意转载，但必须在明确位置标明出处！！！</h3></blockquote>
+<p><strong>tips</strong>：本基础系列旨在以爬虫带大家入门Python语言 </p>
+<p>本章并不是要教你如何去打群架，本篇文章将主要介绍如何使用多线程来帮我们的提高程序的执行效率，「群架」只是为了更加生动的去描述多线程的现象，相信大部分读者都看过《叶问》，叶问为了在日本军那里拿到粮食它决定一次要打10个，这种模式就是单线程模式，他必须把10个人一个个打败了才能赢得粮食，这种模式也是我们前面章节用到的模式，虽然最终能够赢得胜利，但用时就比较长了。假设叶问有多只手，每次最多只能用两只手，那么他在和人对战的时候就可以出其不意的将对手干翻掉，这肯定不两只手解决敌人的速度要块。这就是多线程模式，由于Python解释器GIL（Global Interpreter Lock）的存在，同一时刻只能有一个线程在执行，所以对于现在的多核CPU而言，Python中的多线程并没提高程序的处理能力，反而有可能降低程序的处理能力，如果你开启的线程足够多的话，线程的上下文切换将会造成程序的执行效率变低。</p>
+<p>那么有的读者就会问既然Python的多线程设计并不能有效的提高程序的处理能力，那为什么还要有这个模块呢，说到这里就需要给读者普及一下概念了，I/O密集型、CPU密集型</p>
+<h3 id="I-O密集型"><a href="#I-O密集型" class="headerlink" title="I/O密集型"></a>I/O密集型</h3><p>什么是I/O密集型呢，I/O的是输入/输出(input/output)的意思，就是我们程序大部分的时间都是用来等待I/O操作，想网络的请求、文件的读写、数据库的读写都属于I/O操作，前面的章节说过I/O操作是很费时的。所以Python中的多线程适用于I/O密集型的任务，因为它不需要用到CPU的计算能力。</p>
+<h3 id="CPU密集型"><a href="#CPU密集型" class="headerlink" title="CPU密集型"></a>CPU密集型</h3><p>CPU密集型的意思就是计算密集型，如果你的程序中有大量复杂的计算逻辑那么就选择CPU密集型，因为复杂计算是十分耗CPU资源的，想圆周率的计算，高清视频数据的处理等等。那么Python中怎么设计CPU密集型呢，当然是多进程的使用，什么意思呢，就拿上面叶问的例子，若是叶问有10个分身，二期10个分身都是独立有思想的，那么打10个还不是分分钟的事吗。</p>
+<h3 id="threading模块"><a href="#threading模块" class="headerlink" title="threading模块"></a>threading模块</h3><p>多线程有两个模块一个是thread模块、一个就是threading模块，这里推荐大家使用threading模块，不推荐使用thread模块有两个原因，一个是它对于进程何时退出没有控制，当主线程结束时子线程也会被强制性的结束也不会发出警告或者进行适当的清理和释放工作。另一个原因是该模块不支持守护线程这个概念。这里普及一个概念，线程是不能单独执行的，它必须依赖进程才能存活。进程至少包含一个线程也就是上面说道的主线程，只要进程启动，那么主线程也就启动了。</p>
+<h3 id="threading模块对象"><a href="#threading模块对象" class="headerlink" title="threading模块对象"></a>threading模块对象</h3><p>threading模块提供了如下对象：<br><img src="http://upload-images.jianshu.io/upload_images/3485329-d655e2af47e37429.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="hreading模块对象"><br>这些对象都包含在threading模块里。没个类对象都提供了哪些方法接口都可以在开放这文档查看到。<br><img src="http://upload-images.jianshu.io/upload_images/3485329-aa3c3603d8296d21.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h3 id="创建线程"><a href="#创建线程" class="headerlink" title="创建线程"></a>创建线程</h3><p>使用Thread类来创建线程，创建线程有有几种方式，你可以选择你最舒服最中意的方式去使用。</p>
+<ul>
+<li><p>创建Thread的实例，传给它一个参数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> threading</div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">fun</span><span class="params">()</span>:</span></div><div class="line">    count = <span class="number">0</span></div><div class="line">    <span class="keyword">for</span> index <span class="keyword">in</span> range(<span class="number">10000000</span>):</div><div class="line">        count = count + <span class="number">1</span></div><div class="line">th = threading.Thread(target=fun, args=())</div><div class="line">    th.start()</div><div class="line">    th.join()</div></pre></td></tr></table></figure>
+</li>
+<li><p>创建Thread 的实例，传给它一个可调用的类实例</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> threading</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ThreadFunc</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, func, args)</span>:</span>    </div><div class="line">        self.func = func</div><div class="line">        self.args = args</div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__call__</span><span class="params">(self)</span>:</span></div><div class="line">        self.res = self.func(*self.args)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">fun</span><span class="params">()</span>:</span></div><div class="line">    count = <span class="number">0</span></div><div class="line">    <span class="keyword">for</span> index <span class="keyword">in</span> range(<span class="number">10000000</span>):</div><div class="line">        count = count + <span class="number">1</span></div><div class="line">th = threading.Thread(target = ThreadFunc(fun, ())</div><div class="line">th.start()</div><div class="line">th.join()</div></pre></td></tr></table></figure>
+</li>
+<li><p>派生Thread 的子类，并创建子类的实例</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> threading</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">myThread</span><span class="params">(threading.Thread)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, func, args)</span>:</span></div><div class="line">        super(myThread, self).__init__(self)</div><div class="line">        self.args     = args</div><div class="line">        self.func     = func</div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">(self)</span>:</span>        </div><div class="line">        self.res = self.func(*self.args)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">fun</span><span class="params">()</span>:</span></div><div class="line">    count = <span class="number">0</span></div><div class="line">    <span class="keyword">for</span> index <span class="keyword">in</span> range(<span class="number">10000000</span>):</div><div class="line">        count = count + <span class="number">1</span></div><div class="line">th= myThread(fun, ())</div><div class="line">th.start()</div><div class="line">th.join()</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>推荐使用第三种方式，第三种方式对于灵活行和未来的扩展性更好。</p>
+<h3 id="同步"><a href="#同步" class="headerlink" title="同步"></a>同步</h3><p>涉及到多线程编程必定要涉及到一个主题就是数据同步，这里普及一下多线程为什么能提高程序的处理能力，这个跟CPU的工作原理有关，只有拿到CPU分给线程执行的时间片，我们的代码才能够被CPU执行，所以如果我们有多个线程去执行同一个任务那么每个线程有是有机会得到CPU时间片，那对于处理同一个人才得到的时间片总和就比单个线程大太多了，所以多线程能够提高程序的处理能力。但是多线程的处理会遇到数据同步的问题，为什么会出现这种问题呢，我们知道了线程只有得到CPU时间片才能执行，那么当A线程正在执行还没有执行完，这个时候CPU时间片到了，那么A线程就会暂停在此刻并进入「休眠」状态，B线程拿到时间片也执行同样的动作，这个时候B就有可能把A、B线程共同拥有的数据给破坏掉，举个例子，张三、李四都喜欢吃热狗，他们一起走进店里买热狗，张三刚刚想把热狗拿起来，这个时候由于CPU时间到了，张三就进入休眠状态了，李四刚好拿到CPU时间片他就把热狗拿走了，等到下一次张三拿到CPU时间片从休眠状态中唤醒，他认为自已已经拿到热狗了，但真实的情况是这根热狗已经被李四拿走了所以这就造成了数据的不同步了。讲了这么多我们来看一个卖票的例子，代码如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> threading</div><div class="line">tickets = <span class="number">10000000</span></div><div class="line">listdata = []</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">sale_ticket</span><span class="params">()</span>:</span></div><div class="line">    <span class="keyword">global</span> tickets</div><div class="line">    <span class="keyword">while</span> tickets:</div><div class="line">        tickets = tickets - <span class="number">1</span></div><div class="line">        <span class="comment"># print(tickets)</span></div><div class="line">        listdata.append(tickets)</div><div class="line"></div><div class="line">threads = []</div><div class="line"></div><div class="line"><span class="keyword">for</span> index <span class="keyword">in</span> range(<span class="number">10</span>):</div><div class="line">    thread = threading.Thread(target=sale_ticket, args=())</div><div class="line">    thread.start()</div><div class="line">    threads.append(thread)</div><div class="line">    </div><div class="line"></div><div class="line"><span class="keyword">for</span> t <span class="keyword">in</span> threads:</div><div class="line">    t.join()</div><div class="line"></div><div class="line">print(len(listdata))</div><div class="line">print(<span class="string">'thread exit'</span>)</div><div class="line"></div><div class="line"><span class="comment">#执行结果：33934146</span></div></pre></td></tr></table></figure></p>
+<p>从结果中我们可以看出这个结构肯定是不对的，因为我们只有10000000这么多张票，而结果是我们总票数的3倍还多，这就是因为有很多人都拿到了相同的票。那么如何解决数据同步呢，解决数据同步的很多总方法，章节前面threading模块对象已经列出来了，Lock、RLock等，下面我们主要讲一下Lock的用法，</p>
+<h3 id="Lock类"><a href="#Lock类" class="headerlink" title="Lock类"></a>Lock类</h3><p>Lock类提供了两个方法</p>
+<ul>
+<li>acquire(blocking=True, timeout=-1)<br>获取一个锁 blocking参数默认为True，即阻塞模式，什么意思呢，就是电话亭一样，如果电话亭里有人在打电话那么下一个人只有等电话亭里的人打完电话你才能打，如果设置为False，既不阻塞，如果电话亭里有人打电话那我就干其它事去了，等会儿再来看看，若是电话亭里这个时候没有人我就把电话亭外挂个请勿打扰的牌子，timeout超时时间，只有blocking为True有用。</li>
+<li>released()<br>该函数没有参数，释放一个锁</li>
+</ul>
+<h3 id="加锁改写后的代码"><a href="#加锁改写后的代码" class="headerlink" title="加锁改写后的代码"></a>加锁改写后的代码</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> threading</div><div class="line">tickets = <span class="number">10000000</span></div><div class="line">listdata = []</div><div class="line">mutex = threading.Lock()</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">sale_ticket</span><span class="params">()</span>:</span></div><div class="line">    <span class="keyword">global</span> tickets</div><div class="line">    <span class="keyword">while</span> tickets:</div><div class="line">        <span class="keyword">if</span> mutex.acquire():</div><div class="line">            tickets = tickets - <span class="number">1</span></div><div class="line">            <span class="comment"># print(tickets)</span></div><div class="line">            listdata.append(tickets)</div><div class="line">        mutex.release()</div><div class="line"></div><div class="line">threads = []</div><div class="line"></div><div class="line"><span class="keyword">for</span> index <span class="keyword">in</span> range(<span class="number">10</span>):</div><div class="line">    thread = threading.Thread(target=sale_ticket, args=())</div><div class="line">    thread.start()</div><div class="line">    threads.append(thread)</div><div class="line">    </div><div class="line"></div><div class="line"><span class="keyword">for</span> t <span class="keyword">in</span> threads:</div><div class="line">    t.join()</div><div class="line"></div><div class="line">print(len(listdata))</div><div class="line">print(<span class="string">'thread exit'</span>)</div><div class="line"></div><div class="line"><span class="comment"># 执行结果：10000000</span></div></pre></td></tr></table></figure>
+<p>从结果可以看出我们保证了数据的同步，也就是保证了每个人都买到的票都是唯一的。</p>
+<p>okay，本章就讲到这里就结束了， 因为我们的爬虫程序正好是一个I/O密集型程序，所以使用多线程设计正好合适，如何设计多线程我将放到后面的章节将，读者有兴趣的可以去我的git查看源码，地址<a href="https://github.com/Gavinxyj/Python/tree/master/python_study/Scrapy/modules" target="_blank" rel="external">https://github.com/Gavinxyj/Python/tree/master/python_study/Scrapy/modules</a>欢迎大家fork、star。</p>
+<p>PS：成为牛人你只需要保持每天进步一点点</p>
+<hr>
+<blockquote>
+<p><strong>欢迎关注我的公众号:「爱做饭的老谢」，老谢一直在努力…</strong><br><img src="/img/hexobuild/weixin.jpg" alt=""></p>
+</blockquote>
+<p>上一篇：<a href="/2017/11/05/python-scrap12">聚沙成塔–爬虫系列（十二）（如何正确的使用数据库二）</a></p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                      
+<section id="comment">  
+  <!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="2017/11/11/python-scrap13/" data-title="聚沙成塔--爬虫系列（十四）（多现在在Python中的使用）" data-url="http://gavinxyj.com/2017/11/11/python-scrap13/"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"gavinxyj"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+</section>  
+  
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/Gavinxyj" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/Gavinxyj" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="https://gavinxyj.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="mailto:xie_youjiang@163.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
